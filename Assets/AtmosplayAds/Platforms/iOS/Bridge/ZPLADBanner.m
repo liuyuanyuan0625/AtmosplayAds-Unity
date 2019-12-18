@@ -115,9 +115,9 @@ static BOOL IsOperatingSystemAtLeastVersion(NSInteger majorVersion) {
   view.center = center;
 }
 
-#pragma mark: AtmosplayAdsBannerDelegate
+#pragma mark - AtmosplayBannerDelegate
 /// Tells the delegate that an ad has been successfully loaded.
-- (void)atmosplayAdsBannerViewDidLoad:(AtmosplayAdsBanner *)bannerView {
+- (void)AtmosplayBannerViewDidLoad:(AtmosplayBanner *)bannerView {
     if (self.bannerView) {
         [self.bannerView removeFromSuperview];
     }
@@ -135,7 +135,7 @@ static BOOL IsOperatingSystemAtLeastVersion(NSInteger majorVersion) {
 }
 
 /// Tells the delegate that a request failed.
-- (void)atmosplayAdsBannerView:(AtmosplayAdsBanner *)bannerView didFailWithError:(NSError *)error {
+- (void)AtmosplayBannerView:(AtmosplayBanner *)bannerView didFailWithError:(NSError *)error {
     if (self.adFailedCallback) {
       NSString *errorMsg = [NSString
           stringWithFormat:@"Failed to load ad with error: %@", [error localizedDescription]];
@@ -144,7 +144,7 @@ static BOOL IsOperatingSystemAtLeastVersion(NSInteger majorVersion) {
 }
 
 /// Tells the delegate that the banner view has been clicked.
-- (void)atmosplayAdsBannerViewDidClick:(AtmosplayAdsBanner *)bannerView {
+- (void)AtmosplayBannerViewDidClick:(AtmosplayBanner *)bannerView {
     if (self.adClickedCallback) {
         self.adClickedCallback(self.bannerClient);
     }
