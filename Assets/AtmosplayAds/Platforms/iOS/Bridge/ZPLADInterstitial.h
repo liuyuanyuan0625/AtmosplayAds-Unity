@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <AtmosplayAds/AtmosplayInterstitial.h>
-#import "ZPLADTypes.h"
+#import "AtmosplayTypes.h"
 
 /// A wrapper around AtmosplayInterstitial. Includes the ability to create AtmosplayInterstitial objects,
 /// load them with ads, show them, and listen for ad events.

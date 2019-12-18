@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <AtmosplayAds/AtmosplayRewardedVideo.h>
-#import "ZPLADTypes.h"
+#import "AtmosplayTypes.h"
 
 @interface ZPLADRewardVideo : NSObject
 /// Initializes a AtmosplayRewardedVideo

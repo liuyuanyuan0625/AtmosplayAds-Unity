@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ZPLADTypes.h"
+#import "AtmosplayTypes.h"
 #import <AtmosplayAds/AtmosplayBanner.h>
 
 
