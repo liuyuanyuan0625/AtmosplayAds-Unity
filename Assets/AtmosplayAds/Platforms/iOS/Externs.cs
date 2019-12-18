@@ -32,7 +32,7 @@ namespace AtmosplayAds.iOS
         internal static extern IntPtr AtmosplayAdsCreateInterstitial(IntPtr interstitialClient, string adAppId, string adUnitId);
 
         [DllImport("__Internal")]
-        internal static extern void ZPLADSetInterstitialAdCallbacks(
+        internal static extern void AtmosplayAdsSetInterstitialAdCallbacks(
             IntPtr interstitial,
             InterstitialClient.AtmosplayInterstitialDidReceivedAdCallback adReceivedCallback,
             InterstitialClient.AtmosplayInterstitialDidFailToReceiveAdWithErrorCallback adFailedCallback,
