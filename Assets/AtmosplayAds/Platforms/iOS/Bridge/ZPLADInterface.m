@@ -1,4 +1,4 @@
-#import "ZPLADInterstitial.h"
+#import "AtmosplayInterstitialBridge.h"
 #import "ZPLADRewardVideo.h"
 #import "AtmosplayTypes.h"
 #import "ZPLADObjectCache.h"
@@ -6,11 +6,11 @@
 
 static NSString *ZPLADStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
 
-/// Creates a ZPLADInterstitial and returns its reference
+/// Creates a AtmosplayInterstitialBridge and returns its reference
 AtmosplayTypeInterstitialRef ZPLADCreateInterstitial(AtmosplayTypeInterstitialClientRef *interstitialClient,
                                                        const char *adAppID,
                                                        const char *adUnitID) {
-    ZPLADInterstitial *interstitial = [[ZPLADInterstitial alloc]
+    AtmosplayInterstitialBridge *interstitial = [[AtmosplayInterstitialBridge alloc]
                       initWithInterstitialClientReference:interstitialClient
                                        adAppId: ZPLADStringFromUTF8String(adAppID)
                                        adUnitId: ZPLADStringFromUTF8String(adUnitID)];
@@ -28,7 +28,7 @@ void ZPLADSetInterstitialAdCallbacks(
         AtmosplayInterstitiaDidClickCallback adClickedCallback,
         AtmosplayInterstitialDidCloseCallback videoDidCloseCallback,
         AtmosplayInterstitialDidCompleteCallback adDidCompleteCallback) {
-    ZPLADInterstitial *internalInterstitialAd = (__bridge ZPLADInterstitial *)interstitialAd;
+    AtmosplayInterstitialBridge *internalInterstitialAd = (__bridge AtmosplayInterstitialBridge *)interstitialAd;
     internalInterstitialAd.adReceivedCallback = adReceivedCallback;
     internalInterstitialAd.adFailedCallback = adFailedCallback;
     internalInterstitialAd.videoDidStartCallback = videoDidStartCallback;
@@ -39,31 +39,31 @@ void ZPLADSetInterstitialAdCallbacks(
 
 /// Makes an interstitial ad request.
 void ZPLADRequestInterstitial(AtmosplayTypeInterstitialRef interstitial) {    
-    ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
+    AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial loadAd];
 }
 
-/// Returns YES if the ZPLADInterstitial is ready to be shown.
+/// Returns YES if the AtmosplayInterstitialBridge is ready to be shown.
 BOOL ZPLADInterstitialReady(AtmosplayTypeInterstitialRef interstitial) {
-    ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
+    AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     return [internalInterstitial isReady];
 }
 
-/// Shows the ZPLADInterstitial.
+/// Shows the AtmosplayInterstitialBridge.
 void ZPLADShowInterstitial(AtmosplayTypeInterstitialRef interstitial) {
-    ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
+    AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial show];
 }
 
-/// Sets ZPLADInterstitial autoload next ad.
+/// Sets AtmosplayInterstitialBridge autoload next ad.
 void ZPLADSetInterstitialAutoload(AtmosplayTypeInterstitialRef interstitial, BOOL autoload) {
-    ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
+    AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial setAutoload:autoload];
 }
 
-/// Sets ZPLADInterstitial channel id.
+/// Sets AtmosplayInterstitialBridge channel id.
 void ZPLADSetInterstitialChannelId(AtmosplayTypeInterstitialRef interstitial, const char *channelId) {
-    ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
+    AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial setChannelId:ZPLADStringFromUTF8String(channelId)];
 }
 
