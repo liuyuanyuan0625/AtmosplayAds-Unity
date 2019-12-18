@@ -96,8 +96,8 @@ void AtmosplayAdsSetRewardedVideoAdCallbacks(
     internalRewardVideoAd.videoDidCompleteCallback = adDidCompleteCallback;
 }
 
-/// Makes an reward video ad request.
-void ZPLADRequestRewardVideo(AtmosplayTypeRewardedVideoRef rewardVideo) {
+/// Makes an rewarded video ad request.
+void AtmosplayAdsRequestRewardedVideo(AtmosplayTypeRewardedVideoRef rewardVideo) {
     AtmosplayRewardedVideoBridge *internalRewardVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardVideo;
     [internalRewardVideo loadAd];
 }
