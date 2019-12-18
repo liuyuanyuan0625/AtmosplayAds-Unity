@@ -7,8 +7,8 @@
 static NSString *AtmosplayAdsStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
 
 #pragma mark - Interstitial method
-/// Creates a AtmosplayInterstitialBridge and returns its reference
-AtmosplayTypeInterstitialRef ZPLADCreateInterstitial(AtmosplayTypeInterstitialClientRef *interstitialClient,
+/// Creates a AtmosplayInterstitialBridge and return its reference
+AtmosplayTypeInterstitialRef AtmosplayAdsCreateInterstitial(AtmosplayTypeInterstitialClientRef *interstitialClient,
                                                        const char *adAppID,
                                                        const char *adUnitID) {
     AtmosplayInterstitialBridge *interstitial = [[AtmosplayInterstitialBridge alloc]
