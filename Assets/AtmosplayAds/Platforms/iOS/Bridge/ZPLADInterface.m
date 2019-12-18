@@ -4,7 +4,7 @@
 #import "AtmosplayObjectCache.h"
 #import "AtmosplayBannerBridge.h"
 
-static NSString *ZPLADStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
+static NSString *AtmosplayAdsStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
 
 #pragma mark - Interstitial method
 /// Creates a AtmosplayInterstitialBridge and returns its reference
@@ -13,8 +13,8 @@ AtmosplayTypeInterstitialRef ZPLADCreateInterstitial(AtmosplayTypeInterstitialCl
                                                        const char *adUnitID) {
     AtmosplayInterstitialBridge *interstitial = [[AtmosplayInterstitialBridge alloc]
                       initWithInterstitialClientReference:interstitialClient
-                                       adAppId: ZPLADStringFromUTF8String(adAppID)
-                                       adUnitId: ZPLADStringFromUTF8String(adUnitID)];
+                                       adAppId: AtmosplayAdsStringFromUTF8String(adAppID)
+                                       adUnitId: AtmosplayAdsStringFromUTF8String(adUnitID)];
     AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
     [cache.references setObject:interstitial forKey:[interstitial atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeInterstitialRef)interstitial;
@@ -65,7 +65,7 @@ void ZPLADSetInterstitialAutoload(AtmosplayTypeInterstitialRef interstitial, BOO
 /// Sets AtmosplayInterstitialBridge channel id.
 void ZPLADSetInterstitialChannelId(AtmosplayTypeInterstitialRef interstitial, const char *channelId) {
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
-    [internalInterstitial setChannelId:ZPLADStringFromUTF8String(channelId)];
+    [internalInterstitial setChannelId:AtmosplayAdsStringFromUTF8String(channelId)];
 }
 
 #pragma mark - RewardedVideo method
@@ -75,8 +75,8 @@ AtmosplayTypeRewardedVideoRef ZPLADCreateRewardVideo(AtmosplayTypeRewardedVideoC
                                                  const char *adUnitID) {
     AtmosplayRewardedVideoBridge *rewardVideo = [[AtmosplayRewardedVideoBridge alloc]
                                        initWithRewardVideoClientReference:rewardVideoClient
-                                       adAppId: ZPLADStringFromUTF8String(adAppID)
-                                       adUnitId: ZPLADStringFromUTF8String(adUnitID)];
+                                       adAppId: AtmosplayAdsStringFromUTF8String(adAppID)
+                                       adUnitId: AtmosplayAdsStringFromUTF8String(adUnitID)];
     AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
     [cache.references setObject:rewardVideo forKey:[rewardVideo atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeRewardedVideoRef)rewardVideo;
@@ -129,13 +129,15 @@ void ZPLADSetRewardVideoAutoload(AtmosplayTypeRewardedVideoRef rewardVideo, BOOL
 /// Sets AtmosplayRewardedVideoBridge channel id.
 void ZPLADSetRewardVideoChannelId(AtmosplayTypeRewardedVideoRef rewardVideo, const char *channelId) {
     AtmosplayRewardedVideoBridge *internalRewardVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardVideo;
-    [internalRewardVideo setChannelId:ZPLADStringFromUTF8String(channelId)];
+    [internalRewardVideo setChannelId:AtmosplayAdsStringFromUTF8String(channelId)];
 }
 
 #pragma mark - Banner method
 AtmosplayTypeBannerRef InitAtmosplayBannerAd(AtmosplayTypeBannerClientRef *bannerRef, const char *adAppID, const char *adUnitID) {
     
-    AtmosplayBannerBridge *banner = [[AtmosplayBannerBridge alloc] initWithBannerClientReference:bannerRef adAppId:ZPLADStringFromUTF8String(adAppID) adUnitId:ZPLADStringFromUTF8String(adUnitID)];
+    AtmosplayBannerBridge *banner = [[AtmosplayBannerBridge alloc] initWithBannerClientReference:bannerRef 
+                                                                                         adAppId:AtmosplayAdsStringFromUTF8String(adAppID) 
+                                                                                        adUnitId:AtmosplayAdsStringFromUTF8String(adUnitID)];
     
     AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
     [cache.references setObject:banner forKey:[banner atmosplayAds_referenceKey]];
@@ -165,7 +167,7 @@ void SetBannerPosition(AtmosplayTypeBannerRef bannerView,int position){
 }
 void SetBannerChannelID(AtmosplayTypeBannerRef bannerView,const char *channelID){
     AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
-    [internalBanner setChannelID:ZPLADStringFromUTF8String(channelID)];
+    [internalBanner setChannelID:AtmosplayAdsStringFromUTF8String(channelID)];
 }
 
 /// Sets the banner callback methods to be invoked during banner ad events.
