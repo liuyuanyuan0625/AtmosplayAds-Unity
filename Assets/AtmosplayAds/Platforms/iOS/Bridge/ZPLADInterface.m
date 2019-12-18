@@ -2,7 +2,7 @@
 #import "ZPLADRewardVideo.h"
 #import "AtmosplayTypes.h"
 #import "ZPLADObjectCache.h"
-#import "ZPLADBanner.h"
+#import "AtmosplayBannerBridge.h"
 
 static NSString *ZPLADStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
 
@@ -131,10 +131,10 @@ void ZPLADSetRewardVideoChannelId(AtmosplayTypeRewardedVideoRef rewardVideo, con
     [internalRewardVideo setChannelId:ZPLADStringFromUTF8String(channelId)];
 }
 
-#pragma mark: Banner method
+#pragma mark - Banner method
 AtmosplayTypeBannerRef InitAtmosplayBannerAd(AtmosplayTypeBannerClientRef *bannerRef, const char *adAppID, const char *adUnitID) {
     
-    ZPLADBanner *banner = [[ZPLADBanner alloc] initWithBannerClientReference:bannerRef adAppId:ZPLADStringFromUTF8String(adAppID) adUnitId:ZPLADStringFromUTF8String(adUnitID)];
+    AtmosplayBannerBridge *banner = [[AtmosplayBannerBridge alloc] initWithBannerClientReference:bannerRef adAppId:ZPLADStringFromUTF8String(adAppID) adUnitId:ZPLADStringFromUTF8String(adUnitID)];
     
     ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
     [cache.references setObject:banner forKey:[banner atmosplayAds_referenceKey]];
@@ -142,28 +142,28 @@ AtmosplayTypeBannerRef InitAtmosplayBannerAd(AtmosplayTypeBannerClientRef *banne
 }
 
 void ShowBannerView(AtmosplayTypeBannerRef bannerView){
-    ZPLADBanner *internalBanner = (__bridge ZPLADBanner *)bannerView;
+    AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner showBannerView];
 }
 void HideBannerView(AtmosplayTypeBannerRef bannerView){
-    ZPLADBanner *internalBanner = (__bridge ZPLADBanner *)bannerView;
+    AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner hideBannerView];
 }
 void DestroyBannerView(AtmosplayTypeBannerRef bannerView){
-    ZPLADBanner *internalBanner = (__bridge ZPLADBanner *)bannerView;
+    AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner removeBannerView];
 }
 void SetBannerAdSize(AtmosplayTypeBannerRef bannerView,AtmosplayAdsBannerSize bannerSize){
-    ZPLADBanner *internalBanner = (__bridge ZPLADBanner *)bannerView;
+    AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner setBannerAdSize:bannerSize];
 }
 
 void SetBannerPosition(AtmosplayTypeBannerRef bannerView,int position){
-    ZPLADBanner *internalBanner = (__bridge ZPLADBanner *)bannerView;
+    AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner setBannerPosition:position];
 }
 void SetBannerChannelID(AtmosplayTypeBannerRef bannerView,const char *channelID){
-    ZPLADBanner *internalBanner = (__bridge ZPLADBanner *)bannerView;
+    AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner setChannelID:ZPLADStringFromUTF8String(channelID)];
 }
 
@@ -173,7 +173,7 @@ void SetBannerCallbacks(
                         AtmosplayBannerDidReceiveAdCallback adReceivedCallback,
                         AtmosplayBannerDidFailToReceiveAdWithErrorCallback adFailedCallback,
                         AtmosplayBannerDidClickCallback adClickedCallback){
-    ZPLADBanner *internalBanner = (__bridge ZPLADBanner *)bannerView;
+    AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     // set banner property
     internalBanner.adReceivedCallback = adReceivedCallback;
     internalBanner.adFailedCallback = adFailedCallback;
@@ -181,7 +181,7 @@ void SetBannerCallbacks(
 }
 
 void RequestBannerAd( AtmosplayTypeBannerRef bannerView){
-    ZPLADBanner *internalBanner = (__bridge ZPLADBanner *)bannerView;
+    AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner loadAd];
 }
 
