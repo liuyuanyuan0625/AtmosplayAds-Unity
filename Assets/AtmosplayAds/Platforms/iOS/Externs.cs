@@ -37,7 +37,7 @@ namespace AtmosplayAds.iOS
             InterstitialClient.AtmosplayInterstitialDidReceivedAdCallback adReceivedCallback,
             InterstitialClient.AtmosplayInterstitialDidFailToReceiveAdWithErrorCallback adFailedCallback,
             InterstitialClient.AtmosplayInterstitialDidStartPlayingCallback videoDidStartCallback,
-            InterstitialClient.ZPLADInterstitialDidClickCallback didClickCallback,
+            InterstitialClient.AtmosplayInterstitiaDidClickCallback didClickCallback,
             InterstitialClient.AtmosplayInterstitialDidCloseCallback videoDidCloseCallback,
             InterstitialClient.AtmosplayInterstitialDidCompleteCallback didCompleteCallback
         );
