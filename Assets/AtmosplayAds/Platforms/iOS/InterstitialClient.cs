@@ -75,7 +75,7 @@ namespace AtmosplayAds.iOS
 
         public bool IsReady(string adUnitId)
         {
-            return Externs.ZPLADInterstitialReady(InterstitialPtr);
+            return Externs.AtmosplayAdsInterstitialReady(InterstitialPtr);
         }
 
         public void Show(string adUnitId)

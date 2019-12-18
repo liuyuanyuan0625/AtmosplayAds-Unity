@@ -19,7 +19,6 @@ AtmosplayTypeInterstitialRef AtmosplayAdsCreateInterstitial(AtmosplayTypeInterst
     [cache.references setObject:interstitial forKey:[interstitial atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeInterstitialRef)interstitial;
 }
-
 /// Sets the interstitial callback methods to be invoked during interstitial ad events.
 void AtmosplayAdsSetInterstitialAdCallbacks(
         AtmosplayTypeInterstitialClientRef interstitialAd,
@@ -37,15 +36,13 @@ void AtmosplayAdsSetInterstitialAdCallbacks(
     internalInterstitialAd.adDidCloseCallback = videoDidCloseCallback;
     internalInterstitialAd.videoDidCompleteCallback = adDidCompleteCallback;
 }
-
 /// Makes an interstitial ad request.
 void AtmosplayAdsRequestInterstitial(AtmosplayTypeInterstitialRef interstitial) {    
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial loadAd];
 }
-
-/// Returns YES if the AtmosplayInterstitialBridge is ready to be shown.
-BOOL ZPLADInterstitialReady(AtmosplayTypeInterstitialRef interstitial) {
+/// Returns YES if the AtmosplayInterstitialBridge is ready to be show.
+BOOL AtmosplayAdsInterstitialReady(AtmosplayTypeInterstitialRef interstitial) {
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     return [internalInterstitial isReady];
 }
