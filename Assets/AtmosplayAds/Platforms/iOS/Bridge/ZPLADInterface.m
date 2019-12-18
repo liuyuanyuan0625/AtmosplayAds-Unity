@@ -63,17 +63,17 @@ void AtmosplayAdsSetInterstitialChannelId(AtmosplayTypeInterstitialRef interstit
 }
 
 #pragma mark - RewardedVideo method
-/// Creates a AtmosplayRewardedVideoBridge and returns its reference
-AtmosplayTypeRewardedVideoRef ZPLADCreateRewardVideo(AtmosplayTypeRewardedVideoClientRef *rewardVideoClient,
+/// Creates a AtmosplayRewardedVideoBridge and return its reference
+AtmosplayTypeRewardedVideoRef AtmosplayAdsCreateRewardVideo(AtmosplayTypeRewardedVideoClientRef *rewardVideoClient,
                                                  const char *adAppID,
                                                  const char *adUnitID) {
-    AtmosplayRewardedVideoBridge *rewardVideo = [[AtmosplayRewardedVideoBridge alloc]
+    AtmosplayRewardedVideoBridge *rewardedVideo = [[AtmosplayRewardedVideoBridge alloc]
                                        initWithRewardVideoClientReference:rewardVideoClient
                                        adAppId: AtmosplayAdsStringFromUTF8String(adAppID)
                                        adUnitId: AtmosplayAdsStringFromUTF8String(adUnitID)];
     AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
-    [cache.references setObject:rewardVideo forKey:[rewardVideo atmosplayAds_referenceKey]];
-    return (__bridge AtmosplayTypeRewardedVideoRef)rewardVideo;
+    [cache.references setObject:rewardedVideo forKey:[rewardedVideo atmosplayAds_referenceKey]];
+    return (__bridge AtmosplayTypeRewardedVideoRef)rewardedVideo;
 }
 
 /// Sets the interstitial callback methods to be invoked during interstitial ad events.
