@@ -39,7 +39,7 @@ namespace AtmosplayAds.iOS
 
             set
             {
-                Externs.ZPLADRelease(bannerViewPtr); // clear cache ,if existed
+                Externs.AtmosplayAdsRelease(bannerViewPtr); // clear cache ,if existed
                 bannerViewPtr = value;
             }
         }

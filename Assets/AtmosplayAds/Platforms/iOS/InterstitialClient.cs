@@ -59,7 +59,7 @@ namespace AtmosplayAds.iOS
             }
             set
             {
-                Externs.ZPLADRelease(interstitialPtr);
+                Externs.AtmosplayAdsRelease(interstitialPtr);
                 interstitialPtr = value;
             }
         }

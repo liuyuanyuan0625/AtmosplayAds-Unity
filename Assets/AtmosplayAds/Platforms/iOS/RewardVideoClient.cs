@@ -60,7 +60,7 @@ namespace AtmosplayAds.iOS
             }
             set
             {
-                Externs.ZPLADRelease(rewardVideoPtr);
+                Externs.AtmosplayAdsRelease(rewardVideoPtr);
                 rewardVideoPtr = value;
             }
         }
