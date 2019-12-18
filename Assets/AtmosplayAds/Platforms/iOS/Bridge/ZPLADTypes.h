@@ -1,5 +1,7 @@
 /// Base type representing a Atmosplay* pointer
 typedef const void *AtmosplayTypeRef;
+
+#pragma mark - Interstitial
 /// Type representing a Unity interstitial client
 typedef const void *AtmosplayTypeInterstitialClientRef;
 /// Type representing a Unity rewarded video client
@@ -27,35 +29,30 @@ typedef void (*AtmosplayInterstitialDidCloseCallback)(
 typedef void (*AtmosplayInterstitialDidCompleteCallback)(
     AtmosplayTypeInterstitialClientRef *interstitialClient);
 
-#pragma mark:RewardVideo
-/// Callback for when a reward video ad request was successfully loaded.
-typedef void (*ZPLADRewardVideoDidReceivedAdCallback)(
-    ZPLADTypeRewardVideoClientRef *rewardVideoClient);
+#pragma mark - RewardedVideo
+/// Callback for when a rewarded video ad request was successfully loaded.
+typedef void (*AtmosplayRewardedVideoDidReceivedAdCallback)(
+    AtmosplayTypeRewardedVideoClientRef *rewardedVideoClient);
 
-/// Callback for when a reward video ad request failed.
-typedef void (*ZPLADRewardVideoDidFailToReceiveAdWithErrorCallback)(
-    ZPLADTypeRewardVideoRef *rewardVideoClient, const char *error);
+/// Callback for when a rewarded video ad request failed.
+typedef void (*AtmosplayRewardedVideoDidFailToReceiveAdWithErrorCallback)(
+    AtmosplayTypeRewardedVideoRef *rewardedVideoClient, const char *error);
+/// Callback for when a rewarded video video has started to play.
+typedef void (*AtmosplayRewardedVideoDidStartPlayingCallback)(
+    AtmosplayTypeRewardedVideoRef *rewardedVideoClient);
+/// Callback for when a rewarded video "INSTALL" button is clicked.
+typedef void (*AtmosplayRewardedVideoDidClickCallback)(
+    AtmosplayTypeRewardedVideoRef *rewardedVideoClient);
+typedef void (*AtmosplayRewardedVideoDidRewardCallback)(
+    AtmosplayTypeRewardedVideoRef *rewardedVideoClient);
+/// Callback for when a rewarded video video is closed
+typedef void (*AtmosplayRewardedVideoDidCloseCallback)(
+    AtmosplayTypeRewardedVideoRef *rewardedVideoClient);
+/// Callback for when a rewarded video complete end.
+typedef void (*AtmosplayRewardedVideoDidCompleteCallback)(
+    AtmosplayTypeRewardedVideoRef *rewardedVideoClient);
 
-/// Callback for when a reward video video has started to play.
-typedef void (*ZPLADRewardVideoVideoDidStartPlayingCallback)(
-    ZPLADTypeRewardVideoRef *rewardVideoClient);
-
-/// Callback for when a reward video "INSTALL" button is clicked.
-typedef void (*ZPLADRewardVideoDidClickCallback)(
-    ZPLADTypeRewardVideoRef *rewardVideoClient);
-
-typedef void (*ZPLADRewardVideoDidRewardCallback)(
-    ZPLADTypeRewardVideoRef *rewardVideoClient);
-
-/// Callback for when a reward video video is closed
-typedef void (*ZPLADRewardVideoVideoDidCloseCallback)(
-    ZPLADTypeRewardVideoRef *rewardVideoClient);
-
-/// Callback for when a reward video completes end.
-typedef void (*ZPLADRewardVideoDidCompleteCallback)(
-    ZPLADTypeRewardVideoRef *rewardVideoClient);
-
-#pragma mark: banner
+#pragma mark - Banner
 /// Type representing a Unity banner client
 typedef const void *AtmosplayTypeBannerClientRef;
 

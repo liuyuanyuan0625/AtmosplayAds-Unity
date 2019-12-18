@@ -4,7 +4,7 @@
 @end
 
 @implementation ZPLADRewardVideo
-- (id)initWithRewardVideoClientReference:(ZPLADTypeRewardVideoClientRef *)interstitialClient
+- (id)initWithRewardVideoClientReference:(AtmosplayTypeRewardedVideoClientRef *)interstitialClient
                                  adAppId:(NSString *)adAppId
                                 adUnitId:(NSString *)adUnitId {
     self = [super init];
