@@ -40,7 +40,7 @@ namespace AtmosplayAds.iOS
         {
             rewardVideoClientPtr = (IntPtr)GCHandle.Alloc(this);
             RewardVideoPtr = Externs.AtmosplayAdsCreateRewardVideo(rewardVideoClientPtr, adAppId, adUnitId);
-            Externs.ZPLADSetRewardVideoAdCallbacks(
+            Externs.AtmosplayAdsSetRewardedVideoAdCallbacks(
                 rewardVideoPtr,
                 RewardVideoDidReceivedAdCallback,
                 RewardVideoDidFailToReceiveAdWithErrorCallback,
