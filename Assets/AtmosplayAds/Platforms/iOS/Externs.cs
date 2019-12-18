@@ -61,7 +61,7 @@ namespace AtmosplayAds.iOS
 
         #region RewardVideo externs
         [DllImport("__Internal")]
-        internal static extern IntPtr ZPLADCreateRewardVideo(IntPtr rewardVideoClient, string adAppId, string adUnitId);
+        internal static extern IntPtr AtmosplayAdsCreateRewardVideo(IntPtr rewardVideoClient, string adAppId, string adUnitId);
 
         [DllImport("__Internal")]
         internal static extern void ZPLADSetRewardVideoAdCallbacks(
