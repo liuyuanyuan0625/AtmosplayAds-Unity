@@ -21,7 +21,7 @@ AtmosplayTypeInterstitialRef AtmosplayAdsCreateInterstitial(AtmosplayTypeInterst
 }
 
 /// Sets the interstitial callback methods to be invoked during interstitial ad events.
-void ZPLADSetInterstitialAdCallbacks(
+void AtmosplayAdsSetInterstitialAdCallbacks(
         AtmosplayTypeInterstitialClientRef interstitialAd,
         AtmosplayInterstitialDidReceivedAdCallback adReceivedCallback,
         AtmosplayInterstitialDidFailToReceiveAdWithErrorCallback adFailedCallback,

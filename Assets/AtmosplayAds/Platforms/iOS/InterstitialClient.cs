@@ -40,7 +40,7 @@ namespace AtmosplayAds.iOS
         {
             interstitialClientPtr = (IntPtr)GCHandle.Alloc(this);
             InterstitialPtr = Externs.AtmosplayAdsCreateInterstitial(interstitialClientPtr, adAppId, adUnitId);
-            Externs.ZPLADSetInterstitialAdCallbacks(
+            Externs.AtmosplayAdsSetInterstitialAdCallbacks(
                 InterstitialPtr,
                 InterstitialDidReceivedAdCallback,
                 InterstitialDidFailToReceiveAdWithErrorCallback,
