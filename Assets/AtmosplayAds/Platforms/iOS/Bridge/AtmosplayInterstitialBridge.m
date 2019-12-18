@@ -1,10 +1,10 @@
-#import "ZPLADInterstitial.h"
+#import "AtmosplayInterstitialBridge.h"
 #import <UIKit/UIKit.h>
 
-@interface ZPLADInterstitial() <AtmosplayInterstitialDelegate>
+@interface AtmosplayInterstitialBridge() <AtmosplayInterstitialDelegate>
 @end
 
-@implementation ZPLADInterstitial
+@implementation AtmosplayInterstitialBridge
 - (id)initWithInterstitialClientReference:(AtmosplayTypeInterstitialClientRef *)interstitialClient
                                   adAppId:(NSString *)adAppId
                                  adUnitId:(NSString *)adUnitId {
