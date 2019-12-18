@@ -1,6 +1,6 @@
 #import "ZPLADInterstitial.h"
 #import "ZPLADRewardVideo.h"
-#import "ZPLADTypes.h"
+#import "AtmosplayTypes.h"
 #import "ZPLADObjectCache.h"
 #import "ZPLADBanner.h"
 
