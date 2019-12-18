@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ZPLAYAds.iOS
+namespace AtmosplayAds.iOS
 {
     public sealed class MonoPInvokeCallbackAttribute : Attribute
     {

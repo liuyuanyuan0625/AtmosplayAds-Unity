@@ -1,6 +1,6 @@
 ﻿using System;
-using ZPLAYAds.Api;
-namespace ZPLAYAds.Common
+using AtmosplayAds.Api;
+namespace AtmosplayAds.Common
 {
     public interface IInterstitialClient
     {

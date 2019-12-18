@@ -3,7 +3,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace ZPLAYAds.iOS
+namespace AtmosplayAds.iOS
 {
     internal enum AtmosplayBannerAdSize
     {

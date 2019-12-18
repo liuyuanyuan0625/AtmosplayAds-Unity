@@ -1,7 +1,7 @@
 ﻿using System;
-using ZPLAYAds.Api;
+using AtmosplayAds.Api;
 
-namespace ZPLAYAds.Common
+namespace AtmosplayAds.Common
 {
     public interface IBannerClient
     {

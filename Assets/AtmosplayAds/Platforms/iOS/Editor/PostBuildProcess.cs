@@ -5,7 +5,7 @@ using UnityEditor.Callbacks;
 using System.IO;
 
 using UnityEditor.iOS.Xcode;
-namespace ZPLAYAds
+namespace AtmosplayAds
 {
     public class PostBuildProcess : MonoBehaviour
     {

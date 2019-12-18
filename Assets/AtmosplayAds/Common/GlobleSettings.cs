@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using UnityEngine;
-namespace ZPLAYAds.Common
+namespace AtmosplayAds.Common
 {
     public class GlobleSettings : ScriptableObject
     {

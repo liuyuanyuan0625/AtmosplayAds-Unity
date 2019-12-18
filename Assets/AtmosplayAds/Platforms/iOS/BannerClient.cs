@@ -1,10 +1,10 @@
 ﻿#if UNITY_IOS
 using System;
-using ZPLAYAds.Common;
-using ZPLAYAds.Api;
+using AtmosplayAds.Common;
+using AtmosplayAds.Api;
 using System.Runtime.InteropServices;
 
-namespace ZPLAYAds.iOS
+namespace AtmosplayAds.iOS
 {
     public class BannerClient : IBannerClient
     {

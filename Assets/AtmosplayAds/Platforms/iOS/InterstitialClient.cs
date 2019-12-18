@@ -2,10 +2,10 @@
 using System;
 using System.Runtime.InteropServices;
 
-using ZPLAYAds.Common;
-using ZPLAYAds.Api;
+using AtmosplayAds.Common;
+using AtmosplayAds.Api;
 
-namespace ZPLAYAds.iOS
+namespace AtmosplayAds.iOS
 {
     public class InterstitialClient : IInterstitialClient
     {

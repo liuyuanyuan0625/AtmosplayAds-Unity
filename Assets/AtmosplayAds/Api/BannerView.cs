@@ -1,6 +1,6 @@
 ﻿using System;
-using ZPLAYAds.Common;
-namespace ZPLAYAds.Api
+using AtmosplayAds.Common;
+namespace AtmosplayAds.Api
 {
     public class BannerView
     {
