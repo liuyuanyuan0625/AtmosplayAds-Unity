@@ -50,13 +50,13 @@ namespace AtmosplayAds.Common
                     {
                         instance = CreateInstance<GlobleSettings>();
 #if UNITY_EDITOR
-                        string properPath = Path.Combine(Application.dataPath, "ZPLAYAds/Resources");
+                        string properPath = Path.Combine(Application.dataPath, "AtmosplayAds/Resources");
                         if (!Directory.Exists(properPath))
                         {
-                            UnityEditor.AssetDatabase.CreateFolder("Assets/ZPLAYAds", "Resources");
+                            UnityEditor.AssetDatabase.CreateFolder("Assets/AtmosplayAds", "Resources");
                         }
 
-                        string fullPath = Path.Combine(Path.Combine("Assets", "ZPLAYAds/Resources"), "GlobleSettingsDB.asset");
+                        string fullPath = Path.Combine(Path.Combine("Assets", "AtmosplayAds/Resources"), "GlobleSettingsDB.asset");
                         UnityEditor.AssetDatabase.CreateAsset(instance, fullPath);
 #endif
                     }
@@ -66,7 +66,7 @@ namespace AtmosplayAds.Common
         }
 
 #if UNITY_EDITOR
-        [UnityEditor.MenuItem("Window/ZPLAYAds/Globle Settings")]
+        [UnityEditor.MenuItem("Window/AtmosplayAds/Globle Settings")]
         public static void ZplayGlobleSettings()
         {
             UnityEditor.Selection.activeObject = Instance;
