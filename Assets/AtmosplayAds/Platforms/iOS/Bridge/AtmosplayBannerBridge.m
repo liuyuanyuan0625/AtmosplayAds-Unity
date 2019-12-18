@@ -1,11 +1,11 @@
 //
-//  ZPLADBanner.m
+//  AtmosplayBannerBridge.m
 //  Unity-iPhone
 //
 //  Created by Michael Tang on 2019/10/30.
 //
 
-#import "ZPLADBanner.h"
+#import "AtmosplayBannerBridge.h"
 
 static BOOL IsOperatingSystemAtLeastVersion(NSInteger majorVersion) {
   NSProcessInfo *processInfo = NSProcessInfo.processInfo;
@@ -19,12 +19,12 @@ static BOOL IsOperatingSystemAtLeastVersion(NSInteger majorVersion) {
   }
 }
 
-@interface ZPLADBanner ()<AtmosplayBannerDelegate>
+@interface AtmosplayBannerBridge ()<AtmosplayBannerDelegate>
 @property (nonatomic, assign) int bannerPosition;
 
 @end
 
-@implementation ZPLADBanner
+@implementation AtmosplayBannerBridge
 
 - (instancetype)initWithBannerClientReference:(AtmosplayTypeBannerClientRef*)bannerClientRef
                                       adAppId:(NSString *)adAppId

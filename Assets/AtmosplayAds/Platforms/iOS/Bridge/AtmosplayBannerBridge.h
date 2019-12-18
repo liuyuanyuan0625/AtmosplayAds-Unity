@@ -1,5 +1,5 @@
 //
-//  ZPLADBanner.h
+//  AtmosplayBannerBridge.h
 //  Unity-iPhone
 //
 //  Created by Michael Tang on 2019/10/30.
@@ -10,7 +10,7 @@
 #import <AtmosplayAds/AtmosplayBanner.h>
 
 
-@interface ZPLADBanner : NSObject
+@interface AtmosplayBannerBridge : NSObject
 
 - (instancetype)initWithBannerClientReference:(AtmosplayTypeBannerClientRef*)bannerClientRef
                                       adAppId:(NSString *)adAppId
