@@ -21,9 +21,9 @@
 
 @end
 
-@implementation NSObject (ZPLADOwnershipAdditions)
+@implementation NSObject (AtmosplayOwnershipAdditions)
 
-- (NSString *)zplad_referenceKey {
+- (NSString *)atmosplayAds_referenceKey {
     return [NSString stringWithFormat:@"%p", (void *)self];
 }
 

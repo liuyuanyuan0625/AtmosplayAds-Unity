@@ -8,8 +8,8 @@
 
 @end
 
-@interface NSObject (ZPLADOwnershipAdditions)
+@interface NSObject (AtmosplayOwnershipAdditions)
 
-- (NSString *)zplad_referenceKey;
+- (NSString *)atmosplayAds_referenceKey;
 
 @end

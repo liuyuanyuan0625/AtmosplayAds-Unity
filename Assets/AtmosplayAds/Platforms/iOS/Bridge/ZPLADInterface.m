@@ -15,7 +15,7 @@ AtmosplayTypeInterstitialRef ZPLADCreateInterstitial(AtmosplayTypeInterstitialCl
                                        adAppId: ZPLADStringFromUTF8String(adAppID)
                                        adUnitId: ZPLADStringFromUTF8String(adUnitID)];
     ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
-    [cache.references setObject:interstitial forKey:[interstitial zplad_referenceKey]];
+    [cache.references setObject:interstitial forKey:[interstitial atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeInterstitialRef)interstitial;
 }
 
@@ -77,7 +77,7 @@ AtmosplayTypeRewardedVideoRef ZPLADCreateRewardVideo(AtmosplayTypeRewardedVideoC
                                        adAppId: ZPLADStringFromUTF8String(adAppID)
                                        adUnitId: ZPLADStringFromUTF8String(adUnitID)];
     ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
-    [cache.references setObject:rewardVideo forKey:[rewardVideo zplad_referenceKey]];
+    [cache.references setObject:rewardVideo forKey:[rewardVideo atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeRewardedVideoRef)rewardVideo;
 }
 
@@ -137,7 +137,7 @@ AtmosplayTypeBannerRef InitAtmosplayBannerAd(AtmosplayTypeBannerClientRef *banne
     ZPLADBanner *banner = [[ZPLADBanner alloc] initWithBannerClientReference:bannerRef adAppId:ZPLADStringFromUTF8String(adAppID) adUnitId:ZPLADStringFromUTF8String(adUnitID)];
     
     ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
-    [cache.references setObject:banner forKey:[banner zplad_referenceKey]];
+    [cache.references setObject:banner forKey:[banner atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeBannerRef)banner;
 }
 
@@ -187,9 +187,9 @@ void RequestBannerAd( AtmosplayTypeBannerRef bannerView){
 
 #pragma mark - Other methods
 /// Removes an object from the cache.
-void ZPLADRelease(AtmosplayTypeRef ref) {
+void AtmosplayAdsRelease(AtmosplayTypeRef ref) {
     if (ref) {
         ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
-        [cache.references removeObjectForKey:[(__bridge NSObject *)ref zplad_referenceKey]];
+        [cache.references removeObjectForKey:[(__bridge NSObject *)ref atmosplayAds_referenceKey]];
     }
 }

@@ -24,7 +24,7 @@ namespace AtmosplayAds.iOS
 
         #region Common externs
         [DllImport("__Internal")]
-        internal static extern IntPtr ZPLADRelease(IntPtr obj);
+        internal static extern IntPtr AtmosplayAdsRelease(IntPtr obj);
         #endregion
 
         #region Interstitial externs
