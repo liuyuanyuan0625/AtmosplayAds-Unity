@@ -19,8 +19,7 @@ static BOOL IsOperatingSystemAtLeastVersion(NSInteger majorVersion) {
   }
 }
 
-@interface ZPLADBanner ()<AtmosplayAdsBannerDelegate>
-
+@interface ZPLADBanner ()<AtmosplayBannerDelegate>
 @property (nonatomic, assign) int bannerPosition;
 
 @end
@@ -28,11 +27,11 @@ static BOOL IsOperatingSystemAtLeastVersion(NSInteger majorVersion) {
 @implementation ZPLADBanner
 
 - (instancetype)initWithBannerClientReference:(AtmosplayTypeBannerClientRef*)bannerClientRef
- adAppId:(NSString *)adAppId
+                                      adAppId:(NSString *)adAppId
                                      adUnitId:(NSString *)adUnitId {
     if (self = [super init]) {
         _bannerClient = bannerClientRef;
-        _bannerView = [[AtmosplayAdsBanner alloc] initWithAdUnitID:adUnitId appID:adAppId rootViewController:UnityGetGLViewController()];
+        _bannerView = [[AtmosplayBanner alloc] initWithAppID:adAppId adUnitID:adUnitId rootViewController:UnityGetGLViewController()];
         _bannerView.delegate = self;
     }
     
@@ -58,7 +57,7 @@ static BOOL IsOperatingSystemAtLeastVersion(NSInteger majorVersion) {
     self.bannerView = nil;
 }
 
-- (void)setBannerAdSize:(AtmosplayAdsBannerSize)bannerSize {
+- (void)setBannerAdSize:(AtmosplayBannerSize)bannerSize {
     self.bannerView.bannerSize = bannerSize;
 }
 
