@@ -77,7 +77,7 @@ AtmosplayTypeRewardedVideoRef AtmosplayAdsCreateRewardVideo(AtmosplayTypeRewarde
 }
 
 /// Sets the interstitial callback methods to be invoked during interstitial ad events.
-void ZPLADSetRewardVideoAdCallbacks(
+void AtmosplayAdsSetRewardedVideoAdCallbacks(
         AtmosplayTypeRewardedVideoClientRef rewardVideoAd,
         AtmosplayRewardedVideoDidReceivedAdCallback adReceivedCallback,
         AtmosplayRewardedVideoDidFailToReceiveAdWithErrorCallback adFailedCallback,
