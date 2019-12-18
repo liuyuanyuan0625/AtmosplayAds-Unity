@@ -51,9 +51,8 @@ void AtmosplayAdsShowInterstitial(AtmosplayTypeInterstitialRef interstitial) {
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial show];
 }
-
 /// Sets AtmosplayInterstitialBridge autoload next ad.
-void ZPLADSetInterstitialAutoload(AtmosplayTypeInterstitialRef interstitial, BOOL autoload) {
+void AtmosplayAdsSetInterstitialAutoload(AtmosplayTypeInterstitialRef interstitial, BOOL autoload) {
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial setAutoload:autoload];
 }

@@ -85,7 +85,7 @@ namespace AtmosplayAds.iOS
 
         public void SetAutoloadNext(bool autoload)
         {
-            Externs.ZPLADSetInterstitialAutoload(InterstitialPtr, autoload);
+            Externs.AtmosplayAdsSetInterstitialAutoload(InterstitialPtr, autoload);
         }
 
         public void SetChannelId(string channelId)
