@@ -69,7 +69,7 @@ namespace AtmosplayAds.iOS
 
         public void LoadAd(string adUnitId)
         {
-            Externs.ZPLADRequestRewardVideo(RewardVideoPtr);
+            Externs.AtmosplayAdsRequestRewardedVideo(RewardVideoPtr);
         }
 
         public bool IsReady(string adUnitId)

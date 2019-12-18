@@ -76,7 +76,7 @@ namespace AtmosplayAds.iOS
         );
 
         [DllImport("__Internal")]
-        internal static extern void ZPLADRequestRewardVideo(IntPtr rewardVideo);
+        internal static extern void AtmosplayAdsRequestRewardedVideo(IntPtr rewardVideo);
 
         [DllImport("__Internal")]
         internal static extern bool ZPLADRewardVideoReady(IntPtr rewardVideo);
