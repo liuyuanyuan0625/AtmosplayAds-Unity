@@ -20,7 +20,7 @@ namespace AtmosplayAds.iOS
 
         internal delegate void AtmosplayInterstitialDidStartPlayingCallback(IntPtr interstitialClient);
 
-        internal delegate void ZPLADInterstitialDidClickCallback(IntPtr interstitialClient);
+        internal delegate void AtmosplayInterstitiaDidClickCallback(IntPtr interstitialClient);
 
         internal delegate void AtmosplayInterstitialDidCloseCallback(IntPtr interstitialClient);
 
@@ -147,7 +147,7 @@ namespace AtmosplayAds.iOS
         }
 
 
-        [MonoPInvokeCallback(typeof(ZPLADInterstitialDidClickCallback))]
+        [MonoPInvokeCallback(typeof(AtmosplayInterstitiaDidClickCallback))]
         static void InterstitiaDidClickCallback(IntPtr interstitialClient)
         {
             InterstitialClient client = IntPtrToInterstitialClient(interstitialClient);
