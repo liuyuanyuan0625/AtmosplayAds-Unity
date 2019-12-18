@@ -55,7 +55,7 @@ namespace AtmosplayAds.iOS
         internal static extern void AtmosplayAdsSetInterstitialAutoload(IntPtr interstitial, bool autoload);
 
         [DllImport("__Internal")]
-        internal static extern void ZPLADSetInterstitialChannelId(IntPtr interstitial, string channelId);
+        internal static extern void AtmosplayAdsSetInterstitialChannelId(IntPtr interstitial, string channelId);
         #endregion
 
 

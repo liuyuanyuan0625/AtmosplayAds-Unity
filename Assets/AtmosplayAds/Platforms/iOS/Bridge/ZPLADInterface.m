@@ -56,9 +56,8 @@ void AtmosplayAdsSetInterstitialAutoload(AtmosplayTypeInterstitialRef interstiti
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial setAutoload:autoload];
 }
-
 /// Sets AtmosplayInterstitialBridge channel id.
-void ZPLADSetInterstitialChannelId(AtmosplayTypeInterstitialRef interstitial, const char *channelId) {
+void AtmosplayAdsSetInterstitialChannelId(AtmosplayTypeInterstitialRef interstitial, const char *channelId) {
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial setChannelId:AtmosplayAdsStringFromUTF8String(channelId)];
 }
