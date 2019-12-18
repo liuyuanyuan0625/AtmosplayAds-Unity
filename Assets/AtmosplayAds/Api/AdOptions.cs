@@ -1,4 +1,4 @@
-﻿namespace ZPLAYAds
+﻿namespace AtmosplayAds
 {
     public class AdOptions
     {

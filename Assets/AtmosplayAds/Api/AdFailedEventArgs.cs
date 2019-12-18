@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ZPLAYAds.Api
+namespace AtmosplayAds.Api
 {
     public class AdFailedEventArgs : EventArgs
     {

@@ -3,9 +3,9 @@ using System.Reflection;
 
 using UnityEngine;
 
-using ZPLAYAds.Api;
+using AtmosplayAds.Api;
 
-namespace ZPLAYAds.Common
+namespace AtmosplayAds.Common
 {
     public class DummyClient : IInterstitialClient, IRewardVideoClient
     {

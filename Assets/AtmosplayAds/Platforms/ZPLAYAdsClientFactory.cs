@@ -1,8 +1,8 @@
-using ZPLAYAds.Api;
-using ZPLAYAds.Common;
+using AtmosplayAds.Api;
+using AtmosplayAds.Common;
 using UnityEngine;
 
-namespace ZPLAYAds
+namespace AtmosplayAds
 {
     public class ZPLAYAdsClientFactory
     {

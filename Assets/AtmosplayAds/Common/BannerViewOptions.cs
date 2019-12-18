@@ -1,5 +1,5 @@
 ﻿using System;
-namespace ZPLAYAds.Common
+namespace AtmosplayAds.Common
 {
     public class BannerViewOptions
     {

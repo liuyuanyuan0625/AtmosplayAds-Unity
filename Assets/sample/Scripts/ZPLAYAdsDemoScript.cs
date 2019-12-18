@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
-using ZPLAYAds.Api;
-using ZPLAYAds.Common;
-using ZPLAYAds;
+using AtmosplayAds.Api;
+using AtmosplayAds.Common;
+using AtmosplayAds;
 public class ZPLAYAdsDemoScript : MonoBehaviour
 {
     RewardVideoAd rewardVideo;

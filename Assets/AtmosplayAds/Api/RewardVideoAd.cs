@@ -1,7 +1,7 @@
 using System;
-using ZPLAYAds.Common;
+using AtmosplayAds.Common;
 
-namespace ZPLAYAds.Api
+namespace AtmosplayAds.Api
 {
     public class RewardVideoAd
     {
