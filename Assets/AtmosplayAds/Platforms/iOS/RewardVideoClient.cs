@@ -13,19 +13,19 @@ namespace AtmosplayAds.iOS
 
         #region RewardVideo callback types
 
-        internal delegate void ZPLADRewardVideoDidReceivedAdCallback(IntPtr rewardVideoClient);
+        internal delegate void AtmosplayRewardedVideoDidReceivedAdCallback(IntPtr rewardedVideoClient);
 
-        internal delegate void ZPLADRewardVideoDidFailToReceiveAdWithErrorCallback(IntPtr rewardVideoClient, string error);
+        internal delegate void AtmosplayRewardedVideoDidFailToReceiveAdWithErrorCallback(IntPtr rewardedVideoClient, string error);
 
-        internal delegate void ZPLADRewardVideoVideoDidStartPlayingCallback(IntPtr rewardVideoClient);
+        internal delegate void AtmosplayRewardedVideoDidStartPlayingCallback(IntPtr rewardedVideoClient);
 
-        internal delegate void ZPLADRewardVideoDidClickCallback(IntPtr rewardVideoClient);
+        internal delegate void AtmosplayRewardedVideoDidClickCallback(IntPtr rewardedVideoClient);
 
-        internal delegate void ZPLADRewardVideoDidRewardCallback(IntPtr rewardVideoClient);
+        internal delegate void AtmosplayRewardedVideoDidRewardCallback(IntPtr rewardedVideoClient);
 
-        internal delegate void ZPLADRewardVideoVideoDidCloseCallback(IntPtr rewardVideoClient);
+        internal delegate void AtmosplayRewardedVideoDidCloseCallback(IntPtr rewardedVideoClient);
 
-        internal delegate void ZPLADRewardVideoDidCompleteCallback(IntPtr rewardVideoClient);
+        internal delegate void AtmosplayRewardedVideoDidCompleteCallback(IntPtr rewardedVideoClient);
 
         #endregion
         public event EventHandler<EventArgs> OnAdLoaded;
@@ -110,20 +110,20 @@ namespace AtmosplayAds.iOS
 
         #region RewardVideo callback methods
 
-        [MonoPInvokeCallback(typeof(ZPLADRewardVideoDidReceivedAdCallback))]
-        static void RewardVideoDidReceivedAdCallback(IntPtr interstitialClient)
+        [MonoPInvokeCallback(typeof(AtmosplayRewardedVideoDidReceivedAdCallback))]
+        static void RewardVideoDidReceivedAdCallback(IntPtr rewardedVideoClient)
         {
-            RewardVideoClient client = IntPtrToRewardVideoClient(interstitialClient);
+            RewardVideoClient client = IntPtrToRewardVideoClient(rewardedVideoClient);
             if (client.OnAdLoaded != null)
             {
                 client.OnAdLoaded(client, EventArgs.Empty);
             }
         }
 
-        [MonoPInvokeCallback(typeof(ZPLADRewardVideoDidFailToReceiveAdWithErrorCallback))]
-        static void RewardVideoDidFailToReceiveAdWithErrorCallback(IntPtr interstitialClient, string error)
+        [MonoPInvokeCallback(typeof(AtmosplayRewardedVideoDidFailToReceiveAdWithErrorCallback))]
+        static void RewardVideoDidFailToReceiveAdWithErrorCallback(IntPtr rewardedVideoClient, string error)
         {
-            RewardVideoClient client = IntPtrToRewardVideoClient(interstitialClient);
+            RewardVideoClient client = IntPtrToRewardVideoClient(rewardedVideoClient);
             if (client.OnAdFailedToLoad != null)
             {
                 AdFailedEventArgs args = new AdFailedEventArgs()
@@ -134,10 +134,10 @@ namespace AtmosplayAds.iOS
             }
         }
 
-        [MonoPInvokeCallback(typeof(ZPLADRewardVideoVideoDidStartPlayingCallback))]
-        static void RewardVideoVideoDidStartPlayingCallback(IntPtr interstitialClient)
+        [MonoPInvokeCallback(typeof(AtmosplayRewardedVideoDidStartPlayingCallback))]
+        static void RewardVideoVideoDidStartPlayingCallback(IntPtr rewardedVideoClient)
         {
-            RewardVideoClient client = IntPtrToRewardVideoClient(interstitialClient);
+            RewardVideoClient client = IntPtrToRewardVideoClient(rewardedVideoClient);
             if (client.OnAdStarted != null)
             {
                 client.OnAdStarted(client, EventArgs.Empty);
@@ -145,49 +145,49 @@ namespace AtmosplayAds.iOS
         }
 
 
-        [MonoPInvokeCallback(typeof(ZPLADRewardVideoDidClickCallback))]
-        static void RewardVideoDidClickCallback(IntPtr rewardVideo)
+        [MonoPInvokeCallback(typeof(AtmosplayRewardedVideoDidClickCallback))]
+        static void RewardVideoDidClickCallback(IntPtr rewardedVideoClient)
         {
-            RewardVideoClient client = IntPtrToRewardVideoClient(rewardVideo);
+            RewardVideoClient client = IntPtrToRewardVideoClient(rewardedVideoClient);
             if (client.OnAdClicked != null)
             {
                 client.OnAdClicked(client, EventArgs.Empty);
             }
         }
 
-        [MonoPInvokeCallback(typeof(ZPLADRewardVideoDidRewardCallback))]
-        static void RewardVideoDidRewardCallback(IntPtr rewardVideo)
+        [MonoPInvokeCallback(typeof(AtmosplayRewardedVideoDidRewardCallback))]
+        static void RewardVideoDidRewardCallback(IntPtr rewardedVideoClient)
         {
-            RewardVideoClient client = IntPtrToRewardVideoClient(rewardVideo);
+            RewardVideoClient client = IntPtrToRewardVideoClient(rewardedVideoClient);
             if (client.OnAdRewarded != null)
             {
                 client.OnAdRewarded(client, EventArgs.Empty);
             }
         }
 
-        [MonoPInvokeCallback(typeof(ZPLADRewardVideoVideoDidCloseCallback))]
-        static void RewardVideoVideoDidCloseCallback(IntPtr interstitialClient)
+        [MonoPInvokeCallback(typeof(AtmosplayRewardedVideoDidCloseCallback))]
+        static void RewardVideoVideoDidCloseCallback(IntPtr rewardedVideoClient)
         {
-            RewardVideoClient client = IntPtrToRewardVideoClient(interstitialClient);
+            RewardVideoClient client = IntPtrToRewardVideoClient(rewardedVideoClient);
             if (client.OnAdClosed != null)
             {
                 client.OnAdClosed(client, EventArgs.Empty);
             }
         }
 
-        [MonoPInvokeCallback(typeof(ZPLADRewardVideoDidCompleteCallback))]
-        static void RewardVideoDidCompleteCallback(IntPtr interstitialClient)
+        [MonoPInvokeCallback(typeof(AtmosplayRewardedVideoDidCompleteCallback))]
+        static void RewardVideoDidCompleteCallback(IntPtr rewardedVideoClient)
         {
-            RewardVideoClient client = IntPtrToRewardVideoClient(interstitialClient);
+            RewardVideoClient client = IntPtrToRewardVideoClient(rewardedVideoClient);
             if (client.OnAdVideoFinished != null)
             {
                 client.OnAdVideoFinished(client, EventArgs.Empty);
             }
         }
 
-        private static RewardVideoClient IntPtrToRewardVideoClient(IntPtr rewardVideoClient)
+        private static RewardVideoClient IntPtrToRewardVideoClient(IntPtr rewardedVideoClient)
         {
-            GCHandle handle = (GCHandle)rewardVideoClient;
+            GCHandle handle = (GCHandle)rewardedVideoClient;
             return handle.Target as RewardVideoClient;
         }
         #endregion

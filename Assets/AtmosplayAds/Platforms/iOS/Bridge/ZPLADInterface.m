@@ -69,7 +69,7 @@ void ZPLADSetInterstitialChannelId(AtmosplayTypeInterstitialRef interstitial, co
 
 
 /// Creates a ZPLADRewardVideo and returns its reference
-ZPLADTypeRewardVideoRef ZPLADCreateRewardVideo(ZPLADTypeRewardVideoClientRef *rewardVideoClient,
+AtmosplayTypeRewardedVideoRef ZPLADCreateRewardVideo(AtmosplayTypeRewardedVideoClientRef *rewardVideoClient,
                                                  const char *adAppID,
                                                  const char *adUnitID) {
     ZPLADRewardVideo *rewardVideo = [[ZPLADRewardVideo alloc]
@@ -78,19 +78,19 @@ ZPLADTypeRewardVideoRef ZPLADCreateRewardVideo(ZPLADTypeRewardVideoClientRef *re
                                        adUnitId: ZPLADStringFromUTF8String(adUnitID)];
     ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
     [cache.references setObject:rewardVideo forKey:[rewardVideo zplad_referenceKey]];
-    return (__bridge ZPLADTypeRewardVideoRef)rewardVideo;
+    return (__bridge AtmosplayTypeRewardedVideoRef)rewardVideo;
 }
 
 /// Sets the interstitial callback methods to be invoked during interstitial ad events.
 void ZPLADSetRewardVideoAdCallbacks(
-        ZPLADTypeRewardVideoClientRef rewardVideoAd,
-        ZPLADRewardVideoDidReceivedAdCallback adReceivedCallback,
-        ZPLADRewardVideoDidFailToReceiveAdWithErrorCallback adFailedCallback,
-        ZPLADRewardVideoVideoDidStartPlayingCallback videoDidStartCallback,
-        ZPLADRewardVideoDidClickCallback adClickedCallback,
-        ZPLADRewardVideoVideoDidCloseCallback videoDidCloseCallback,
-        ZPLADRewardVideoDidRewardCallback adDidRewardCallback,
-        ZPLADRewardVideoDidCompleteCallback adDidCompleteCallback) {
+        AtmosplayTypeRewardedVideoClientRef rewardVideoAd,
+        AtmosplayRewardedVideoDidReceivedAdCallback adReceivedCallback,
+        AtmosplayRewardedVideoDidFailToReceiveAdWithErrorCallback adFailedCallback,
+        AtmosplayRewardedVideoDidStartPlayingCallback videoDidStartCallback,
+        AtmosplayRewardedVideoDidClickCallback adClickedCallback,
+        AtmosplayRewardedVideoDidCloseCallback videoDidCloseCallback,
+        AtmosplayRewardedVideoDidRewardCallback adDidRewardCallback,
+        AtmosplayRewardedVideoDidCompleteCallback adDidCompleteCallback) {
     ZPLADRewardVideo *internalRewardVideoAd = (__bridge ZPLADRewardVideo *)rewardVideoAd;
     internalRewardVideoAd.adReceivedCallback = adReceivedCallback;
     internalRewardVideoAd.adFailedCallback = adFailedCallback;
@@ -102,31 +102,31 @@ void ZPLADSetRewardVideoAdCallbacks(
 }
 
 /// Makes an reward video ad request.
-void ZPLADRequestRewardVideo(ZPLADTypeRewardVideoRef rewardVideo) {
+void ZPLADRequestRewardVideo(AtmosplayTypeRewardedVideoRef rewardVideo) {
     ZPLADRewardVideo *internalRewardVideo = (__bridge ZPLADRewardVideo *)rewardVideo;
     [internalRewardVideo loadAd];
 }
 
 /// Returns YES if the ZPLADRewardVideo is ready to be shown.
-BOOL ZPLADRewardVideoReady(ZPLADTypeRewardVideoRef rewardVideo) {
+BOOL ZPLADRewardVideoReady(AtmosplayTypeRewardedVideoRef rewardVideo) {
     ZPLADRewardVideo *internalRewardVideo = (__bridge ZPLADRewardVideo *)rewardVideo;
     return [internalRewardVideo isReady];
 }
 
 /// Shows the ZPLADRewardVideo.
-void ZPLADShowRewardVideo(ZPLADTypeRewardVideoRef rewardVideo) {
+void ZPLADShowRewardVideo(AtmosplayTypeRewardedVideoRef rewardVideo) {
     ZPLADRewardVideo *internalRewardVideo = (__bridge ZPLADRewardVideo *)rewardVideo;
     [internalRewardVideo show];
 }
 
 /// Sets ZPLADRewardVideo autoload next ad.
-void ZPLADSetRewardVideoAutoload(ZPLADTypeRewardVideoRef rewardVideo, BOOL autoload) {
+void ZPLADSetRewardVideoAutoload(AtmosplayTypeRewardedVideoRef rewardVideo, BOOL autoload) {
     ZPLADRewardVideo *internalRewardVideo = (__bridge ZPLADRewardVideo *)rewardVideo;
     [internalRewardVideo setAutoload:autoload];
 }
 
 /// Sets ZPLADRewardVideo channel id.
-void ZPLADSetRewardVideoChannelId(ZPLADTypeRewardVideoRef rewardVideo, const char *channelId) {
+void ZPLADSetRewardVideoChannelId(AtmosplayTypeRewardedVideoRef rewardVideo, const char *channelId) {
     ZPLADRewardVideo *internalRewardVideo = (__bridge ZPLADRewardVideo *)rewardVideo;
     [internalRewardVideo setChannelId:ZPLADStringFromUTF8String(channelId)];
 }

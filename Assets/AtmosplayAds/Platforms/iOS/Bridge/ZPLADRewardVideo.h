@@ -4,28 +4,28 @@
 
 @interface ZPLADRewardVideo : NSObject
 /// Initializes a AtmosplayRewardedVideo
-- (id)initWithRewardVideoClientReference:(ZPLADTypeRewardVideoClientRef *)interstitialClient
+- (id)initWithRewardVideoClientReference:(AtmosplayTypeRewardedVideoClientRef *)interstitialClient
                                  adAppId:(NSString *)adAppId
                                 adUnitId:(NSString *)adUnitId;
 
 /// The reward video ad.
 @property(nonatomic, strong) AtmosplayRewardedVideo *rewardedVideo;
 /// A reference to the Unity reward video client.
-@property(nonatomic, assign) ZPLADTypeRewardVideoClientRef *rewardedVideoClient;
+@property(nonatomic, assign) AtmosplayTypeRewardedVideoClientRef *rewardedVideoClient;
 /// The ad received callback into Unity.
-@property(nonatomic, assign) ZPLADRewardVideoDidReceivedAdCallback adReceivedCallback;
+@property(nonatomic, assign) AtmosplayRewardedVideoDidReceivedAdCallback adReceivedCallback;
 /// The ad failed callback into Unity.
-@property(nonatomic, assign) ZPLADRewardVideoDidFailToReceiveAdWithErrorCallback adFailedCallback;
+@property(nonatomic, assign) AtmosplayRewardedVideoDidFailToReceiveAdWithErrorCallback adFailedCallback;
 /// The ad started playing callback into Unity.
-@property(nonatomic, assign) ZPLADRewardVideoVideoDidStartPlayingCallback videoDidStartCallback;
+@property(nonatomic, assign) AtmosplayRewardedVideoDidStartPlayingCallback videoDidStartCallback;
 /// The ad "INSTALL" button is clicked callback into Unity.
-@property(nonatomic, assign) ZPLADRewardVideoDidClickCallback adClickedCallback;
+@property(nonatomic, assign) AtmosplayRewardedVideoDidClickCallback adClickedCallback;
 /// The user was rewarded callback into Unity.
-@property(nonatomic, assign) ZPLADRewardVideoDidRewardCallback adRewardCallback;
+@property(nonatomic, assign) AtmosplayRewardedVideoDidRewardCallback adRewardCallback;
 /// The ad was closed callback into Unity.
-@property(nonatomic, assign) ZPLADRewardVideoVideoDidCloseCallback adDidCloseCallback;
+@property(nonatomic, assign) AtmosplayRewardedVideoDidCloseCallback adDidCloseCallback;
 /// The ad did complete callback into Unity.
-@property(nonatomic, assign) ZPLADRewardVideoDidCompleteCallback videoDidCompleteCallback;
+@property(nonatomic, assign) AtmosplayRewardedVideoDidCompleteCallback videoDidCompleteCallback;
 
 - (void)loadAd;
 

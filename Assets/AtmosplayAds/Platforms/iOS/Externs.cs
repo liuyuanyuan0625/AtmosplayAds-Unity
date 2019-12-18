@@ -66,13 +66,13 @@ namespace AtmosplayAds.iOS
         [DllImport("__Internal")]
         internal static extern void ZPLADSetRewardVideoAdCallbacks(
             IntPtr interstitial,
-            RewardVideoClient.ZPLADRewardVideoDidReceivedAdCallback adReceivedCallback,
-            RewardVideoClient.ZPLADRewardVideoDidFailToReceiveAdWithErrorCallback adFailedCallback,
-            RewardVideoClient.ZPLADRewardVideoVideoDidStartPlayingCallback videoDidStartCallback,
-            RewardVideoClient.ZPLADRewardVideoDidClickCallback didClickCallback,
-            RewardVideoClient.ZPLADRewardVideoDidRewardCallback didRewardCallback,
-            RewardVideoClient.ZPLADRewardVideoVideoDidCloseCallback videoDidCloseCallback,
-            RewardVideoClient.ZPLADRewardVideoDidCompleteCallback didCompleteCallback
+            RewardVideoClient.AtmosplayRewardedVideoDidReceivedAdCallback adReceivedCallback,
+            RewardVideoClient.AtmosplayRewardedVideoDidFailToReceiveAdWithErrorCallback adFailedCallback,
+            RewardVideoClient.AtmosplayRewardedVideoDidStartPlayingCallback videoDidStartCallback,
+            RewardVideoClient.AtmosplayRewardedVideoDidClickCallback didClickCallback,
+            RewardVideoClient.AtmosplayRewardedVideoDidRewardCallback didRewardCallback,
+            RewardVideoClient.AtmosplayRewardedVideoDidCloseCallback videoDidCloseCallback,
+            RewardVideoClient.AtmosplayRewardedVideoDidCompleteCallback didCompleteCallback
         );
 
         [DllImport("__Internal")]
