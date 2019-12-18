@@ -39,7 +39,7 @@ void AtmosplayAdsSetInterstitialAdCallbacks(
 }
 
 /// Makes an interstitial ad request.
-void ZPLADRequestInterstitial(AtmosplayTypeInterstitialRef interstitial) {    
+void AtmosplayAdsRequestInterstitial(AtmosplayTypeInterstitialRef interstitial) {    
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial loadAd];
 }

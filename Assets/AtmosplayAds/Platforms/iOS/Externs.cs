@@ -43,7 +43,7 @@ namespace AtmosplayAds.iOS
         );
 
         [DllImport("__Internal")]
-        internal static extern void ZPLADRequestInterstitial(IntPtr interstitial);
+        internal static extern void AtmosplayAdsRequestInterstitial(IntPtr interstitial);
 
         [DllImport("__Internal")]
         internal static extern bool ZPLADInterstitialReady(IntPtr interstitial);

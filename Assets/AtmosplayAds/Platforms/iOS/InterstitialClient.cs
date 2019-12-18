@@ -70,7 +70,7 @@ namespace AtmosplayAds.iOS
 
         public void LoadAd(string adUnitId)
         {
-            Externs.ZPLADRequestInterstitial(InterstitialPtr);
+            Externs.AtmosplayAdsRequestInterstitial(InterstitialPtr);
         }
 
         public bool IsReady(string adUnitId)
