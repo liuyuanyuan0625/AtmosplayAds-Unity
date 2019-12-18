@@ -1,41 +1,31 @@
-/// Base type representing a ZPLAD* pointer
-typedef const void *ZPLADTypeRef;
-
+/// Base type representing a Atmosplay* pointer
+typedef const void *AtmosplayTypeRef;
 /// Type representing a Unity interstitial client
-typedef const void *ZPLADTypeInterstitialClientRef;
-
-/// Type representing a Unity reward video client
-typedef const void *ZPLADTypeRewardVideoClientRef;
-
-/// Type representing a ZPLADInterstitialRef
-typedef const void *ZPLADTypeInterstitialRef;
-
-/// Type representing a ZPLADRewardVideoRef
-typedef const void *ZPLADTypeRewardVideoRef;
-
+typedef const void *AtmosplayTypeInterstitialClientRef;
+/// Type representing a Unity rewarded video client
+typedef const void *AtmosplayTypeRewardedVideoClientRef;
+/// Type representing a AtmosplayInterstitialRef
+typedef const void *AtmosplayTypeInterstitialRef;
+/// Type representing a AtmosplayRewardedVideoRef
+typedef const void *AtmosplayTypeRewardedVideoRef;
 /// Callback for when a interstitial ad request was successfully loaded.
-typedef void (*ZPLADInterstitialDidReceivedAdCallback)(
-    ZPLADTypeInterstitialClientRef *interstitialClient);
-
+typedef void (*AtmosplayInterstitialDidReceivedAdCallback)(
+    AtmosplayTypeInterstitialClientRef *interstitialClient);
 /// Callback for when a interstitial ad request failed.
-typedef void (*ZPLADInterstitialDidFailToReceiveAdWithErrorCallback)(
-    ZPLADTypeInterstitialClientRef *interstitialClient, const char *error);
-
+typedef void (*AtmosplayInterstitialDidFailToReceiveAdWithErrorCallback)(
+    AtmosplayTypeInterstitialClientRef *interstitialClient, const char *error);
 /// Callback for when a interstitial video has started to play.
-typedef void (*ZPLADInterstitialVideoDidStartPlayingCallback)(
-    ZPLADTypeInterstitialClientRef *interstitialClient);
-
+typedef void (*AtmosplayInterstitialDidStartPlayingCallback)(
+    AtmosplayTypeInterstitialClientRef *interstitialClient);
 /// Callback for when a interstitial "INSTALL" button is clicked.
-typedef void (*ZPLADInterstitiaDidClickCallback)(
-    ZPLADTypeInterstitialClientRef *interstitialClient);
-
+typedef void (*AtmosplayInterstitiaDidClickCallback)(
+    AtmosplayTypeInterstitialClientRef *interstitialClient);
 /// Callback for when a interstitial video is closed
-typedef void (*ZPLADInterstitialVideoDidCloseCallback)(
-    ZPLADTypeInterstitialClientRef *interstitialClient);
-
+typedef void (*AtmosplayInterstitialDidCloseCallback)(
+    AtmosplayTypeInterstitialClientRef *interstitialClient);
 /// Callback for when a interstitial completes end.
-typedef void (*ZPLADInterstitialDidCompleteCallback)(
-    ZPLADTypeInterstitialClientRef *interstitialClient);
+typedef void (*AtmosplayInterstitialDidCompleteCallback)(
+    AtmosplayTypeInterstitialClientRef *interstitialClient);
 
 #pragma mark:RewardVideo
 /// Callback for when a reward video ad request was successfully loaded.

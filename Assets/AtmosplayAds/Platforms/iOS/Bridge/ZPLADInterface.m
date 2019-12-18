@@ -7,7 +7,7 @@
 static NSString *ZPLADStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
 
 /// Creates a ZPLADInterstitial and returns its reference
-ZPLADTypeInterstitialRef ZPLADCreateInterstitial(ZPLADTypeInterstitialClientRef *interstitialClient,
+AtmosplayTypeInterstitialRef ZPLADCreateInterstitial(AtmosplayTypeInterstitialClientRef *interstitialClient,
                                                        const char *adAppID,
                                                        const char *adUnitID) {
     ZPLADInterstitial *interstitial = [[ZPLADInterstitial alloc]
@@ -16,18 +16,18 @@ ZPLADTypeInterstitialRef ZPLADCreateInterstitial(ZPLADTypeInterstitialClientRef 
                                        adUnitId: ZPLADStringFromUTF8String(adUnitID)];
     ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
     [cache.references setObject:interstitial forKey:[interstitial zplad_referenceKey]];
-    return (__bridge ZPLADTypeInterstitialRef)interstitial;
+    return (__bridge AtmosplayTypeInterstitialRef)interstitial;
 }
 
 /// Sets the interstitial callback methods to be invoked during interstitial ad events.
 void ZPLADSetInterstitialAdCallbacks(
-        ZPLADTypeInterstitialClientRef interstitialAd,
-        ZPLADInterstitialDidReceivedAdCallback adReceivedCallback,
-        ZPLADInterstitialDidFailToReceiveAdWithErrorCallback adFailedCallback,
-        ZPLADInterstitialVideoDidStartPlayingCallback videoDidStartCallback,
-        ZPLADInterstitiaDidClickCallback adClickedCallback,
-        ZPLADInterstitialVideoDidCloseCallback videoDidCloseCallback,
-        ZPLADInterstitialDidCompleteCallback adDidCompleteCallback) {
+        AtmosplayTypeInterstitialClientRef interstitialAd,
+        AtmosplayInterstitialDidReceivedAdCallback adReceivedCallback,
+        AtmosplayInterstitialDidFailToReceiveAdWithErrorCallback adFailedCallback,
+        AtmosplayInterstitialDidStartPlayingCallback videoDidStartCallback,
+        AtmosplayInterstitiaDidClickCallback adClickedCallback,
+        AtmosplayInterstitialDidCloseCallback videoDidCloseCallback,
+        AtmosplayInterstitialDidCompleteCallback adDidCompleteCallback) {
     ZPLADInterstitial *internalInterstitialAd = (__bridge ZPLADInterstitial *)interstitialAd;
     internalInterstitialAd.adReceivedCallback = adReceivedCallback;
     internalInterstitialAd.adFailedCallback = adFailedCallback;
@@ -38,31 +38,31 @@ void ZPLADSetInterstitialAdCallbacks(
 }
 
 /// Makes an interstitial ad request.
-void ZPLADRequestInterstitial(ZPLADTypeInterstitialRef interstitial) {    
+void ZPLADRequestInterstitial(AtmosplayTypeInterstitialRef interstitial) {    
     ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
     [internalInterstitial loadAd];
 }
 
 /// Returns YES if the ZPLADInterstitial is ready to be shown.
-BOOL ZPLADInterstitialReady(ZPLADTypeInterstitialRef interstitial) {
+BOOL ZPLADInterstitialReady(AtmosplayTypeInterstitialRef interstitial) {
     ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
     return [internalInterstitial isReady];
 }
 
 /// Shows the ZPLADInterstitial.
-void ZPLADShowInterstitial(ZPLADTypeInterstitialRef interstitial) {
+void ZPLADShowInterstitial(AtmosplayTypeInterstitialRef interstitial) {
     ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
     [internalInterstitial show];
 }
 
 /// Sets ZPLADInterstitial autoload next ad.
-void ZPLADSetInterstitialAutoload(ZPLADTypeInterstitialRef interstitial, BOOL autoload) {
+void ZPLADSetInterstitialAutoload(AtmosplayTypeInterstitialRef interstitial, BOOL autoload) {
     ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
     [internalInterstitial setAutoload:autoload];
 }
 
 /// Sets ZPLADInterstitial channel id.
-void ZPLADSetInterstitialChannelId(ZPLADTypeInterstitialRef interstitial, const char *channelId) {
+void ZPLADSetInterstitialChannelId(AtmosplayTypeInterstitialRef interstitial, const char *channelId) {
     ZPLADInterstitial *internalInterstitial = (__bridge ZPLADInterstitial *)interstitial;
     [internalInterstitial setChannelId:ZPLADStringFromUTF8String(channelId)];
 }
@@ -187,7 +187,7 @@ void RequestBannerAd( AtmosplayTypeBannerRef bannerView){
 
 #pragma mark - Other methods
 /// Removes an object from the cache.
-void ZPLADRelease(ZPLADTypeRef ref) {
+void ZPLADRelease(AtmosplayTypeRef ref) {
     if (ref) {
         ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
         [cache.references removeObjectForKey:[(__bridge NSObject *)ref zplad_referenceKey]];

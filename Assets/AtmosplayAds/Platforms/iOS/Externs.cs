@@ -34,12 +34,12 @@ namespace AtmosplayAds.iOS
         [DllImport("__Internal")]
         internal static extern void ZPLADSetInterstitialAdCallbacks(
             IntPtr interstitial,
-            InterstitialClient.ZPLADInterstitialDidReceivedAdCallback adReceivedCallback,
-            InterstitialClient.ZPLADInterstitialDidFailToReceiveAdWithErrorCallback adFailedCallback,
-            InterstitialClient.ZPLADInterstitialVideoDidStartPlayingCallback videoDidStartCallback,
+            InterstitialClient.AtmosplayInterstitialDidReceivedAdCallback adReceivedCallback,
+            InterstitialClient.AtmosplayInterstitialDidFailToReceiveAdWithErrorCallback adFailedCallback,
+            InterstitialClient.AtmosplayInterstitialDidStartPlayingCallback videoDidStartCallback,
             InterstitialClient.ZPLADInterstitialDidClickCallback didClickCallback,
-            InterstitialClient.ZPLADInterstitialVideoDidCloseCallback videoDidCloseCallback,
-            InterstitialClient.ZPLADInterstitialDidCompleteCallback didCompleteCallback
+            InterstitialClient.AtmosplayInterstitialDidCloseCallback videoDidCloseCallback,
+            InterstitialClient.AtmosplayInterstitialDidCompleteCallback didCompleteCallback
         );
 
         [DllImport("__Internal")]
