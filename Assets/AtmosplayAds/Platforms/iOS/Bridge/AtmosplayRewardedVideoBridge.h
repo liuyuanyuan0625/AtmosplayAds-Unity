@@ -2,7 +2,7 @@
 #import <AtmosplayAds/AtmosplayRewardedVideo.h>
 #import "AtmosplayTypes.h"
 
-@interface ZPLADRewardVideo : NSObject
+@interface AtmosplayRewardedVideoBridge : NSObject
 /// Initializes a AtmosplayRewardedVideo
 - (id)initWithRewardVideoClientReference:(AtmosplayTypeRewardedVideoClientRef *)interstitialClient
                                  adAppId:(NSString *)adAppId
