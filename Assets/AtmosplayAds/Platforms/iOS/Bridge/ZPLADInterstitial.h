@@ -7,26 +7,26 @@
 @interface ZPLADInterstitial : NSObject
 
 /// Initializes a AtmosplayInterstitial
-- (id)initWithInterstitialClientReference:(ZPLADTypeInterstitialClientRef *)interstitialClient
+- (id)initWithInterstitialClientReference:(AtmosplayTypeInterstitialClientRef *)interstitialClient
                                   adAppId:(NSString *)adAppId
                                  adUnitId:(NSString *)adUnitId;
 
 /// The interstitial ad.
 @property(nonatomic, strong) AtmosplayInterstitial *interstitial;
 /// A reference to the Unity interstitial client.
-@property(nonatomic, assign) ZPLADTypeInterstitialClientRef *interstitialClient;
+@property(nonatomic, assign) AtmosplayTypeInterstitialClientRef *interstitialClient;
 /// The ad received callback into Unity.
-@property(nonatomic, assign) ZPLADInterstitialDidReceivedAdCallback adReceivedCallback;
+@property(nonatomic, assign) AtmosplayInterstitialDidReceivedAdCallback adReceivedCallback;
 /// The ad failed callback into Unity
-@property(nonatomic, assign) ZPLADInterstitialDidFailToReceiveAdWithErrorCallback adFailedCallback;
+@property(nonatomic, assign) AtmosplayInterstitialDidFailToReceiveAdWithErrorCallback adFailedCallback;
 /// The ad started playing callback into Unity.
-@property(nonatomic, assign) ZPLADInterstitialVideoDidStartPlayingCallback videoDidStartCallback;
+@property(nonatomic, assign) AtmosplayInterstitialDidStartPlayingCallback videoDidStartCallback;
 /// The ad "INSTALL" button is clicked callback into Unity.
-@property(nonatomic, assign) ZPLADInterstitiaDidClickCallback adClickedCallback;
+@property(nonatomic, assign) AtmosplayInterstitiaDidClickCallback adClickedCallback;
 /// The ad was closed callback into Unity
-@property(nonatomic, assign) ZPLADInterstitialVideoDidCloseCallback adDidCloseCallback;
+@property(nonatomic, assign) AtmosplayInterstitialDidCloseCallback adDidCloseCallback;
 /// The ad did complete callback into Unity.
-@property(nonatomic, assign) ZPLADInterstitialDidCompleteCallback videoDidCompleteCallback;
+@property(nonatomic, assign) AtmosplayInterstitialDidCompleteCallback videoDidCompleteCallback;
 
 - (void)loadAd;
 

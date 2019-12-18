@@ -14,17 +14,17 @@ namespace AtmosplayAds.iOS
 
         #region Interstitial callback types
 
-        internal delegate void ZPLADInterstitialDidReceivedAdCallback(IntPtr interstitialClient);
+        internal delegate void AtmosplayInterstitialDidReceivedAdCallback(IntPtr interstitialClient);
 
-        internal delegate void ZPLADInterstitialDidFailToReceiveAdWithErrorCallback(IntPtr interstitialClient, string error);
+        internal delegate void AtmosplayInterstitialDidFailToReceiveAdWithErrorCallback(IntPtr interstitialClient, string error);
 
-        internal delegate void ZPLADInterstitialVideoDidStartPlayingCallback(IntPtr interstitialClient);
+        internal delegate void AtmosplayInterstitialDidStartPlayingCallback(IntPtr interstitialClient);
 
         internal delegate void ZPLADInterstitialDidClickCallback(IntPtr interstitialClient);
 
-        internal delegate void ZPLADInterstitialVideoDidCloseCallback(IntPtr interstitialClient);
+        internal delegate void AtmosplayInterstitialDidCloseCallback(IntPtr interstitialClient);
 
-        internal delegate void ZPLADInterstitialDidCompleteCallback(IntPtr interstitialClient);
+        internal delegate void AtmosplayInterstitialDidCompleteCallback(IntPtr interstitialClient);
 
         #endregion
 
@@ -112,7 +112,7 @@ namespace AtmosplayAds.iOS
 
         #region Interstitial callback methods
 
-        [MonoPInvokeCallback(typeof(ZPLADInterstitialDidReceivedAdCallback))]
+        [MonoPInvokeCallback(typeof(AtmosplayInterstitialDidReceivedAdCallback))]
         static void InterstitialDidReceivedAdCallback(IntPtr interstitialClient)
         {
             InterstitialClient client = IntPtrToInterstitialClient(interstitialClient);
@@ -122,7 +122,7 @@ namespace AtmosplayAds.iOS
             }
         }
 
-        [MonoPInvokeCallback(typeof(ZPLADInterstitialDidFailToReceiveAdWithErrorCallback))]
+        [MonoPInvokeCallback(typeof(AtmosplayInterstitialDidFailToReceiveAdWithErrorCallback))]
         static void InterstitialDidFailToReceiveAdWithErrorCallback(IntPtr interstitialClient, string error)
         {
             InterstitialClient client = IntPtrToInterstitialClient(interstitialClient);
@@ -136,7 +136,7 @@ namespace AtmosplayAds.iOS
             }
         }
 
-        [MonoPInvokeCallback(typeof(ZPLADInterstitialVideoDidStartPlayingCallback))]
+        [MonoPInvokeCallback(typeof(AtmosplayInterstitialDidStartPlayingCallback))]
         static void InterstitialVideoDidStartPlayingCallback(IntPtr interstitialClient)
         {
             InterstitialClient client = IntPtrToInterstitialClient(interstitialClient);
@@ -157,7 +157,7 @@ namespace AtmosplayAds.iOS
             }
         }
 
-        [MonoPInvokeCallback(typeof(ZPLADInterstitialVideoDidCloseCallback))]
+        [MonoPInvokeCallback(typeof(AtmosplayInterstitialDidCloseCallback))]
         static void InterstitialVideoDidCloseCallback(IntPtr interstitialClient)
         {
             InterstitialClient client = IntPtrToInterstitialClient(interstitialClient);
@@ -167,7 +167,7 @@ namespace AtmosplayAds.iOS
             }
         }
 
-        [MonoPInvokeCallback(typeof(ZPLADInterstitialDidCompleteCallback))]
+        [MonoPInvokeCallback(typeof(AtmosplayInterstitialDidCompleteCallback))]
         static void InterstitialDidCompleteCallback(IntPtr interstitialClient)
         {
             InterstitialClient client = IntPtrToInterstitialClient(interstitialClient);

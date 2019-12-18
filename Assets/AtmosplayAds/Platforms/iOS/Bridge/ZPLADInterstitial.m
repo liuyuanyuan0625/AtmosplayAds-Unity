@@ -5,7 +5,7 @@
 @end
 
 @implementation ZPLADInterstitial
-- (id)initWithInterstitialClientReference:(ZPLADTypeInterstitialClientRef *)interstitialClient
+- (id)initWithInterstitialClientReference:(AtmosplayTypeInterstitialClientRef *)interstitialClient
                                   adAppId:(NSString *)adAppId
                                  adUnitId:(NSString *)adUnitId {
     self = [super init];
