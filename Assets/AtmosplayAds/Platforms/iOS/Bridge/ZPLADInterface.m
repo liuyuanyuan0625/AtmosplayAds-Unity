@@ -1,7 +1,7 @@
 #import "AtmosplayInterstitialBridge.h"
 #import "AtmosplayRewardedVideoBridge.h"
 #import "AtmosplayTypes.h"
-#import "ZPLADObjectCache.h"
+#import "AtmosplayObjectCache.h"
 #import "AtmosplayBannerBridge.h"
 
 static NSString *ZPLADStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
@@ -15,7 +15,7 @@ AtmosplayTypeInterstitialRef ZPLADCreateInterstitial(AtmosplayTypeInterstitialCl
                       initWithInterstitialClientReference:interstitialClient
                                        adAppId: ZPLADStringFromUTF8String(adAppID)
                                        adUnitId: ZPLADStringFromUTF8String(adUnitID)];
-    ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
+    AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
     [cache.references setObject:interstitial forKey:[interstitial atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeInterstitialRef)interstitial;
 }
@@ -77,7 +77,7 @@ AtmosplayTypeRewardedVideoRef ZPLADCreateRewardVideo(AtmosplayTypeRewardedVideoC
                                        initWithRewardVideoClientReference:rewardVideoClient
                                        adAppId: ZPLADStringFromUTF8String(adAppID)
                                        adUnitId: ZPLADStringFromUTF8String(adUnitID)];
-    ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
+    AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
     [cache.references setObject:rewardVideo forKey:[rewardVideo atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeRewardedVideoRef)rewardVideo;
 }
@@ -137,7 +137,7 @@ AtmosplayTypeBannerRef InitAtmosplayBannerAd(AtmosplayTypeBannerClientRef *banne
     
     AtmosplayBannerBridge *banner = [[AtmosplayBannerBridge alloc] initWithBannerClientReference:bannerRef adAppId:ZPLADStringFromUTF8String(adAppID) adUnitId:ZPLADStringFromUTF8String(adUnitID)];
     
-    ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
+    AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
     [cache.references setObject:banner forKey:[banner atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeBannerRef)banner;
 }
@@ -190,7 +190,7 @@ void RequestBannerAd( AtmosplayTypeBannerRef bannerView){
 /// Removes an object from the cache.
 void AtmosplayAdsRelease(AtmosplayTypeRef ref) {
     if (ref) {
-        ZPLADObjectCache *cache = [ZPLADObjectCache sharedInstance];
+        AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
         [cache.references removeObjectForKey:[(__bridge NSObject *)ref atmosplayAds_referenceKey]];
     }
 }

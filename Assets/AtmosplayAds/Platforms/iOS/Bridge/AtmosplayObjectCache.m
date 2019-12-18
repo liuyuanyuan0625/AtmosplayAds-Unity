@@ -1,9 +1,9 @@
-#import "ZPLADObjectCache.h"
+#import "AtmosplayObjectCache.h"
 
-@implementation ZPLADObjectCache
+@implementation AtmosplayObjectCache
 
 + (instancetype)sharedInstance {
-    static ZPLADObjectCache *sharedInstance;
+    static AtmosplayObjectCache *sharedInstance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedInstance = [[self alloc] init];
@@ -22,7 +22,6 @@
 @end
 
 @implementation NSObject (AtmosplayOwnershipAdditions)
-
 - (NSString *)atmosplayAds_referenceKey {
     return [NSString stringWithFormat:@"%p", (void *)self];
 }
