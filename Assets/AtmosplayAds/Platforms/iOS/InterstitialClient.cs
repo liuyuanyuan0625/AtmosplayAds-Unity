@@ -90,7 +90,7 @@ namespace AtmosplayAds.iOS
 
         public void SetChannelId(string channelId)
         {
-            Externs.ZPLADSetInterstitialChannelId(InterstitialPtr, channelId);
+            Externs.AtmosplayAdsSetInterstitialChannelId(InterstitialPtr, channelId);
         }
 
         public void DestroyInterstitial()
