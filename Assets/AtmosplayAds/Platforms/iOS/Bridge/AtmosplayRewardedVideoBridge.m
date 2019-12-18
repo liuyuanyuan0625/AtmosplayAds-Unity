@@ -1,9 +1,9 @@
-#import "ZPLADRewardVideo.h"
+#import "AtmosplayRewardedVideoBridge.h"
 
-@interface ZPLADRewardVideo() <AtmosplayRewardedVideoDelegate>
+@interface AtmosplayRewardedVideoBridge() <AtmosplayRewardedVideoDelegate>
 @end
 
-@implementation ZPLADRewardVideo
+@implementation AtmosplayRewardedVideoBridge
 - (id)initWithRewardVideoClientReference:(AtmosplayTypeRewardedVideoClientRef *)interstitialClient
                                  adAppId:(NSString *)adAppId
                                 adUnitId:(NSString *)adUnitId {
