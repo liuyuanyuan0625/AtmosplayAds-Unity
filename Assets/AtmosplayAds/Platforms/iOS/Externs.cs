@@ -29,7 +29,7 @@ namespace AtmosplayAds.iOS
 
         #region Interstitial externs
         [DllImport("__Internal")]
-        internal static extern IntPtr ZPLADCreateInterstitial(IntPtr interstitialClient, string adAppId, string adUnitId);
+        internal static extern IntPtr AtmosplayAdsCreateInterstitial(IntPtr interstitialClient, string adAppId, string adUnitId);
 
         [DllImport("__Internal")]
         internal static extern void ZPLADSetInterstitialAdCallbacks(
