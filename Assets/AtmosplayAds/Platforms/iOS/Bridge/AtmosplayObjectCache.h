@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@interface ZPLADObjectCache : NSObject
+@interface AtmosplayObjectCache : NSObject
 
 + (instancetype)sharedInstance;
 
