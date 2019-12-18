@@ -46,9 +46,8 @@ BOOL AtmosplayAdsInterstitialReady(AtmosplayTypeInterstitialRef interstitial) {
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     return [internalInterstitial isReady];
 }
-
 /// Shows the AtmosplayInterstitialBridge.
-void ZPLADShowInterstitial(AtmosplayTypeInterstitialRef interstitial) {
+void AtmosplayAdsShowInterstitial(AtmosplayTypeInterstitialRef interstitial) {
     AtmosplayInterstitialBridge *internalInterstitial = (__bridge AtmosplayInterstitialBridge *)interstitial;
     [internalInterstitial show];
 }

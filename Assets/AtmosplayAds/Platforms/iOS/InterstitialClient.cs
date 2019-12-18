@@ -80,7 +80,7 @@ namespace AtmosplayAds.iOS
 
         public void Show(string adUnitId)
         {
-            Externs.ZPLADShowInterstitial(InterstitialPtr);
+            Externs.AtmosplayAdsShowInterstitial(InterstitialPtr);
         }
 
         public void SetAutoloadNext(bool autoload)
