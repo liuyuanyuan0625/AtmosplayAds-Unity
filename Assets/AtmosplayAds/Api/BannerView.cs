@@ -7,7 +7,7 @@ namespace AtmosplayAds.Api
         private IBannerClient bannerClient;
         public BannerView(string adAppId, string adUnitId, BannerViewOptions options)
         {
-            bannerClient = ZPLAYAdsClientFactory.BuildBannerClient();
+            bannerClient = AtmosplayAdsClientFactory.BuildBannerClient();
             bannerClient.CreateBannerView(adAppId,adUnitId,options);
             ConfigureBannerEvents();
         }

@@ -9,7 +9,7 @@ namespace AtmosplayAds.Api
         // Creates InterstitialAd instance.
         public InterstitialAd(string adAppId, string adUnitId, AdOptions adOptions)
         {
-            client = ZPLAYAdsClientFactory.BuildInterstitialClient(adAppId, adUnitId);
+            client = AtmosplayAdsClientFactory.BuildInterstitialClient(adAppId, adUnitId);
             if (adOptions == null)
             {
                 adOptions = new AdOptionsBuilder().build();
