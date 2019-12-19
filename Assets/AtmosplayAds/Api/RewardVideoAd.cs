@@ -12,7 +12,7 @@ namespace AtmosplayAds.Api
         // Creates RewardVideoAd instance.
         public RewardVideoAd(string adAppId, string adUnitId, AdOptions adOptions)
         {
-            client = ZPLAYAdsClientFactory.BuildRewardVideoClient(adAppId, adUnitId);
+            client = AtmosplayAdsClientFactory.BuildRewardVideoClient(adAppId, adUnitId);
 
             if (adOptions == null)
             {

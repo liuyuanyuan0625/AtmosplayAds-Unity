@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AtmosplayAds
 {
-    public class ZPLAYAdsClientFactory
+    public class AtmosplayAdsClientFactory
     {
         public static IRewardVideoClient BuildRewardVideoClient(string adAppId, string adUnitId)
         {
