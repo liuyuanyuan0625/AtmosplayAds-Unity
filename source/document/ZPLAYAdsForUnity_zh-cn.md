@@ -100,7 +100,7 @@ ZPLAYAds Unity插件与[Unity Play Services Resolver library](https://github.com
 ```C#
 using ZPLAYAds.Api;
 using ZPLAYAds.Common;
-public class ZPLAYAdsDemoScript : MonoBehaviour
+public class AtmosplayAdsDemoScript : MonoBehaviour
 {
 #if UNITY_ANDROID
   const string ZPLAYADS_APP_ID = "YOUR_ZPLAYAds_APP_ID_ANDROID";
@@ -187,7 +187,7 @@ if(interstitial.IsReady(ZPLAYADS_UNIT_ID_INTERSTITIAL))
 ```C#
 using ZPLAYAds.Api;
 using ZPLAYAds.Common;
-public class ZPLAYAdsDemoScript : MonoBehaviour
+public class AtmosplayAdsDemoScript : MonoBehaviour
 {
 #if UNITY_ANDROID
   const string ZPLAYADS_APP_ID = "YOUR_ZPLAYAds_APP_ID_ANDROID";
@@ -273,7 +273,7 @@ if(rewardVideo.IsReady(ZPLAYADS_UNIT_ID_REWARD_VIDEO))
 ```C#
 using ZPLAYAds.Api;
 using ZPLAYAds.Common;
-public class ZPLAYAdsDemoScript : MonoBehaviour
+public class AtmosplayAdsDemoScript : MonoBehaviour
 {
 #if UNITY_ANDROID
   const string ZPLAYADS_APP_ID = "YOUR_ZPLAYAds_APP_ID_ANDROID";
