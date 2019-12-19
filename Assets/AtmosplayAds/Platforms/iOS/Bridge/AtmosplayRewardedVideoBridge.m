@@ -30,7 +30,7 @@
 
 - (void)show {
     if(self.rewardedVideo.isReady){
-        [self.rewardedVideo present];
+        [self.rewardedVideo showInterstitialWithViewController:nil];
     } else {
         NSLog(@"AtmosplayAdsPlugin: Interstitial is not ready to be shown.");
     }
