@@ -3,10 +3,10 @@
 using System;
 using UnityEngine;
 
-using ZPLAYAds.Api;
-using ZPLAYAds.Common;
+using AtmosplayAds.Api;
+using AtmosplayAds.Common;
 
-namespace ZPLAYAds.Android
+namespace AtmosplayAds.Android
 {
     public class RewardVideoClient : AndroidJavaProxy, IRewardVideoClient
     {

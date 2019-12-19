@@ -24,7 +24,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'com.playableads:playableads:2.6.0'
+    implementation 'com.atmosplayads:atmosplayads:3.0.0-alpha4'
 }
 
 task clearJar(type: Delete) {
