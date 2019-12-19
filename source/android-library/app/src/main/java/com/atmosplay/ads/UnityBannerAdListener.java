@@ -1,4 +1,4 @@
-package com.zplay.adsunity;
+package com.atmosplay.ads;
 
 /**
  * Description:

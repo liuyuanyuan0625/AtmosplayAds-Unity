@@ -14,59 +14,49 @@
  * limitations under the License.
  */
 
-package com.zplay.adsunity;
-
-import com.zplay.adsunity.UnityRewardVideoAdListener;
+package com.atmosplay.ads;
 
 import android.app.Activity;
 
-import com.playableads.PlayLoadingListener;
-import com.playableads.PlayPreloadingListener;
-import com.playableads.PlayableAds;
-import com.playableads.SimplePlayLoadingListener;
+import com.atmosplayads.AtmosplayInterstitial;
+import com.atmosplayads.listener.AtmosplayAdListener;
+import com.atmosplayads.listener.AtmosplayAdLoadListener;
+import com.atmosplayads.listener.SimpleAtmosplayAdListener;
 
-public class RewardVideo {
-    private PlayableAds rewardVideo;
+
+public class Interstitial {
+
+    private AtmosplayInterstitial interstitial;
     private Activity activity;
-    private UnityRewardVideoAdListener adListener;
-    private final String appId;
+    private UnityInterstitialAdListener adListener;
 
-    public RewardVideo(Activity activity, String appId, UnityRewardVideoAdListener adListener) {
+    public Interstitial(Activity activity, String appId, UnityInterstitialAdListener adListener) {
         this.activity = activity;
-        this.appId = appId;
         this.adListener = adListener;
-        rewardVideo = PlayableAds.init(activity, appId);
+        interstitial = AtmosplayInterstitial.init(activity, appId);
     }
 
     public void loadAd(final String unitId) {
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                rewardVideo.requestPlayableAds(unitId, newRequestListener());
+                interstitial.loadAd(unitId, newRequestListener());
             }
         });
     }
 
     public boolean isLoaded(final String unitId) {
-        return rewardVideo.canPresentAd(unitId);
+        interstitial.isReady(unitId);
+        return true;
     }
 
     public void show(final String unitId) {
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                if (rewardVideo.canPresentAd(unitId)) {
-                    rewardVideo.presentPlayableAD(unitId, newPlayListener());
+                if (interstitial.isReady(unitId)) {
+                    interstitial.show(unitId, newPlayListener());
                 }
-            }
-        });
-    }
-
-    public void setChannelId(final String channelId){
-        activity.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                rewardVideo.setChannelId(channelId);
             }
         });
     }
@@ -75,14 +65,23 @@ public class RewardVideo {
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                rewardVideo.setAutoLoadAd(autoLoad);
+                interstitial.setAutoLoadAd(autoLoad);
             }
         });
     }
 
-    private PlayPreloadingListener newRequestListener() {
+    public void setChannelId(final String channelId) {
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                interstitial.setChannelId(channelId);
+            }
+        });
+    }
 
-        return new PlayPreloadingListener() {
+    private AtmosplayAdLoadListener newRequestListener() {
+
+        return new AtmosplayAdLoadListener() {
 
             @Override
             public void onLoadFinished() {
@@ -114,8 +113,8 @@ public class RewardVideo {
         };
     }
 
-    private PlayLoadingListener newPlayListener() {
-        return new SimplePlayLoadingListener() {
+    private AtmosplayAdListener newPlayListener() {
+        return new SimpleAtmosplayAdListener() {
 
             @Override
             public void onVideoStart() {
@@ -125,20 +124,6 @@ public class RewardVideo {
                         public void run() {
                             if (adListener != null) {
                                 adListener.onAdStarted();
-                            }
-                        }
-                    }).start();
-                }
-            }
-
-            @Override
-            public void playableAdsIncentive() {
-                if (adListener != null) {
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if (adListener != null) {
-                                adListener.onAdRewarded();
                             }
                         }
                     }).start();
