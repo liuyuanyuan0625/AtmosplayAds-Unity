@@ -64,11 +64,11 @@ void AtmosplayAdsSetInterstitialChannelId(AtmosplayTypeInterstitialRef interstit
 
 #pragma mark - RewardedVideo method
 /// Creates a AtmosplayRewardedVideoBridge and return its reference
-AtmosplayTypeRewardedVideoRef AtmosplayAdsCreateRewardVideo(AtmosplayTypeRewardedVideoClientRef *rewardVideoClient,
+AtmosplayTypeRewardedVideoRef AtmosplayAdsCreateRewardedVideo(AtmosplayTypeRewardedVideoClientRef *rewardedVideoClient,
                                                  const char *adAppID,
                                                  const char *adUnitID) {
     AtmosplayRewardedVideoBridge *rewardedVideo = [[AtmosplayRewardedVideoBridge alloc]
-                                       initWithRewardVideoClientReference:rewardVideoClient
+                                       initWithRewardedVideoClientReference:rewardedVideoClient
                                        adAppId: AtmosplayAdsStringFromUTF8String(adAppID)
                                        adUnitId: AtmosplayAdsStringFromUTF8String(adUnitID)];
     AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
@@ -78,7 +78,7 @@ AtmosplayTypeRewardedVideoRef AtmosplayAdsCreateRewardVideo(AtmosplayTypeRewarde
 
 /// Sets the interstitial callback methods to be invoked during interstitial ad events.
 void AtmosplayAdsSetRewardedVideoAdCallbacks(
-        AtmosplayTypeRewardedVideoClientRef rewardVideoAd,
+        AtmosplayTypeRewardedVideoClientRef rewardedVideoAd,
         AtmosplayRewardedVideoDidReceivedAdCallback adReceivedCallback,
         AtmosplayRewardedVideoDidFailToReceiveAdWithErrorCallback adFailedCallback,
         AtmosplayRewardedVideoDidStartPlayingCallback videoDidStartCallback,
@@ -86,44 +86,39 @@ void AtmosplayAdsSetRewardedVideoAdCallbacks(
         AtmosplayRewardedVideoDidCloseCallback videoDidCloseCallback,
         AtmosplayRewardedVideoDidRewardCallback adDidRewardCallback,
         AtmosplayRewardedVideoDidCompleteCallback adDidCompleteCallback) {
-    AtmosplayRewardedVideoBridge *internalRewardVideoAd = (__bridge AtmosplayRewardedVideoBridge *)rewardVideoAd;
-    internalRewardVideoAd.adReceivedCallback = adReceivedCallback;
-    internalRewardVideoAd.adFailedCallback = adFailedCallback;
-    internalRewardVideoAd.videoDidStartCallback = videoDidStartCallback;
-    internalRewardVideoAd.adClickedCallback = adClickedCallback;
-    internalRewardVideoAd.adRewardCallback = adDidRewardCallback;
-    internalRewardVideoAd.adDidCloseCallback = videoDidCloseCallback;
-    internalRewardVideoAd.videoDidCompleteCallback = adDidCompleteCallback;
+    AtmosplayRewardedVideoBridge *internalRewardedVideoAd = (__bridge AtmosplayRewardedVideoBridge *)rewardedVideoAd;
+    internalRewardedVideoAd.adReceivedCallback = adReceivedCallback;
+    internalRewardedVideoAd.adFailedCallback = adFailedCallback;
+    internalRewardedVideoAd.videoDidStartCallback = videoDidStartCallback;
+    internalRewardedVideoAd.adClickedCallback = adClickedCallback;
+    internalRewardedVideoAd.adRewardCallback = adDidRewardCallback;
+    internalRewardedVideoAd.adDidCloseCallback = videoDidCloseCallback;
+    internalRewardedVideoAd.videoDidCompleteCallback = adDidCompleteCallback;
 }
-
 /// Makes an rewarded video ad request.
-void AtmosplayAdsRequestRewardedVideo(AtmosplayTypeRewardedVideoRef rewardVideo) {
-    AtmosplayRewardedVideoBridge *internalRewardVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardVideo;
-    [internalRewardVideo loadAd];
+void AtmosplayAdsRequestRewardedVideo(AtmosplayTypeRewardedVideoRef rewardedVideo) {
+    AtmosplayRewardedVideoBridge *internalRewardedVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardedVideo;
+    [internalRewardedVideo loadAd];
 }
-
-/// Returns YES if the AtmosplayRewardedVideoBridge is ready to be shown.
-BOOL ZPLADRewardVideoReady(AtmosplayTypeRewardedVideoRef rewardVideo) {
-    AtmosplayRewardedVideoBridge *internalRewardVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardVideo;
-    return [internalRewardVideo isReady];
+/// Returns YES if the AtmosplayRewardedVideoBridge is ready to be show.
+BOOL AtmosplayRewardedVideoReady(AtmosplayTypeRewardedVideoRef rewardedVideo) {
+    AtmosplayRewardedVideoBridge *internalRewardedVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardedVideo;
+    return [internalRewardedVideo isReady];
 }
-
 /// Shows the AtmosplayRewardedVideoBridge.
-void ZPLADShowRewardVideo(AtmosplayTypeRewardedVideoRef rewardVideo) {
-    AtmosplayRewardedVideoBridge *internalRewardVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardVideo;
-    [internalRewardVideo show];
+void AtmosplayShowRewardedVideo(AtmosplayTypeRewardedVideoRef rewardedVideo) {
+    AtmosplayRewardedVideoBridge *internalRewardedVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardedVideo;
+    [internalRewardedVideo show];
 }
-
 /// Sets AtmosplayRewardedVideoBridge autoload next ad.
-void ZPLADSetRewardVideoAutoload(AtmosplayTypeRewardedVideoRef rewardVideo, BOOL autoload) {
-    AtmosplayRewardedVideoBridge *internalRewardVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardVideo;
-    [internalRewardVideo setAutoload:autoload];
+void AtmosplaySetRewardedVideoAutoload(AtmosplayTypeRewardedVideoRef rewardedVideo, BOOL autoload) {
+    AtmosplayRewardedVideoBridge *internalRewardedVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardedVideo;
+    [internalRewardedVideo setAutoload:autoload];
 }
-
 /// Sets AtmosplayRewardedVideoBridge channel id.
-void ZPLADSetRewardVideoChannelId(AtmosplayTypeRewardedVideoRef rewardVideo, const char *channelId) {
-    AtmosplayRewardedVideoBridge *internalRewardVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardVideo;
-    [internalRewardVideo setChannelId:AtmosplayAdsStringFromUTF8String(channelId)];
+void AtmosplaySetRewardedVideoChannelId(AtmosplayTypeRewardedVideoRef rewardedVideo, const char *channelId) {
+    AtmosplayRewardedVideoBridge *internalRewardedVideo = (__bridge AtmosplayRewardedVideoBridge *)rewardedVideo;
+    [internalRewardedVideo setChannelId:AtmosplayAdsStringFromUTF8String(channelId)];
 }
 
 #pragma mark - Banner method
@@ -163,7 +158,6 @@ void SetBannerChannelID(AtmosplayTypeBannerRef bannerView,const char *channelID)
     AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner setChannelID:AtmosplayAdsStringFromUTF8String(channelID)];
 }
-
 /// Sets the banner callback methods to be invoked during banner ad events.
 void SetBannerCallbacks(
                         AtmosplayTypeBannerRef bannerView,
@@ -176,7 +170,6 @@ void SetBannerCallbacks(
     internalBanner.adFailedCallback = adFailedCallback;
     internalBanner.adClickedCallback = adClickedCallback;
 }
-
 void RequestBannerAd( AtmosplayTypeBannerRef bannerView){
     AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner loadAd];

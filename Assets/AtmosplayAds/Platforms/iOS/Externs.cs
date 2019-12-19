@@ -21,16 +21,14 @@ namespace AtmosplayAds.iOS
      
     class Externs
     {
-
         #region Common externs
         [DllImport("__Internal")]
         internal static extern IntPtr AtmosplayAdsRelease(IntPtr obj);
         #endregion
-
+        
         #region Interstitial externs
         [DllImport("__Internal")]
         internal static extern IntPtr AtmosplayAdsCreateInterstitial(IntPtr interstitialClient, string adAppId, string adUnitId);
-
         [DllImport("__Internal")]
         internal static extern void AtmosplayAdsSetInterstitialAdCallbacks(
             IntPtr interstitial,
@@ -44,28 +42,28 @@ namespace AtmosplayAds.iOS
 
         [DllImport("__Internal")]
         internal static extern void AtmosplayAdsRequestInterstitial(IntPtr interstitial);
-
+        
         [DllImport("__Internal")]
         internal static extern bool AtmosplayAdsInterstitialReady(IntPtr interstitial);
-
+        
         [DllImport("__Internal")]
         internal static extern void AtmosplayAdsShowInterstitial(IntPtr interstitial);
 
         [DllImport("__Internal")]
         internal static extern void AtmosplayAdsSetInterstitialAutoload(IntPtr interstitial, bool autoload);
-
+        
         [DllImport("__Internal")]
         internal static extern void AtmosplayAdsSetInterstitialChannelId(IntPtr interstitial, string channelId);
         #endregion
 
 
-        #region RewardVideo externs
+        #region RewardedVideo externs
         [DllImport("__Internal")]
-        internal static extern IntPtr AtmosplayAdsCreateRewardVideo(IntPtr rewardVideoClient, string adAppId, string adUnitId);
+        internal static extern IntPtr AtmosplayAdsCreateRewardedVideo(IntPtr rewardedVideoClient, string adAppId, string adUnitId);
 
         [DllImport("__Internal")]
         internal static extern void AtmosplayAdsSetRewardedVideoAdCallbacks(
-            IntPtr interstitial,
+            IntPtr rewardedVideo,
             RewardVideoClient.AtmosplayRewardedVideoDidReceivedAdCallback adReceivedCallback,
             RewardVideoClient.AtmosplayRewardedVideoDidFailToReceiveAdWithErrorCallback adFailedCallback,
             RewardVideoClient.AtmosplayRewardedVideoDidStartPlayingCallback videoDidStartCallback,
@@ -76,20 +74,21 @@ namespace AtmosplayAds.iOS
         );
 
         [DllImport("__Internal")]
-        internal static extern void AtmosplayAdsRequestRewardedVideo(IntPtr rewardVideo);
+        internal static extern void AtmosplayAdsRequestRewardedVideo(IntPtr rewardedVideo);
 
         [DllImport("__Internal")]
-        internal static extern bool ZPLADRewardVideoReady(IntPtr rewardVideo);
+        internal static extern bool AtmosplayRewardedVideoReady(IntPtr rewardedVideo);
 
         [DllImport("__Internal")]
-        internal static extern void ZPLADShowRewardVideo(IntPtr rewardVideo);
+        internal static extern void AtmosplayShowRewardedVideo(IntPtr rewardedVideo);
 
         [DllImport("__Internal")]
-        internal static extern void ZPLADSetRewardVideoAutoload(IntPtr rewardVideo, bool autoload);
+        internal static extern void AtmosplaySetRewardedVideoAutoload(IntPtr rewardedVideo, bool autoload);
 
         [DllImport("__Internal")]
-        internal static extern void ZPLADSetRewardVideoChannelId(IntPtr rewardVideo, string channelId);
+        internal static extern void AtmosplaySetRewardedVideoChannelId(IntPtr rewardedVideo, string channelId);
         #endregion
+
         #region banner externs
         // banner
         [DllImport("__Internal")]
