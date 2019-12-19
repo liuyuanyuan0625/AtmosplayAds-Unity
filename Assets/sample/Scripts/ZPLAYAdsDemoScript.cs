@@ -59,13 +59,13 @@ public class ZPLAYAdsDemoScript : MonoBehaviour
         Rect requestRewardRect = new Rect(columnOnePosition, 0.05f * Screen.height, buttonWidth, buttonHeight);
         if (GUI.Button(requestRewardRect, "Request\nRewardVideo"))
         {
-            RequestRewarVideo(GlobleSettings.GetRewardVideoUnitID);
+            RequestRewaredVideo(GlobleSettings.GetRewardVideoUnitID);
         }
 
         Rect showRewardRect = new Rect(columnTwoPosition, 0.05f * Screen.height, buttonWidth, buttonHeight);
         if (GUI.Button(showRewardRect, "Show\nRewarded Video"))
         {
-            ShowRewarVideo(GlobleSettings.GetRewardVideoUnitID);
+            ShowRewardedVideo(GlobleSettings.GetRewardVideoUnitID);
         }
 
         Rect requestInterstitialRect = new Rect(columnOnePosition, 0.25f * Screen.height, buttonWidth, buttonHeight);
@@ -107,26 +107,29 @@ public class ZPLAYAdsDemoScript : MonoBehaviour
 
     }
 
-    void RequestRewarVideo(string adUnitId)
+    void RequestRewaredVideo(string adUnitId)
     {
         rewardVideo.LoadAd(adUnitId);
+        print("atmosplay---request rewarded video");
     }
 
-    void ShowRewarVideo(string adUnitId)
+    void ShowRewardedVideo(string adUnitId)
     {
         if (rewardVideo.IsReady(adUnitId))
         {
             rewardVideo.Show(adUnitId);
+            print("atmosplay---show rewarded video");
         }
         else
         {
-            print("===> Reward video ad is not ready yet.");
+            print("atmosplay---RewardedVideo ad not ready");
         }
     }
 
     void RequestInterstitital(string adUnitId)
     {
         interstitial.LoadAd(adUnitId);
+        print("atmosplay---request interstitial");
     }
 
     void ShowInterstitial(string adUnitId)
@@ -134,94 +137,91 @@ public class ZPLAYAdsDemoScript : MonoBehaviour
         if (interstitial.IsReady(adUnitId))
         {
             interstitial.Show(adUnitId);
+            print("atmosplay---show interstitial");
         }
         else
         {
-            print("===> Reward video ad is not ready yet.");
+            print("atmosplay---interstitial not ready");
         }
     }
 
-    #region RewardVideo callback handlers
-
+    #region RewardedVideo callback handlers
     public void HandleRewardVideoLoaded(object sender, EventArgs args)
     {
-        print("===> HandleRewardVideoLoaded event received");
+        print("atmosplay---HandleRewardVideoLoaded");
     }
 
     public void HandleRewardVideoFailedToLoad(object sender, AdFailedEventArgs args)
     {
-        print("===> HandleRewardVideoFailedToLoad event received with message: " + args.Message);
+        print("atmosplay---HandleRewardVideoFailedToLoadWithError:" + args.Message);
     }
 
     public void HandleRewardVideoStart(object sender, EventArgs args)
     {
-        print("===> HandleRewardVideoStart event received.");
+        print("atmosplay---HandleRewardVideoStart");
     }
 
     public void HandleRewardVideoClicked(object sender, EventArgs args)
     {
-        print("===> HandleRewardVideoClicked event received.");
+        print("atmosplay---HandleRewardVideoClicked");
     }
 
 
     public void HandleRewardVideoRewarded(object sender, EventArgs args)
     {
-        print("===> HandleRewardVideoRewarded event received.");
+        print("atmosplay---HandleRewardVideoRewarded");
     }
 
 
     public void HandleRewardVideoClosed(object sender, EventArgs args)
     {
-        print("===> HandleRewardVideoClosed event received.");
+        print("atmosplay---HandleRewardVideoClosed");
     }
 
     #endregion
 
 
     #region Interstitial callback handlers
-
     public void HandleInterstitialLoaded(object sender, EventArgs args)
     {
-        print("===> HandleInterstitialLoaded event received");
+        print("atmosplay---HandleInterstitialLoaded");
     }
 
     public void HandleInterstitialFailedToLoad(object sender, AdFailedEventArgs args)
     {
-        print("===> HandleInterstitialFailedToLoad event received with message: " + args.Message);
+        print("atmosplay---HandleInterstitialFailedToLoadWithError:" + args.Message);
     }
 
     public void HandleInterstitialStart(object sender, EventArgs args)
     {
-        print("===> HandleInterstitialStart event received.");
+        print("atmosplay---HandleInterstitialStart");
     }
 
     public void HandleInterstitialClicked(object sender, EventArgs args)
     {
-        print("===> HandleInterstitialClicked event received.");
+        print("atmosplay---HandleInterstitialClicked");
     }
-
 
     public void HandleInterstitialClosed(object sender, EventArgs args)
     {
-        print("===> HandleInterstitialClosed event received.");
+        print("atmosplay---HandleInterstitialClosed");
     }
 
     #endregion
     #region Banner callback handlers
-
     public void HandleBannerAdLoaded(object sender, EventArgs args)
     {
-        print("===> HandleBannerAdLoaded event received");
+        print("atmosplay---HandleBannerAdLoaded");
     }
 
     public void HandleBannerAdFailedToLoad(object sender, AdFailedEventArgs args)
     {
-        print("===> HandleBannerAdFailedToLoad event received with message: " + args.Message);
+        print("atmosplay---HandleBannerAdFailedToLoadWithError:" + args.Message);
     }
 
      public void HandleBannerClicked(object sender, EventArgs args)
     {
-        print("===> HandleBannerClicked event.");
+        print("atmosplay---HandleBannerClicked");
     }
 
     #endregion
