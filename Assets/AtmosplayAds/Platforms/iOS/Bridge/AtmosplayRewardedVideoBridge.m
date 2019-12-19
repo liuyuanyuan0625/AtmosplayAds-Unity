@@ -46,45 +46,45 @@
 
 #pragma mark - AtmosplayRewardedVideoDelegate
 /// Tells the delegate that succeeded to load ad.
-- (void)playableAdsDidLoad:(PlayableAds *)ads {
+- (void)atmosplayRewardedVideoDidLoad:(AtmosplayRewardedVideo *)ads {
     if (self.adReceivedCallback) {
         self.adReceivedCallback(self.rewardedVideoClient);
     }
 }
 /// Tells the delegate that failed to load ad.
-- (void)playableAds:(PlayableAds *)ads didFailToLoadWithError:(NSError *)error {
+- (void)atmosplayRewardedVideo:(AtmosplayRewardedVideo *)ads didFailToLoadWithError:(NSError *)error {
     if (self.adFailedCallback) {
         NSString *errorMsg = [NSString stringWithFormat:@"Failed to receive ad with error: %@", error];
         self.adFailedCallback(self.rewardedVideoClient, [errorMsg cStringUsingEncoding:NSUTF8StringEncoding]);
     }
 }
 /// Tells the delegate that user starts playing the ad.
-- (void)playableAdsDidStartPlaying:(PlayableAds *)ads {
+- (void)atmosplayRewardedVideoDidStartPlaying:(AtmosplayRewardedVideo *)ads {
     if (self.videoDidStartCallback) {
         self.videoDidStartCallback(self.rewardedVideoClient);
     }
 }
 /// Tells the delegate that the ad is being fully played.
-- (void)playableAdsDidEndPlaying:(PlayableAds *)ads {
+- (void)atmosplayRewardedVideoDidEndPlaying:(AtmosplayRewardedVideo *)ads {
     if (self.videoDidCompleteCallback) {
         self.videoDidCompleteCallback(self.rewardedVideoClient);
     }
 }
 /// Tells the delegate that the ad did animate off the screen.
-- (void)playableAdsDidDismissScreen:(PlayableAds *)ads {
+- (void)atmosplayRewardedVideoDidDismissScreen:(AtmosplayRewardedVideo *)ads {
    
     if (self.adDidCloseCallback) {
         self.adDidCloseCallback(self.rewardedVideoClient);
     }
 }
 /// Tells the delegate that the ad is clicked
-- (void)playableAdsDidClick:(PlayableAds *)ads {
+- (void)atmosplayRewardedVideoDidClick:(AtmosplayRewardedVideo *)ads {
     if (self.adClickedCallback) {
         self.adClickedCallback(self.rewardedVideoClient);
     }
 }
-/// Tells the delegate that the USER should be rewarded.
-- (void)playableAdsDidRewardUser:(PlayableAds *)ads {
+/// Tells the delegate that the user should be rewarded.
+- (void)atmosplayRewardedVideoDidReceiveReward:(AtmosplayRewardedVideo *)ads {
     if (self.adRewardCallback) {
         self.adRewardCallback(self.rewardedVideoClient);
     }
