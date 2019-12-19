@@ -14,12 +14,13 @@
  * limitations under the License.
  */
 
-package com.zplay.adsunity;
+package com.atmosplay.ads;
 
-public interface UnityInterstitialAdListener {
+public interface UnityRewardVideoAdListener {
     void onAdLoaded();
     void onAdFailed(String errorReason);
     void onAdStarted();
+    void onAdRewarded();
     void onAdClicked();
     void onAdVideoCompleted();
     void onAdCompleted();
