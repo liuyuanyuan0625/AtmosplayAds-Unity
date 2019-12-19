@@ -1,17 +1,17 @@
 #if UNITY_ANDROID
-namespace ZPLAYAds.Android
+namespace AtmosplayAds.Android
 {
     internal static class Utils
     {
 
-        public const string RewardVideoClassName = "com.zplay.adsunity.RewardVideo";
-        public const string UnityRewardVideoAdListenerClassName = "com.zplay.adsunity.UnityRewardVideoAdListener";
+        public const string RewardVideoClassName = "com.atmosplay.ads.RewardVideo";
+        public const string UnityRewardVideoAdListenerClassName = "com.atmosplay.ads.UnityRewardVideoAdListener";
 
-        public const string InterstitialClassName = "com.zplay.adsunity.Interstitial";
-        public const string UnityInterstitialAdListenerClassName = "com.zplay.adsunity.UnityInterstitialAdListener";
+        public const string InterstitialClassName = "com.atmosplay.ads.Interstitial";
+        public const string UnityInterstitialAdListenerClassName = "com.atmosplay.ads.UnityInterstitialAdListener";
 
-        public const string BannerClassName = "com.zplay.adsunity.Banner";
-        public const string UnityBannerAdListenerClassName = "com.zplay.adsunity.UnityBannerAdListener";
+        public const string BannerClassName = "com.atmosplay.ads.Banner";
+        public const string UnityBannerAdListenerClassName = "com.atmosplay.ads.UnityBannerAdListener";
 
         public const string UnityActivityClassName = "com.unity3d.player.UnityPlayer";
 

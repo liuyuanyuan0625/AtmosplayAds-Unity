@@ -2,9 +2,9 @@
 using System;
 using UnityEngine;
 
-using ZPLAYAds.Api;
-using ZPLAYAds.Common;
-namespace ZPLAYAds.Android
+using AtmosplayAds.Api;
+using AtmosplayAds.Common;
+namespace AtmosplayAds.Android
 {
     public class InterstitialClient : AndroidJavaProxy, IInterstitialClient
     {
