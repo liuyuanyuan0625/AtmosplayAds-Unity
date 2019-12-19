@@ -4,7 +4,7 @@
 @end
 
 @implementation AtmosplayRewardedVideoBridge
-- (id)initWithRewardVideoClientReference:(AtmosplayTypeRewardedVideoClientRef *)interstitialClient
+- (id)initWithRewardedVideoClientReference:(AtmosplayTypeRewardedVideoClientRef *)interstitialClient
                                  adAppId:(NSString *)adAppId
                                 adUnitId:(NSString *)adUnitId {
     self = [super init];
