@@ -145,7 +145,7 @@ void DestroyBannerView(AtmosplayTypeBannerRef bannerView){
     AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner removeBannerView];
 }
-void SetBannerAdSize(AtmosplayTypeBannerRef bannerView,AtmosplayAdsBannerSize bannerSize){
+void SetBannerAdSize(AtmosplayTypeBannerRef bannerView,AtmosplayBannerSize bannerSize){
     AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner setBannerAdSize:bannerSize];
 }
