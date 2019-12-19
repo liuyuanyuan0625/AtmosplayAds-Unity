@@ -3,7 +3,7 @@ using UnityEngine;
 using AtmosplayAds.Api;
 using AtmosplayAds.Common;
 using AtmosplayAds;
-public class ZPLAYAdsDemoScript : MonoBehaviour
+public class AtmosplayAdsDemoScript : MonoBehaviour
 {
     RewardVideoAd rewardVideo;
     InterstitialAd interstitial;
