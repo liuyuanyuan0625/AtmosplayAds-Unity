@@ -4,7 +4,7 @@
 
 @interface AtmosplayRewardedVideoBridge : NSObject
 /// Initializes a AtmosplayRewardedVideo
-- (id)initWithRewardVideoClientReference:(AtmosplayTypeRewardedVideoClientRef *)interstitialClient
+- (id)initWithRewardedVideoClientReference:(AtmosplayTypeRewardedVideoClientRef *)interstitialClient
                                  adAppId:(NSString *)adAppId
                                 adUnitId:(NSString *)adUnitId;
 
