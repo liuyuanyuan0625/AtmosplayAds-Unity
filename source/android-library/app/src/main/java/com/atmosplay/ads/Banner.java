@@ -1,4 +1,4 @@
-package com.zplay.adsunity;
+package com.atmosplay.ads;
 
 import android.app.Activity;
 import android.text.TextUtils;
@@ -8,10 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 
-import com.playableads.AtmosplayAdsBanner;
-import com.playableads.BannerListener;
-import com.playableads.entity.BannerSize;
-import com.playableads.presenter.widget.AtmosBannerView;
+import com.atmosplayads.AtmosplayBanner;
+import com.atmosplayads.entity.BannerSize;
+import com.atmosplayads.listener.BannerListener;
+import com.atmosplayads.presenter.widget.AtmosBannerView;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 
@@ -29,7 +29,7 @@ public class Banner {
 
     private final Activity activity;
     private final UnityBannerAdListener adListener;
-    private AtmosplayAdsBanner mBanner;
+    private AtmosplayBanner mBanner;
     private View mBannerView;
     private int mPosition = Gravity.BOTTOM;
 
@@ -49,7 +49,7 @@ public class Banner {
         activity.runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                mBanner = new AtmosplayAdsBanner(activity, appId, unitId);
+                mBanner = new AtmosplayBanner(activity, appId, unitId);
                 mBanner.setChannelId(channelId);
                 mBanner.setBannerSize(getBannerSize(bannerSize));
                 mBanner.setBannerListener(new BannerListener() {
