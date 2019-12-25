@@ -1,6 +1,6 @@
-<dependencies>
+﻿<dependencies>
   <androidPackages>
-    <androidPackage spec="com.playableads:playableads:2.6.0">
+    <androidPackage spec="com.atmosplayads:atmosplayads:3.0.0">
       <repositories>
         <repository>https://jcenter.bintray.com/</repository>
       </repositories>
