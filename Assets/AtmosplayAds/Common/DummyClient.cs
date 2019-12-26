@@ -7,7 +7,7 @@ using AtmosplayAds.Api;
 
 namespace AtmosplayAds.Common
 {
-    public class DummyClient : IInterstitialClient, IRewardVideoClient
+    public class DummyClient : IInterstitialClient, IRewardVideoClient, IBannerClient
     {
         public DummyClient()
         {
@@ -24,7 +24,26 @@ namespace AtmosplayAds.Common
         public event EventHandler<EventArgs> OnAdVideoFinished;
         public event EventHandler<EventArgs> OnAdClosed;
 #pragma warning restore 67
-
+        public void DestroyBannerView()
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
+        public void HideBannerView()
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
+        public void ShowBannerView() 
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
+        public void CreateBannerView(string adAppId, string adUnitId, BannerViewOptions options)
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
+        public void LoadAd()
+        {
+            Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
+        }
         public void LoadAd(string adUnitId)
         {
             Debug.Log("Dummy " + MethodBase.GetCurrentMethod().Name);
