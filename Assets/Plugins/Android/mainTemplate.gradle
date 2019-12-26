@@ -30,7 +30,7 @@ allprojects {
             url "https://maven.google.com"
         }
         maven {
-            url "https://jcenter.bintray.com/" // Assets/ZPLAYAds/Editor/ZPLAYAdsDependencies.xml:7
+            url "https://jcenter.bintray.com/" // Assets/AtmosplayAds/Editor/AtmosplayAdsDependencies.xml:7
         }
         mavenLocal()
         jcenter()
@@ -45,7 +45,7 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
 // Android Resolver Dependencies Start
-    implementation 'com.playableads:playableads:2.6.0' // Assets/ZPLAYAds/Editor/ZPLAYAdsDependencies.xml:7
+    implementation 'com.atmosplayads:atmosplayads:3.0.0' // Assets/AtmosplayAds/Editor/AtmosplayAdsDependencies.xml:7
 // Android Resolver Dependencies End
 **DEPS**}
 
