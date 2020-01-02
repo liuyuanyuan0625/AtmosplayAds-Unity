@@ -1,6 +1,6 @@
 <dependencies>
   <packages>
-    <package>com.playableads:playableads:2.6.0</package>
+    <package>com.atmosplayads:atmosplayads:3.0.0</package>
   </packages>
   <files />
   <settings>

@@ -113,3 +113,4 @@ Assets/Plugins/Android/com.google*
 Assets/Plugins/Android/com.playableads*
 
 iOS-test/
+*.unitypackage

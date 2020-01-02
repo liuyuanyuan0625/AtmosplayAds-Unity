@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5155e3b270c0e4b7f8e730886385c2e7, type: 3}
+  m_Name: GlobleSettingsDB
+  m_EditorClassIdentifier: 
+  androidAutoload: 1
+  androidChannelId: 
+  androidAppId: 5C5419C7-A2DE-88BC-A311-C3E7A646F6AF
+  androidRewardVideoUnitId: 3FBEFA05-3A8B-2122-24C7-A87D0BC9FEEC
+  androidInterstitialUnitId: 19393189-C4EB-3886-60B9-13B39407064E
+  androidBannerUnitId: F22F347B-3D57-0C70-0B13-EFCFDF402EBA
+  iOSAutoload: 1
+  iOSChannelId: 
+  iOSAppId: 788C58DC-8290-F665-3C87-E7B1DBE8DFCE
+  iOSRewardVideoUnitId: 6B076AF5-C5D5-D57B-6003-526D0F09A5DF
+  iOSInterstitialUnitId: 8ECA5501-40A1-AFF0-ACA4-B85C412D85BB
+  iOSBannerUnitId: 51449B74-3F06-FE87-6313-2B4E1BB443E3
