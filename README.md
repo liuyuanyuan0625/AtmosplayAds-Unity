@@ -26,7 +26,7 @@
 
 请通过如下链接下载该插件的 Unity 软件包，或在 GitHub 上查看其代码。
 
-[下载插件]()  
+[下载插件](https://github.com/Atmosplay/AtmosplayAds-Unity/releases/download/3.0.0/AtmosplayAds.unitypackage)  
 [查看源代码](https://github.com/Atmosplay/AtmosplayAds-Unity)  
 
 ### 导入移动广告 Unity 插件
