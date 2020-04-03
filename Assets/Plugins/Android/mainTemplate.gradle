@@ -45,7 +45,7 @@ dependencies {
     implementation 'com.android.support:multidex:1.0.3'
 
 // Android Resolver Dependencies Start
-    implementation 'com.atmosplayads:atmosplayads:3.0.0' // Assets/AtmosplayAds/Editor/AtmosplayAdsDependencies.xml:7
+    implementation 'com.atmosplayads:atmosplayads:3.1.0' // Assets/AtmosplayAds/Editor/AtmosplayAdsDependencies.xml:7
 // Android Resolver Dependencies End
 **DEPS**}
 
