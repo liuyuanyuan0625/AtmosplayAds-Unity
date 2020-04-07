@@ -87,7 +87,7 @@ namespace AtmosplayAds.Android
 
         public void Destroy()
         {
-            androidFloatAd.Call("destroy");
+            androidFloatAd.Call("onDestroy");
         }
 
         private Rect getGameObjectRect(RectTransform rectTransform, Camera camera)
