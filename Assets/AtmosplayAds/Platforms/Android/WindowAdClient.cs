@@ -78,7 +78,7 @@ namespace AtmosplayAds.Android
 
         public void Destroy()
         {
-            androidWindowAd.Call("destroy");
+            androidWindowAd.Call("onDestroy");
         }
 
         private Rect getGameObjectRect(RectTransform rectTransform, Camera camera)
@@ -178,7 +178,7 @@ namespace AtmosplayAds.Android
             }
         }
 
-        #endregion
+#endregion
     }
 }
 
