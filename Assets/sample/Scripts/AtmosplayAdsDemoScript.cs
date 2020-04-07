@@ -110,12 +110,20 @@ public class AtmosplayAdsDemoScript : MonoBehaviour
         Rect showFloatAdSceneRect = new Rect(columnTwoPosition, 0.5f * Screen.height, buttonWidth, buttonHeight);
         if (GUI.Button(showFloatAdSceneRect, "Show FloatAd"))
         {
+            if (bannerView != null)
+            {
+                bannerView.Destroy();
+            }
             SceneManager.LoadScene("FloatAdScene");
         }
 
         Rect showWindowAdSceneRect = new Rect(columnOnePosition, 0.65f * Screen.height, buttonWidth, buttonHeight);
         if (GUI.Button(showWindowAdSceneRect, "Show WindowAd"))
         {
+            if (bannerView != null)
+            {
+                bannerView.Destroy();
+            }
             SceneManager.LoadScene("WindowAdScene");
         }
     }
