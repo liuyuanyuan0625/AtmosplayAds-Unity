@@ -1,6 +1,6 @@
 <dependencies>
   <packages>
-    <package>com.atmosplayads:atmosplayads:3.1.0-alpha5</package>
+    <package>com.atmosplayads:atmosplayads:3.1.0</package>
   </packages>
   <files />
   <settings>
