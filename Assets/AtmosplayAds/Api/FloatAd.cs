@@ -21,6 +21,7 @@ namespace AtmosplayAds.Api
             }
             client.SetChannelId(adOptions.mChannelId);
             client.SetAutoloadNext(adOptions.isAutoLoad);
+            client.LoadAd(adUnitId);
 
             client.OnAdLoaded += (sender, args) =>
             {
@@ -85,11 +86,6 @@ namespace AtmosplayAds.Api
         // Ad event fired when the float ad is closed.
         public event EventHandler<EventArgs> OnAdClosed;
 
-        // Loads a new float ad
-        public void LoadAd(string adUnitId)
-        {
-            client.LoadAd(adUnitId);
-        }
 
         // Determines whether the float ad has loaded
         public bool IsReady(string adUnitId)

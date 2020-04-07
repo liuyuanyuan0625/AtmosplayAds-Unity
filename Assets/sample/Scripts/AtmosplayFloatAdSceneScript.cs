@@ -33,14 +33,6 @@ public class AtmosplayFloatAdSceneScript : MonoBehaviour
         floatAd.OnAdClosed += HandleFloatAdClosed;
     }
 
-    public void loadAd() {
-        statusText.text = "loadAd";
-        if (floatAd != null)
-        {
-            floatAd.LoadAd(GlobleSettings.GetFloatAdUnitID);
-        }
-    }
-
     public void showFloatAd() {
         statusText.text = "showFloatAd";
         if (floatAd != null)
