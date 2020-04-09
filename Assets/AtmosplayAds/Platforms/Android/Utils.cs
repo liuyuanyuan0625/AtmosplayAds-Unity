@@ -17,6 +17,12 @@ namespace AtmosplayAds.Android
 
         public const string BundleClassName = "android.os.Bundle";
         public const string DateClassName = "java.util.Date";
+
+        public const string FloatAdClassName = "com.atmosplay.ads.FloatAd";
+        public const string UnityFloatAdListenerClassName = "com.atmosplay.ads.UnityFloatAdListener";
+
+        public const string WindowAdClassName = "com.atmosplay.ads.WindowAd";
+        public const string UnityWindowAdListenerClassName = "com.atmosplay.ads.UnityWindowAdListener";
     }
 }
 #endif

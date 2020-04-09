@@ -157,8 +157,16 @@ public class Banner {
     }
 
     public void destroyBannerView() {
-        removeView(mBannerView);
-        mBanner.destroy();
+        activity.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (mBannerView == null) {
+                    return;
+                }
+                removeView(mBannerView);
+                mBanner.destroy();
+            }
+        });
     }
 
 
