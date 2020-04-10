@@ -47,7 +47,7 @@ Atmosplay 移动广告 Unity 插件随 Unity Play [服务解析器库](https://g
 
 ### 添加MSA SDK去获取OAID (推荐)
 
-要使Atmosplay SDK能够使用MSA SDK获取OAID值，请将MSA SDK（AAR文件）复制到项目的Assets/Plugins/Android目录中。 您还需要将providerconfig.json复制到项目的Assets/Plugins/Android/assets目录中。
+要使Atmosplay SDK能够使用MSA SDK获取OAID值，请将MSA SDK（AAR文件）复制到项目的Assets/Plugins/Android目录中。 您还需要将supplierconfig.json复制到项目的Assets/Plugins/Android/assets目录中。
 
 > MSA SDK详细说明和下载地址，请[查看](http://www.msa-alliance.cn/col.jsp?id=120)
 
