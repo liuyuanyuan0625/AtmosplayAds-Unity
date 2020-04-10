@@ -58,34 +58,34 @@
 #pragma mark - AtmosplayFloatAdDelegate
 /// Tells the delegate that an ad has been successfully loaded.
 - (void)atmosplayFloatAdDidLoad:(AtmosplayFloatAd *)floatAd {
-  if (self.adReceivedCallback) {
-    self.adReceivedCallback(self.floatAdClient);
+  if (self.adDidReceivedCallback) {
+    self.adDidReceivedCallback(self.floatAdClient);
   }
 }
 /// Tells the delegate that a request failed.
 - (void)atmosplayFloatAd:(AtmosplayFloatAd *)floatAd DidFailWithError:(NSError *)error {
-  if(self.adFailedCallback) {
+  if(self.adDidFailedCallback) {
     NSString *errorMsg = [NSString
           stringWithFormat:@"Failed to load ad with error: %@", [error localizedDescription]];
-    self.adFailedCallback(self.floatAdClient, [errorMsg cStringUsingEncoding:NSUTF8StringEncoding]);
+    self.adDidFailedCallback(self.floatAdClient, [errorMsg cStringUsingEncoding:NSUTF8StringEncoding]);
   }
 }
 /// Tells the delegate that the user should be rewarded.
 - (void)atmosplayFloatAdDidRewardUser:(AtmosplayFloatAd *)floatAd {
-  if(self.adRewardedCallback) {
-    self.adRewardedCallback(self.floatAdClient);
+  if(self.adDidRewardedCallback) {
+    self.adDidRewardedCallback(self.floatAdClient);
   }
 }
 /// Tells the delegate that user starts playing the ad.
 - (void)atmosplayFloatAdDidStartPlaying:(AtmosplayFloatAd *)floatAd {
-  if(self.adStartedCallback) {
-    self.adStartedCallback(self.floatAdClient);
+  if(self.adDidStartedCallback) {
+    self.adDidStartedCallback(self.floatAdClient);
   }
 }
 /// Tells the delegate that the ad is being fully played.
 - (void)atmosplayFloatAdDidEndPlaying:(AtmosplayFloatAd *)floatAd {
-  if(self.adFinishedCallback) {
-    self.adFinishedCallback(self.floatAdClient);
+  if(self.adDidCompletedCallback) {
+    self.adDidCompletedCallback(self.floatAdClient);
   }
 }
 /// Tells the delegate that the landing page did present on the screen.
@@ -94,14 +94,14 @@
 }
 /// Tells the delegate that the ad did animate off the screen.
 - (void)atmosplayFloatAdDidDismissScreen:(AtmosplayFloatAd *)floatAd {
-  if(self.adClosedCallback) {
-    self.adClosedCallback(self.floatAdClient);
+  if(self.adDidClosedCallback) {
+    self.adDidClosedCallback(self.floatAdClient);
   }
 }
 /// Tells the delegate that the ad is clicked
 - (void)atmosplayFloatAdDidClick:(AtmosplayFloatAd *)floatAd {
-  if(self.adClickedCallback) {
-    self.adClickedCallback(self.floatAdClient);
+  if(self.adDidClickedCallback) {
+    self.adDidClickedCallback(self.floatAdClient);
   }
 }
 
