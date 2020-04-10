@@ -26,7 +26,7 @@
 
 请通过如下链接下载该插件的 Unity 软件包，或在 GitHub 上查看其代码。
 
-[下载插件](https://github.com/Atmosplay/AtmosplayAds-Unity/releases/download/3.0.0/AtmosplayAds.unitypackage)  
+[下载插件](https://github.com/Atmosplay/AtmosplayAds-Unity/releases/download/3.1.0/AtmosplayAds.unitypackage)  
 [查看源代码](https://github.com/Atmosplay/AtmosplayAds-Unity)  
 
 ### 导入移动广告 Unity 插件
@@ -326,4 +326,305 @@ if(rewardVideo.IsReady(AtmosplayAds_AdUnit_ID_Rewarded))
 {
   rewardVideo.Show(AtmosplayAds_AdUnit_ID_Rewarded);
 } 
+```
+
+## 浮标广告 
+### 创建浮标广告对象
+
+```c#
+using System;
+using UnityEngine;
+using AtmosplayAds.Api;
+using AtmosplayAds.Common;
+public class AtmosplayFloatAdSceneScript : MonoBehaviour
+{
+#if UNITY_ANDROID
+  const string AtmosplayAds_App_ID_FloatAd = "Your_AtmosplayAds_App_ID_FloatAd_Android";
+  const string AtmosplayAds_AdUnit_ID_FloatAd = "Your_AtmosplayAds_AdUnit_ID_FloatAd_Android";
+#elif UNITY_IOS
+  const string AtmosplayAds_App_ID_FloatAd = "Your_AtmosplayAds_App_ID_FloatAd_iOS";
+  const string AtmosplayAds_AdUnit_ID_FloatAd = "Your_AtmosplayAds_AdUnit_ID_FloatAd_iOS";
+#else
+  const string AtmosplayAds_App_ID_FloatAd = "unexpected_platform";
+  const string AtmosplayAds_AdUnit_ID_FloatAd = "unexpected_platform";
+#endif
+
+  FloatAd floatAd;
+
+  void Start() 
+  {
+    AdOptions adOptions = new AdOptionsBuilder()
+      .SetChannelId("")
+      .SetAutoLoadNext(true)
+      .build();
+
+    //After creating the FloatAd object, the SDK will start requesting ads
+    floatAd = new FloatAd(AtmosplayAds_App_ID_FloatAd, AtmosplayAds_AdUnit_ID_FloatAd, gameObject, adOptions);
+        floatAd.OnAdLoaded += HandleFloatAdLoaded;
+        floatAd.OnAdFailedToLoad += HandleFloatAdFailedToLoad;
+        floatAd.OnAdStarted += HandleFloatAdStart;
+        floatAd.OnAdClicked += HandleFloatAdClicked;
+        floatAd.OnAdRewarded += HandleFloatAdRewarded;
+        floatAd.OnAdClosed += HandleFloatAdClosed;
+  }
+
+#region FloatAd callback handlers
+public void HandleFloatAdLoaded(object sender, EventArgs args)
+{
+    print("atmosplay---HandleFloatAdLoaded");
+}
+
+public void HandleFloatAdFailedToLoad(object sender, AdFailedEventArgs args)
+{
+    print("atmosplay---HandleFloatAdFailedToLoad:" + args.Message);
+}
+
+public void HandleFloatAdStart(object sender, EventArgs args)
+{
+    print("atmosplay---HandleFloatAdStart");
+}
+
+public void HandleFloatAdClicked(object sender, EventArgs args)
+{
+    print("atmosplay---HandleFloatAdClicked");
+}
+
+
+public void HandleFloatAdRewarded(object sender, EventArgs args)
+{
+    print("atmosplay---HandleFloatAdRewarded");
+}
+
+
+public void HandleFloatAdClosed(object sender, EventArgs args)
+{
+    print("atmosplay---HandleFloatAdClosed");
+}
+
+#endregion
+}  
+```
+
+
+### 判断浮标广告是否准备好  
+
+```c#
+if (floatAd != null)
+{
+floatAd.IsReady(AtmosplayAds_AdUnit_ID_FloatAd)
+}
+```
+
+
+### 设置浮标广告展示的位置和宽
+
+首先请在游戏中需要展示浮标广告的位置创建一个floatAdView GameObjet：
+<img src='resources/floatAdView.png'>  
+
+```c#
+if (floatAd != null)
+{
+  floatAd.SetPointAndWidth(floatAdView.transform);
+}
+```
+
+
+### 展示浮标广告 
+
+```c#
+if (floatAd != null)
+{
+if(floatAd.IsReady(AtmosplayAds_AdUnit_ID_FloatAd))
+{
+  floatAd.Show(AtmosplayAds_AdUnit_ID_FloatAd);
+}
+}
+```
+
+### 更新浮标广告位置和大小
+
+```c#
+  //如果你想更新浮标广告的位置和大小，请先更新游戏中floatAdView GameObject的位置和大小，然后使用下面的接口将浮标广告更新到新的位置
+if (floatAd != null)
+{
+  floatAd.UpdatePointAndWidth(floatAdView.transform);
+}
+```
+
+### 隐藏浮标广告
+
+```c#
+if (floatAd != null)
+{
+    floatAd.Hide();
+}
+```
+
+### 恢复展示隐藏的浮标广告
+
+```c#
+if (floatAd != null)
+{
+    floatAd.ShowAgainAfterHiding();
+}
+```
+
+### 销毁浮标广告对象
+
+```c#
+if (floatAd != null)
+{
+    floatAd.Destroy();
+    floatAd = null;
+}
+```
+
+
+## 窗口广告 
+### 创建窗口广告对象并且请求窗口广告
+
+```c#
+using System;
+using UnityEngine;
+using AtmosplayAds.Api;
+using AtmosplayAds.Common;
+public class AtmosplayWindowAdSceneScript : MonoBehaviour
+{
+#if UNITY_ANDROID
+  const string AtmosplayAds_App_ID_WindowAd = "Your_AtmosplayAds_App_ID_WindowAd_Android";
+  const string AtmosplayAds_AdUnit_ID_WindowAd = "Your_AtmosplayAds_AdUnit_ID_WindowAd_Android";
+#elif UNITY_IOS
+  const string AtmosplayAds_App_ID_WindowAd = "Your_AtmosplayAds_App_ID_WindowAd_iOS";
+  const string AtmosplayAds_AdUnit_ID_WindowAd = "Your_AtmosplayAds_AdUnit_ID_WindowAd_iOS";
+#else
+  const string AtmosplayAds_App_ID_WindowAd = "unexpected_platform";
+  const string AtmosplayAds_AdUnit_ID_WindowAd = "unexpected_platform";
+#endif
+
+  WindowAd windowAd;
+
+  void Start() 
+  {
+    AdOptions adOptions = new AdOptionsBuilder()
+      .SetChannelId("")
+      .build();
+
+    //After creating the WindowAd object, the SDK will start requesting ads
+     windowAd = new WindowAd(AtmosplayAds_App_ID_WindowAd, AtmosplayAds_AdUnit_ID_WindowAd, gameObject, adOptions);
+        windowAd.OnAdLoaded += HandleWindowAdLoaded;
+        windowAd.OnAdFailedToLoad += HandleWindowAdFailedToLoad;
+        windowAd.OnAdStarted += HandleWindowAdStart;
+        windowAd.OnAdClicked += HandleWindowAdClicked;
+        windowAd.OnAdFinished += HandleWindowAdFinished;
+        windowAd.OnAdClosed += HandleWindowAdClosed;
+  }
+
+#region WindowAd callback handlers
+public void HandleWindowAdLoaded(object sender, EventArgs args)
+{
+    print("atmosplay---HandleWindowAdLoaded");
+}
+
+public void HandleWindowAdFailedToLoad(object sender, AdFailedEventArgs args)
+{
+    print("atmosplay---HandleWindowAdFailedToLoad:" + args.Message);
+}
+
+public void HandleWindowAdStart(object sender, EventArgs args)
+{
+    print("atmosplay---HandleWindowAdStart");
+}
+
+public void HandleWindowAdClicked(object sender, EventArgs args)
+{
+    print("atmosplay---HandleWindowAdClicked");
+}
+
+
+public void HandleWindowAdFinished(object sender, EventArgs args)
+{
+    print("atmosplay---HandleWindowAdFinished");
+}
+
+
+public void HandleWindowAdClosed(object sender, EventArgs args)
+{
+    print("atmosplay---HandleWindowAdClosed");
+}
+#endregion
+}  
+```
+
+
+### 判断窗口广告是否准备好  
+
+```c#
+if (windowAd != null)
+{
+windowAd.IsReady()
+}
+```
+
+
+### 设置窗口广告展示的位置和宽
+
+首先请在游戏中需要展示窗口广告的位置创建一个GameObjet：
+<img src='resources/windowAdview.png'>  
+
+```c#
+if (windowAd != null)
+{
+  windowAd.SetPointAndWidth(windowAdview.transform);
+}
+```
+
+
+### 展示浮标广告 
+
+```c#
+if (windowAd != null)
+{
+if(windowAd.IsReady())
+{
+  windowAd.Show();
+}
+}
+```
+
+### 更新窗口广告位置和大小
+
+```c#
+  //如果你想更新窗口广告的位置和大小，请先更新游戏中windowAdview GameObject的位置和大小，然后使用下面的接口将窗口广告更新到新的位置
+if (windowAd != null)
+{
+  windowAd.UpdatePointAndWidth(windowAdview.transform);
+}
+```
+
+### 隐藏窗口广告
+
+```c#
+if (windowAd != null)
+{
+    windowAd.Hide();
+}
+```
+
+### 恢复展示隐藏的窗口广告
+
+```c#
+if (windowAd != null)
+{
+    windowAd.ShowAgainAfterHiding();
+}
+```
+
+### 销毁窗口广告对象
+
+```c#
+if (windowAd != null)
+{
+    windowAd.Destroy();
+    windowAd = null;
+}
 ```
