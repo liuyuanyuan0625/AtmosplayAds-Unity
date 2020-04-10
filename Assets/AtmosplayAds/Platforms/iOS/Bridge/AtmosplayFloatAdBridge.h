@@ -13,19 +13,19 @@
 /// A AtmosplayFloatAd which contains the ad.
 @property(nonatomic, strong) AtmosplayFloatAd *floatAd;
 /// The ad received callback into Unity.
-@property(nonatomic, assign) AtmosplayFloatAdDidReceiveAdCallback adReceivedCallback;
+@property(nonatomic, assign) AtmosplayFloatAdDidReceiveAdCallback adDidReceivedCallback;
 /// The ad failed callback into Unity.
-@property(nonatomic, assign) AtmosplayFloatAdDidFailToReceiveAdWithErrorCallback adFailedCallback;
+@property(nonatomic, assign) AtmosplayFloatAdDidFailToReceiveAdWithErrorCallback adDidFailedCallback;
 /// The ad clicked callback into Unity.
-@property(nonatomic, assign) AtmosplayFloatAdDidClickCallback adClickedCallback;
+@property(nonatomic, assign) AtmosplayFloatAdDidClickCallback adDidClickedCallback;
 /// The ad started callback into Unity.
-@property(nonatomic, assign) AtmosplayFloatAdDidStartedCallback adStartedCallback;
+@property(nonatomic, assign) AtmosplayFloatAdDidStartedCallback adDidStartedCallback;
 /// The ad finished callback into Unity.
-@property(nonatomic, assign) AtmosplayFloatAdDidFinishedCallback adFinishedCallback;
+@property(nonatomic, assign) AtmosplayFloatAdDidFinishedCallback adDidCompletedCallback;
 /// The ad rewarded callback into Unity.
-@property(nonatomic, assign) AtmosplayFloatAdDidRewardedCallback adRewardedCallback;
+@property(nonatomic, assign) AtmosplayFloatAdDidRewardedCallback adDidRewardedCallback;
 /// The ad closed callback into Unity.
-@property(nonatomic, assign) AtmosplayFloatAdDidClosedCallback adClosedCallback;
+@property(nonatomic, assign) AtmosplayFloatAdDidClosedCallback adDidClosedCallback;
 
 - (void)showFloatAdWith:(CGFloat)x
                       y:(CGFloat)y
