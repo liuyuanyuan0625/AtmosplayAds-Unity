@@ -113,7 +113,7 @@ public class AtmosplayWindowAdSceneScript : MonoBehaviour
     }
 
 
-    #region FloatAd callback handlers
+    #region WindowAd callback handlers
     public void HandleWindowAdLoaded(object sender, EventArgs args)
     {
         statusText.text = "HandleWindowAdLoaded";
