@@ -116,6 +116,42 @@ namespace AtmosplayAds.iOS
 
 
         #endregion
+
+        #region FloatAd externs
+        [DllImport("__Internal")]
+        internal static extern IntPtr AtmosplayAdsCreateFloatAd(IntPtr floatAdClient, string adAppID, string adUnitID, bool autoLoad);
+        [DllImport("__Internal")]
+        internal static extern void AtmosplayAdsSetFloatAdCallbacks(
+            IntPtr floatAd,
+            floatAdClient.AtmosplayFloatAdDidReceivedAdCallback adReceivedCallback,
+            floatAdClient.AtmosplayFloatAdDidFailToLoadAdWithErrorCallback adFailedCallback,
+            floatAdClient.AtmosplayFloatAdDidStartPlayingCallback videoDidStartCallback,
+            floatAdClient.AtmosplayFloatAdDidClickCallback didClickCallback,
+            floatAdClient.AtmosplayFloatAdDidCloseCallback videoDidCloseCallback,
+            floatAdClient.AtmosplayFloatAdDidCompleteCallback didCompleteCallback
+        );
+        
+        [DllImport("__Internal")]
+        internal static extern bool floatAdIsReady(IntPtr floatAd);
+        
+        [DllImport("__Internal")]
+        internal static extern void showFloatAd(IntPtr floatAd, int x, int y, int width);
+
+        [DllImport("__Internal")]
+        internal static extern void updateFloatAdPosition(IntPtr floatAd, int x, int y, int width);
+        
+        [DllImport("__Internal")]
+        internal static extern void setFloatAdChannelId(IntPtr floatAd, string channelId);
+
+        [DllImport("__Internal")]
+        internal static extern void hiddenFloatAd(IntPtr floatAd);
+
+        [DllImport("__Internal")]
+        internal static extern void showFloatAdAgainAfterHiding(IntPtr floatAd);
+
+        [DllImport("__Internal")]
+        internal static extern void destroyFloatAd(IntPtr floatAd);
+        #endregion
     }
 }
 #endif
