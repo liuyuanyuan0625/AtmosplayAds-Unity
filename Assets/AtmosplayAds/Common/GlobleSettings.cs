@@ -21,6 +21,10 @@ namespace AtmosplayAds.Common
         string androidInterstitialUnitId = "";
         [SerializeField]
         string androidBannerUnitId = "";
+        [SerializeField]
+        string androidFloatAdUnitId = "";
+        [SerializeField]
+        string androidWindowAdUnitId = "";
 
 
         [Header("IOS")]
@@ -36,6 +40,8 @@ namespace AtmosplayAds.Common
         string iOSInterstitialUnitId = "";
         [SerializeField]
         string iOSBannerUnitId = "";
+        [SerializeField]
+        string iOSFloatAdUnitId = "";
 #pragma warning restore 67
 
 
@@ -152,6 +158,32 @@ namespace AtmosplayAds.Common
                 return Instance.androidBannerUnitId;
 #elif UNITY_IPHONE
                 return Instance.iOSBannerUnitId;
+#else
+                return "";
+#endif
+            }
+        }
+        public static string GetFloatAdUnitID
+        {
+            get
+            {
+#if UNITY_ANDROID
+                return Instance.androidFloatAdUnitId;
+#elif UNITY_IPHONE
+                return Instance.iOSFloatAdUnitId;
+#else
+                return "";
+#endif
+            }
+        }
+        public static string GetWindowAdUnitID
+        {
+            get
+            {
+#if UNITY_ANDROID
+                return Instance.androidWindowAdUnitId;
+#elif UNITY_IPHONE
+                return Instance.iOSWindowAdUnitId;
 #else
                 return "";
 #endif

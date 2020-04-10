@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/sample/Scenes/MainScene.unity
     guid: dbb85862daf1c4684ae340e61250a2ab
+  - enabled: 1
+    path: Assets/sample/Scenes/FloatAdScene.unity
+    guid: f553bd5396ec9401598dc1db487cc4aa
+  - enabled: 1
+    path: Assets/sample/Scenes/WindowAdScene.unity
+    guid: c810ef707715f4a7e97b4208f525c41c
   m_configObjects: {}

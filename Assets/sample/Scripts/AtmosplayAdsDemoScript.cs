@@ -3,6 +3,8 @@ using UnityEngine;
 using AtmosplayAds.Api;
 using AtmosplayAds.Common;
 using AtmosplayAds;
+using UnityEngine.SceneManagement;
+
 public class AtmosplayAdsDemoScript : MonoBehaviour
 {
     RewardVideoAd rewardVideo;
@@ -52,7 +54,7 @@ public class AtmosplayAdsDemoScript : MonoBehaviour
     {
         GUI.skin.button.fontSize = (int)(0.034f * Screen.width);
         float buttonWidth = 0.35f * Screen.width;
-        float buttonHeight = 0.15f * Screen.height;
+        float buttonHeight = 0.1f * Screen.height;
         float columnOnePosition = 0.1f * Screen.width;
         float columnTwoPosition = 0.55f * Screen.width;
 
@@ -68,19 +70,19 @@ public class AtmosplayAdsDemoScript : MonoBehaviour
             ShowRewardedVideo(GlobleSettings.GetRewardVideoUnitID);
         }
 
-        Rect requestInterstitialRect = new Rect(columnOnePosition, 0.25f * Screen.height, buttonWidth, buttonHeight);
+        Rect requestInterstitialRect = new Rect(columnOnePosition, 0.2f * Screen.height, buttonWidth, buttonHeight);
         if (GUI.Button(requestInterstitialRect, "Request\nInterstitital"))
         {
             RequestInterstitital(GlobleSettings.GetInterstitialUnitID);
         }
 
-        Rect showInterstitialRect = new Rect(columnTwoPosition, 0.25f * Screen.height, buttonWidth, buttonHeight);
+        Rect showInterstitialRect = new Rect(columnTwoPosition, 0.2f * Screen.height, buttonWidth, buttonHeight);
         if (GUI.Button(showInterstitialRect, "Show\nInterstitital"))
         {
             ShowInterstitial(GlobleSettings.GetInterstitialUnitID);
         }
         // banner
-        Rect requestBannerRect = new Rect(columnOnePosition, 0.45f * Screen.height, buttonWidth, buttonHeight);
+        Rect requestBannerRect = new Rect(columnOnePosition, 0.35f * Screen.height, buttonWidth, buttonHeight);
         if (GUI.Button(requestBannerRect, "Request Banner"))
         {
             if (bannerView != null)
@@ -88,7 +90,7 @@ public class AtmosplayAdsDemoScript : MonoBehaviour
                 bannerView.LoadAd();
             }
         }
-        Rect hiddenBannerlRect = new Rect(columnTwoPosition, 0.45f * Screen.height, buttonWidth, buttonHeight);
+        Rect hiddenBannerlRect = new Rect(columnTwoPosition, 0.35f * Screen.height, buttonWidth, buttonHeight);
         if (GUI.Button(hiddenBannerlRect, "Hide Banenr"))
         {
             if (bannerView != null)
@@ -96,7 +98,7 @@ public class AtmosplayAdsDemoScript : MonoBehaviour
                 bannerView.Hide();
             }
         }
-        Rect showBannerlRect = new Rect(columnOnePosition, 0.65f * Screen.height, buttonWidth, buttonHeight);
+        Rect showBannerlRect = new Rect(columnOnePosition, 0.5f * Screen.height, buttonWidth, buttonHeight);
         if (GUI.Button(showBannerlRect, "Show Banenr"))
         {
             if (bannerView != null)
@@ -105,6 +107,25 @@ public class AtmosplayAdsDemoScript : MonoBehaviour
             }
         }
 
+        Rect showFloatAdSceneRect = new Rect(columnTwoPosition, 0.5f * Screen.height, buttonWidth, buttonHeight);
+        if (GUI.Button(showFloatAdSceneRect, "Show FloatAd"))
+        {
+            if (bannerView != null)
+            {
+                bannerView.Destroy();
+            }
+            SceneManager.LoadScene("FloatAdScene");
+        }
+
+        Rect showWindowAdSceneRect = new Rect(columnOnePosition, 0.65f * Screen.height, buttonWidth, buttonHeight);
+        if (GUI.Button(showWindowAdSceneRect, "Show WindowAd"))
+        {
+            if (bannerView != null)
+            {
+                bannerView.Destroy();
+            }
+            SceneManager.LoadScene("WindowAdScene");
+        }
     }
 
     void RequestRewaredVideo(string adUnitId)
