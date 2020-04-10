@@ -3,6 +3,7 @@
 #import "AtmosplayTypes.h"
 #import "AtmosplayObjectCache.h"
 #import "AtmosplayBannerBridge.h"
+#import "AtmosplayFloatAdBridge.h"
 
 static NSString *AtmosplayAdsStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
 
@@ -76,7 +77,7 @@ AtmosplayTypeRewardedVideoRef AtmosplayAdsCreateRewardedVideo(AtmosplayTypeRewar
     return (__bridge AtmosplayTypeRewardedVideoRef)rewardedVideo;
 }
 
-/// Sets the interstitial callback methods to be invoked during interstitial ad events.
+/// Sets the rewarded callback methods to be invoked during interstitial ad events.
 void AtmosplayAdsSetRewardedVideoAdCallbacks(
         AtmosplayTypeRewardedVideoClientRef rewardedVideoAd,
         AtmosplayRewardedVideoDidReceivedAdCallback adReceivedCallback,
@@ -173,6 +174,76 @@ void SetBannerCallbacks(
 void RequestBannerAd( AtmosplayTypeBannerRef bannerView){
     AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner loadAd];
+}
+
+#pragma mark - FloatAd Method
+/// Creates a AtmosplayFloatAdBridge and return its reference
+AtmosplayTypeFloatAdRef AtmosplayAdsCreateFloatAd(AtmosplayTypeFloatAdClientRef *floatAdClient,
+                                                 const char *adAppID,
+                                                 const char *adUnitID,
+                                                 BOOL autoLoad) {
+    AtmosplayFloatAdBridge *floatAd = [[AtmosplayFloatAdBridge alloc] initWithFloatAdClientReference:floatAdClient
+                                                                                             adAppId:(NSString *)adAppId
+                                                                                            adUnitId:(NSString *)adUnitId
+                                                                                            autoLoad:(BOOL)autoLoad];
+    AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
+    [cache.references setObject:floatAd forKey:[floatAd atmosplayAds_referenceKey]];
+    return (__bridge AtmosplayTypeFloatAdRef)floatAd;
+}
+
+/// Sets the float ad callback methods to be invoked during ad events.
+void AtmosplayAdsSetFloatAdCallbacks(
+        AtmosplayTypeFloatAdRef floatAd,
+        AtmosplayFloatAdDidReceiveAdCallback adDidReceivedCallback,
+        AtmosplayFloatAdDidFailToReceiveAdWithErrorCallback adDidFailedCallback,
+        AtmosplayFloatAdDidClickCallback adDidClickedCallback,
+        AtmosplayFloatAdDidStartedCallback adDidStartedCallback,
+        AtmosplayFloatAdDidFinishedCallback adDidCompletedCallback,
+        AtmosplayFloatAdDidClosedCallback adDidClosedCallback,
+        AtmosplayFloatAdDidRewardedCallback adDidRewardedCallback) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    internalFloatAd.adDidReceivedCallback = adDidReceivedCallback;
+    internalFloatAd.adDidFailedCallback = adDidFailedCallback;
+    internalFloatAd.adDidStartedCallback = adDidStartedCallback;
+    internalFloatAd.adDidClickedCallback = adDidClickedCallback;
+    internalFloatAd.adDidRewardedCallback = adDidRewardedCallback;
+    internalFloatAd.adDidClosedCallback = adDidClosedCallback;
+    internalFloatAd.adDidCompletedCallback = adDidCompletedCallback;
+}
+
+BOOL floatAdIsReady(AtmosplayTypeFloatAdRef floatAd) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    return [internalFloatAd isReady];
+}
+
+void showFloatAd(AtmosplayTypeFloatAdRef floatAd, int x, int y, int width) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd showFloatAdWith:x y:y width:width];
+}
+
+void updateFloatAdPosition(AtmosplayTypeFloatAdRef floatAd, int x, int y, int width) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd resetFloatAdFrameWith:x y:y width:width];
+}
+
+void setFloatAdChannelId(AtmosplayTypeFloatAdRef floatAd, const char *channelId) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd setChannelID:AtmosplayAdsStringFromUTF8String(channelId)];
+}
+
+void hiddenFloatAd(AtmosplayTypeFloatAdRef floatAd) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd hiddenFloatAd]
+}
+
+void showFloatAdAgainAfterHiding(AtmosplayTypeFloatAdRef floatAd) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd showAgainAfterHiding]
+}
+
+void destroyFloatAd(AtmosplayTypeFloatAdRef floatAd) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd destroyFloatAd]
 }
 
 #pragma mark - Other methods
