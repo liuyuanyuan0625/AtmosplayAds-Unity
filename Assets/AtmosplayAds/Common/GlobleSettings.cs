@@ -42,6 +42,8 @@ namespace AtmosplayAds.Common
         string iOSBannerUnitId = "";
         [SerializeField]
         string iOSFloatAdUnitId = "";
+        [SerializeField]
+        string iOSWindowAdUnitId = "";
 #pragma warning restore 67
 
 
