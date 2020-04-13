@@ -3,6 +3,7 @@ using System;
 using AtmosplayAds.Common;
 using AtmosplayAds.Api;
 using System.Runtime.InteropServices;
+using UnityEngine;
 
 namespace AtmosplayAds.iOS
 {
@@ -11,6 +12,8 @@ namespace AtmosplayAds.iOS
         private IntPtr floatAdPtr;
 
         private IntPtr floatAdClientPtr;
+
+        private GameObject currentGameObject;
 
         private string channelID;
 
@@ -48,14 +51,16 @@ namespace AtmosplayAds.iOS
         public event EventHandler<AdFailedEventArgs> OnAdFailedToLoad;
         // Ad event fired when the float ad is clicked
         public event EventHandler<EventArgs> OnAdStarted;
-        public event EventHandler<EventArgs> OnAdCompleted;
+        public event EventHandler<EventArgs> OnAdVideoFinished;
         public event EventHandler<EventArgs> OnAdClicked;
         public event EventHandler<EventArgs> OnAdClosed;
         public event EventHandler<EventArgs> OnAdRewarded;
 
-        public FloatAdClient(string adAppId, string adUnitId)
+        public FloatAdClient(string adAppId, string adUnitId, GameObject gameObject)
         {
             floatAdClientPtr = (IntPtr)GCHandle.Alloc(this);
+
+            currentGameObject = gameObject;
 
             appID = adAppId;
         }
@@ -126,7 +131,7 @@ namespace AtmosplayAds.iOS
                 width = (int)floatAdRectTransform.width;
             }
         }
-
+ 
         public void UpdatePointAndWidth(Transform floatAdRect) 
         {
             if (floatAdRect != null)
@@ -185,7 +190,22 @@ namespace AtmosplayAds.iOS
                             Mathf.Round((gameObjectTopRight.y - gameObjectBottomLeft.y)));
         }
 
-
+        private Canvas getCanvas(GameObject gameObject)
+        {
+            if (gameObject.GetComponent<Canvas>() != null)
+            {
+                return gameObject.GetComponent<Canvas>();
+            }
+            else
+            {
+                if (gameObject.transform.parent != null)
+                {
+                    return getCanvas(gameObject.transform.parent.gameObject);
+                }
+            }
+            return null;
+        }
+        
 #endregion
 
 #region Float Ad callback methods
