@@ -108,6 +108,6 @@ typedef void (*AtmosplayWindowAdDidStartedCallback)(AtmosplayTypeWindowAdClientR
 
 typedef void (*AtmosplayWindowAdDidFinishedCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
 
-typedef void (*AtmosplayWindowAdDidRewardedCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
+typedef void (*AtmosplayWindowAdDidFailToShowCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
 
 typedef void (*AtmosplayWindowAdDidClosedCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
