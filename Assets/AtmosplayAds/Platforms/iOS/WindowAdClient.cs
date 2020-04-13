@@ -45,14 +45,14 @@ namespace AtmosplayAds.iOS
         public event EventHandler<AdFailedEventArgs> OnAdFailedToLoad;
         public event EventHandler<EventArgs> OnAdStarted;
         public event EventHandler<EventArgs> OnAdClicked;
-        public event EventHandler<EventArgs> OnAdVideoFinished;
+        public event EventHandler<EventArgs> OnAdFinished;
         public event EventHandler<EventArgs> OnAdClosed;
         public event EventHandler<EventArgs> OnAdFailToShow;
 
         public WindowAdClient(string adAppId, string adUnitId, GameObject gameObject)
         {
             windowAdClientPtr = (IntPtr)GCHandle.Alloc(this);
-            windowAdPtr = Externs.AtmosplayAdsCreateWindowAd(windowAdClientPtr, appID, adUnitId);
+            windowAdPtr = Externs.AtmosplayAdsCreateWindowAd(windowAdClientPtr, adAppId, adUnitId);
             Externs.AtmosplayAdsSetWindowAdCallbacks(
                 windowAdPtr,
                 windowAdDidReceivedAdCallback,
@@ -82,12 +82,12 @@ namespace AtmosplayAds.iOS
         }
 
 #region IWindowAdClient implement 
-        public bool IsReady(string adUnitId)
+        public bool IsReady()
         {
             return Externs.windowAdIsReady(windowAdPtr);
         }
 
-        public void Show(string adUnitId)
+        public void Show()
         {
             Externs.showWindowAd(windowAdPtr ,x, y, angle, width);
         }
@@ -99,7 +99,7 @@ namespace AtmosplayAds.iOS
 
         public void SetChannelId(string channelId)
         {
-            Externs.setWindowAdChannelId(windowAdPtr, channelID);
+            Externs.setWindowAdChannelId(windowAdPtr, channelId);
         }
 
         public void SetPointAndWidth(Transform windowAdRect)
@@ -244,7 +244,7 @@ namespace AtmosplayAds.iOS
         }
 
         [MonoPInvokeCallback(typeof(AtmosplayWindowAdDidCloseCallback))]
-        private static void windowAdDidCloseCallback(IntPtr floatAdClient)
+        private static void windowAdDidCloseCallback(IntPtr windowAdClient)
         {
             WindowAdClient client = IntPtrToWindowAdClient(windowAdClient);
             if (client.OnAdClosed != null)
@@ -257,9 +257,9 @@ namespace AtmosplayAds.iOS
         private static void windowAdDidCompleteCallback(IntPtr windowAdClient)
         {
             WindowAdClient client = IntPtrToWindowAdClient(windowAdClient);
-            if (client.OnAdVideoFinished != null)
+            if (client.OnAdFinished != null)
             {
-                client.OnAdVideoFinished(client, EventArgs.Empty);
+                client.OnAdFinished(client, EventArgs.Empty);
             }
         }
 
@@ -273,7 +273,7 @@ namespace AtmosplayAds.iOS
             }
         }
 
-        private static FloatAdClient IntPtrToWindowAdClient(IntPtr windowAdClient)
+        private static WindowAdClient IntPtrToWindowAdClient(IntPtr windowAdClient)
         {
             GCHandle handle = (GCHandle)windowAdClient;
 
