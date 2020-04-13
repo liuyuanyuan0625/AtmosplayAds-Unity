@@ -90,3 +90,24 @@ typedef void (*AtmosplayFloatAdDidFinishedCallback)(AtmosplayTypeFloatAdClientRe
 typedef void (*AtmosplayFloatAdDidRewardedCallback)(AtmosplayTypeFloatAdClientRef *floatAdClientt);
 
 typedef void (*AtmosplayFloatAdDidClosedCallback)(AtmosplayTypeFloatAdClientRef *floatAdClientt);
+
+
+#pragma mark - Window Ad
+typedef const void *AtmosplayTypeWindowAdClientRef;
+
+typedef const void *AtmosplayTypeWindowAdRef;
+
+#pragma mark - window ads callback
+typedef void (*AtmosplayWindowAdDidReceiveAdCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
+
+typedef void (*AtmosplayWindowAdDidFailToReceiveAdWithErrorCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient, const char *error);
+
+typedef void (*AtmosplayWindowAdDidClickCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
+
+typedef void (*AtmosplayWindowAdDidStartedCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
+
+typedef void (*AtmosplayWindowAdDidFinishedCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
+
+typedef void (*AtmosplayWindowAdDidRewardedCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
+
+typedef void (*AtmosplayWindowAdDidClosedCallback)(AtmosplayTypeWindowAdClientRef *windowAdClient);
