@@ -183,9 +183,9 @@ AtmosplayTypeFloatAdRef AtmosplayAdsCreateFloatAd(AtmosplayTypeFloatAdClientRef 
                                                  const char *adUnitID,
                                                  BOOL autoLoad) {
     AtmosplayFloatAdBridge *floatAd = [[AtmosplayFloatAdBridge alloc] initWithFloatAdClientReference:floatAdClient
-                                                                                             adAppId:(NSString *)adAppId
-                                                                                            adUnitId:(NSString *)adUnitId
-                                                                                            autoLoad:(BOOL)autoLoad];
+                                                                                             adAppId:AtmosplayAdsStringFromUTF8String(adAppID)
+                                                                                            adUnitId:AtmosplayAdsStringFromUTF8String(adUnitID)
+                                                                                            autoLoad:autoLoad];
     AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
     [cache.references setObject:floatAd forKey:[floatAd atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeFloatAdRef)floatAd;
@@ -233,17 +233,17 @@ void setFloatAdChannelId(AtmosplayTypeFloatAdRef floatAd, const char *channelId)
 
 void hiddenFloatAd(AtmosplayTypeFloatAdRef floatAd) {
     AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
-    [internalFloatAd hiddenFloatAd]
+    [internalFloatAd hiddenFloatAd];
 }
 
 void showFloatAdAgainAfterHiding(AtmosplayTypeFloatAdRef floatAd) {
     AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
-    [internalFloatAd showAgainAfterHiding]
+    [internalFloatAd showAgainAfterHiding];
 }
 
 void destroyFloatAd(AtmosplayTypeFloatAdRef floatAd) {
     AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
-    [internalFloatAd destroyFloatAd]
+    [internalFloatAd destroyFloatAd];
 }
 
 #pragma mark - Other methods
