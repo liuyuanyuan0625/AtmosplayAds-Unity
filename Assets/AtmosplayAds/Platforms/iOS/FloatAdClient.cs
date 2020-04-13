@@ -90,8 +90,8 @@ namespace AtmosplayAds.iOS
                 floatAdDidFailToLoadAdWithErrorCallback,
                 floatAdDidStartPlayingCallback,
                 floatAdDidClickCallback,
-                floatAdDidCloseCallback,
                 floatAdDidCompleteCallback,
+                floatAdDidCloseCallback,
                 floatAdDidRewardedCallback
             );
 
@@ -105,7 +105,6 @@ namespace AtmosplayAds.iOS
 
         public void Show(string adUnitId)
         {
-            Console.WriteLine("---wzy---Hello {0}", x);
             Externs.showFloatAd(floatAdPtr ,x, y, width);
         }
 
@@ -121,7 +120,6 @@ namespace AtmosplayAds.iOS
 
         public void SetPointAndWidth(Transform floatAdRect)
         {
-            Console.WriteLine("---wzy---floatAdRect {0}", floatAdRect);
             if (floatAdRect != null)
             {
 
@@ -131,9 +129,6 @@ namespace AtmosplayAds.iOS
                 x = (int)floatAdRectTransform.x;
                 y = (int)floatAdRectTransform.y;
                 width = (int)floatAdRectTransform.width;
-                Console.WriteLine("---wzy---x {0}", x);
-                Console.WriteLine("---wzy---y {0}", y);
-                Console.WriteLine("---wzy---width {0}", width);
             }
         }
  
