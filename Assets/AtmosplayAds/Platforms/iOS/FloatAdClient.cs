@@ -53,7 +53,7 @@ namespace AtmosplayAds.iOS
         public event EventHandler<EventArgs> OnAdClosed;
         public event EventHandler<EventArgs> OnAdRewarded;
 
-        public FloatAdClient(string adAppId, string adUnitId, GameObject gameObject)
+        public FloatAdClient(string adAppId, string adUnitId)
         {
             floatAdClientPtr = (IntPtr)GCHandle.Alloc(this);
 
