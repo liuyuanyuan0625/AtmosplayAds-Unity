@@ -313,12 +313,12 @@ void destroyWindowAd(AtmosplayTypeWindowAdRef windowAd) {
     [internalWindowAd destroyFloatAd];
 }
 
-- (void)pauseVideo {
+void pauseVideo(AtmosplayTypeWindowAdRef windowAd) {
     AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
     [internalWindowAd pauseVideo];
 }
 
-- (void)resumeVideo {
+void resumeVideo(AtmosplayTypeWindowAdRef windowAd) {
     AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
     [internalWindowAd resumeVideo];
 }
