@@ -1,7 +1,9 @@
 #import "AtmosplayFloatAdBridge.h"
 
-@interface AtmosplayFloatAdBridge ()<AtmosplayFloatAdDelegate>
+static CGFloat iPhonePlusHeight = 736.0;
 
+@interface AtmosplayFloatAdBridge ()<AtmosplayFloatAdDelegate>
+@property (nonatomic, assign) int scale;
 @end
 
 @implementation AtmosplayFloatAdBridge
@@ -15,7 +17,7 @@
         _floatAd = [[AtmosplayFloatAd alloc] initAndLoadAdWithAppID:adAppId adUnitID:adUnitId autoLoad:autoLoad];
         _floatAd.delegate = self;
     }
-    
+    [self screenScale];
     return self;
 }
 
@@ -26,6 +28,9 @@
 - (void)showFloatAdWith:(CGFloat)x
                       y:(CGFloat)y
                   width:(CGFloat)width {
+  x = x/self.scale;
+  y = y/self.scale;
+  width = width/self.scale;
   if (self.floatAd.isReady) {
     [self.floatAd showFloatAdWith:CGPointMake(x,y) width:width rootViewController:UnityGetGLViewController()];
   }
@@ -34,6 +39,9 @@
 - (void)resetFloatAdFrameWith:(CGFloat)x
                             y:(CGFloat)y
                         width:(CGFloat)width {
+  x = x/self.scale;
+  y = y/self.scale;
+  width = width/self.scale;
   [self.floatAd resetFloatAdFrameWith:CGPointMake(x, y) width:width rootViewController:UnityGetGLViewController()];
 }
 
@@ -103,6 +111,17 @@
   if(self.adDidClickedCallback) {
     self.adDidClickedCallback(self.floatAdClient);
   }
+}
+
+- (void)screenScale {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        CGFloat scale = [UIScreen mainScreen].scale;
+        NSLog(@"[UIScreen mainScreen].scale = %f,",scale);
+        if ([UIScreen mainScreen].bounds.size.height == iPhonePlusHeight) {
+            scale = 2.6; // 6/7/8 plus的实际像素比是2.6。 屏幕宽高414:736  物理像素1080:1920
+        }
+        self.scale = scale;
+    });
 }
 
 @end
