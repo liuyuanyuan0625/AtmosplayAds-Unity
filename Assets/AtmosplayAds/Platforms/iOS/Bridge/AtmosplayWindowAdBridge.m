@@ -101,7 +101,7 @@ static CGFloat iPhonePlusHeight = 736.0;
 }
 - (void)atmosplayWindowAdDidFailToPlay:(AtmosplayWindowAd *)windowAd {
   if(self.adDidFailToShowCallback) {
-    self.adDidFailToShowCallback(self.windowAd);
+    self.adDidFailToShowCallback(self.windowAdClient);
   }
 }
 /// Tells the delegate that the ad did animate off the screen.
