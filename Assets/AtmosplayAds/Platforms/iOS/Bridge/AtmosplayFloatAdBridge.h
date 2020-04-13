@@ -1,5 +1,6 @@
 #import <Foundation/Foundation.h>
 #import <AtmosplayAds/AtmosplayFloatAd.h>
+#import "AtmosplayTypes.h"
 
 @interface AtmosplayFloatAdBridge : NSObject
 
