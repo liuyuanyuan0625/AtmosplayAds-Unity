@@ -98,7 +98,6 @@ static CGFloat iPhonePlusHeight = 736.0;
 }
 /// Tells the delegate that the landing page did present on the screen.
 - (void)atmosplayFloatAdDidPresentLandingPage:(AtmosplayFloatAd *)floatAd {
-
 }
 /// Tells the delegate that the ad did animate off the screen.
 - (void)atmosplayFloatAdDidDismissScreen:(AtmosplayFloatAd *)floatAd {

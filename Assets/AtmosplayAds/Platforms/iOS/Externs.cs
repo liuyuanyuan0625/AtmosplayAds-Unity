@@ -127,8 +127,8 @@ namespace AtmosplayAds.iOS
             FloatAdClient.AtmosplayFloatAdDidFailToLoadAdWithErrorCallback adDidFailedCallback,
             FloatAdClient.AtmosplayFloatAdDidStartPlayingCallback adDidStartedCallback,
             FloatAdClient.AtmosplayFloatAdDidClickCallback adDidClickedCallback,
-            FloatAdClient.AtmosplayFloatAdDidCloseCallback adDidClosedCallback,
             FloatAdClient.AtmosplayFloatAdDidCompleteCallback adDidCompletedCallback,
+            FloatAdClient.AtmosplayFloatAdDidCloseCallback adDidClosedCallback,
             FloatAdClient.AtmosplayFloatAdDidRewardedCallback adDidRewardedCallback
         );
         

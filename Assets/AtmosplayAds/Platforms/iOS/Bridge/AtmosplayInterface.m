@@ -196,8 +196,8 @@ void AtmosplayAdsSetFloatAdCallbacks(
         AtmosplayTypeFloatAdRef floatAd,
         AtmosplayFloatAdDidReceiveAdCallback adDidReceivedCallback,
         AtmosplayFloatAdDidFailToReceiveAdWithErrorCallback adDidFailedCallback,
-        AtmosplayFloatAdDidClickCallback adDidClickedCallback,
         AtmosplayFloatAdDidStartedCallback adDidStartedCallback,
+        AtmosplayFloatAdDidClickCallback adDidClickedCallback,
         AtmosplayFloatAdDidFinishedCallback adDidCompletedCallback,
         AtmosplayFloatAdDidClosedCallback adDidClosedCallback,
         AtmosplayFloatAdDidRewardedCallback adDidRewardedCallback) {
@@ -206,9 +206,9 @@ void AtmosplayAdsSetFloatAdCallbacks(
     internalFloatAd.adDidFailedCallback = adDidFailedCallback;
     internalFloatAd.adDidStartedCallback = adDidStartedCallback;
     internalFloatAd.adDidClickedCallback = adDidClickedCallback;
-    internalFloatAd.adDidRewardedCallback = adDidRewardedCallback;
-    internalFloatAd.adDidClosedCallback = adDidClosedCallback;
     internalFloatAd.adDidCompletedCallback = adDidCompletedCallback;
+    internalFloatAd.adDidClosedCallback = adDidClosedCallback;
+    internalFloatAd.adDidRewardedCallback = adDidRewardedCallback;
 }
 
 BOOL floatAdIsReady(AtmosplayTypeFloatAdRef floatAd) {
