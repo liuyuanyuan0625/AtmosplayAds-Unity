@@ -4,6 +4,7 @@
 #import "AtmosplayObjectCache.h"
 #import "AtmosplayBannerBridge.h"
 #import "AtmosplayFloatAdBridge.h"
+#import "AtmosplayWindowAdBridge.h"
 
 static NSString *AtmosplayAdsStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
 
@@ -254,7 +255,7 @@ AtmosplayTypeWindowAdRef AtmosplayAdsCreateWindowAd(AtmosplayTypeWindowAdClientR
                                                                                              adAppId:AtmosplayAdsStringFromUTF8String(adAppID)
                                                                                             adUnitId:AtmosplayAdsStringFromUTF8String(adUnitID)];
     AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
-    [cache.references setObject:floatAd forKey:[windowAd atmosplayAds_referenceKey]];
+    [cache.references setObject:windowAd forKey:[windowAd atmosplayAds_referenceKey]];
     return (__bridge AtmosplayTypeWindowAdRef)windowAd;
 }
 
@@ -288,7 +289,7 @@ void showWindowAd(AtmosplayTypeWindowAdRef windowAd, int x, int y, int angle, in
     [internalWindowAd showWindowAdWith:x y:y transformAngle:angle width:width];
 }
 
-void updateWindowAdPosition(AtmosplayTypeWindowAdRef windowAd, int x, int y, , int angle, int width) {
+void updateWindowAdPosition(AtmosplayTypeWindowAdRef windowAd, int x, int y, int angle, int width) {
 AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
     [internalWindowAd resetWindowAdFrameWith:x y:y transformAngle:angle width:width];
 }
@@ -310,7 +311,7 @@ void showWindowAdAgainAfterHiding(AtmosplayTypeWindowAdRef windowAd) {
 
 void destroyWindowAd(AtmosplayTypeWindowAdRef windowAd) {
     AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
-    [internalWindowAd destroyFloatAd];
+    [internalWindowAd destroyWindowAd];
 }
 
 void pauseVideo(AtmosplayTypeWindowAdRef windowAd) {
