@@ -123,13 +123,13 @@ namespace AtmosplayAds.iOS
         [DllImport("__Internal")]
         internal static extern void AtmosplayAdsSetFloatAdCallbacks(
             IntPtr floatAd,
-            floatAdClient.AtmosplayFloatAdDidReceivedAdCallback adDidReceivedCallback,
-            floatAdClient.AtmosplayFloatAdDidFailToLoadAdWithErrorCallback adDidFailedCallback,
-            floatAdClient.AtmosplayFloatAdDidStartPlayingCallback adDidStartedCallback,
-            floatAdClient.AtmosplayFloatAdDidClickCallback adDidClickedCallback,
-            floatAdClient.AtmosplayFloatAdDidCloseCallback adDidClosedCallback,
-            floatAdClient.AtmosplayFloatAdDidCompleteCallback adDidCompletedCallback,
-            floatAdClient.AtmosplayFloatAdDidRewardedCallback adDidRewardedCallback
+            FloatAdClient.AtmosplayFloatAdDidReceivedAdCallback adDidReceivedCallback,
+            FloatAdClient.AtmosplayFloatAdDidFailToLoadAdWithErrorCallback adDidFailedCallback,
+            FloatAdClient.AtmosplayFloatAdDidStartPlayingCallback adDidStartedCallback,
+            FloatAdClient.AtmosplayFloatAdDidClickCallback adDidClickedCallback,
+            FloatAdClient.AtmosplayFloatAdDidCloseCallback adDidClosedCallback,
+            FloatAdClient.AtmosplayFloatAdDidCompleteCallback adDidCompletedCallback,
+            FloatAdClient.AtmosplayFloatAdDidRewardedCallback adDidRewardedCallback
         );
         
         [DllImport("__Internal")]
