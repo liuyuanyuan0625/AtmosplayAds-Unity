@@ -68,3 +68,25 @@ typedef void (*AtmosplayBannerDidFailToReceiveAdWithErrorCallback)(AtmosplayType
 
 /// Callback for when a full screen view is about to be presented as a result of a banner click.
 typedef void (*AtmosplayBannerDidClickCallback)(AtmosplayTypeBannerClientRef *bannerClient);
+
+#pragma mark - Float Ad
+/// Type representing a Unity float ad client
+typedef const void *AtmosplayTypeFloatAdClientRef;
+
+/// Type representing a AtmosplayAdsFloat
+typedef const void *AtmosplayTypeFloatAdRef;
+
+#pragma mark - float ads callback
+typedef void (*AtmosplayFloatAdDidReceiveAdCallback)(AtmosplayTypeFloatAdClientRef *floatAdClient);
+
+typedef void (*AtmosplayFloatAdDidFailToReceiveAdWithErrorCallback)(AtmosplayTypeFloatAdClientRef *floatAdClient, const char *error);
+
+typedef void (*AtmosplayFloatAdDidClickCallback)(AtmosplayTypeFloatAdClientRef *floatAdClientt);
+
+typedef void (*AtmosplayFloatAdDidStartedCallback)(AtmosplayTypeFloatAdClientRef *floatAdClientt);
+
+typedef void (*AtmosplayFloatAdDidFinishedCallback)(AtmosplayTypeFloatAdClientRef *floatAdClientt);
+
+typedef void (*AtmosplayFloatAdDidRewardedCallback)(AtmosplayTypeFloatAdClientRef *floatAdClientt);
+
+typedef void (*AtmosplayFloatAdDidClosedCallback)(AtmosplayTypeFloatAdClientRef *floatAdClientt);
