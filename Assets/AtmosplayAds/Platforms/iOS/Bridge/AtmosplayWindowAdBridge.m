@@ -62,7 +62,7 @@ static CGFloat iPhonePlusHeight = 736.0;
   [self.windowAd showAgainAfterHiding];
 }
 
-- (void)destroyFloatAd {
+- (void)destroyWindowAd {
   [self.windowAd destroyWindowAd];
   self.windowAd.delegate = nil;
   self.windowAd = nil;
