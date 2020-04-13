@@ -153,6 +153,49 @@ namespace AtmosplayAds.iOS
         [DllImport("__Internal")]
         internal static extern void destroyFloatAd(IntPtr floatAd);
         #endregion
+
+        #region WindowAd externs
+        [DllImport("__Internal")]
+        internal static extern IntPtr AtmosplayAdsCreateWindowAd(IntPtr windowAdClient, string adAppID, string adUnitID);
+        [DllImport("__Internal")]
+        internal static extern void AtmosplayAdsSetWindowAdCallbacks(
+            IntPtr windowAd,
+            WindowAdClient.AtmosplayWindowAdDidReceivedAdCallback adDidReceivedCallback,
+            WindowAdClient.AtmosplayWindowAdDidFailToLoadAdWithErrorCallback adDidFailedCallback,
+            WindowAdClient.AtmosplayWindowAdDidStartPlayingCallback adDidStartedCallback,
+            WindowAdClient.AtmosplayWindowAdDidClickCallback adDidClickedCallback,
+            WindowAdClient.AtmosplayWindowAdDidCompleteCallback adDidCompletedCallback,
+            WindowAdClient.AtmosplayWindowAdDidCloseCallback adDidClosedCallback,
+            WindowAdClient.AtmosplayWindowAdDidFailToShowCallback adDidFailToShowCallback
+        );
+        
+        [DllImport("__Internal")]
+        internal static extern bool windowAdIsReady(IntPtr windowAd);
+        
+        [DllImport("__Internal")]
+        internal static extern void showWindowAd(IntPtr windowAd, int x, int y, int angle, int width);
+
+        [DllImport("__Internal")]
+        internal static extern void updateWindowAdPosition(IntPtr windowAd, int x, int y, int angle, int width);
+        
+        [DllImport("__Internal")]
+        internal static extern void setWindowAdChannelId(IntPtr windowAd, string channelId);
+
+        [DllImport("__Internal")]
+        internal static extern void hiddenWindowAd(IntPtr windowAd);
+
+        [DllImport("__Internal")]
+        internal static extern void showWindowAdAgainAfterHiding(IntPtr windowAd);
+
+        [DllImport("__Internal")]
+        internal static extern void destroyWindowAd(IntPtr windowAd);
+
+        [DllImport("__Internal")]
+        internal static extern void pauseVideo(IntPtr windowAd);
+
+        [DllImport("__Internal")]
+        internal static extern void resumeVideo(IntPtr windowAd);
+        #endregion
     }
 }
 #endif
