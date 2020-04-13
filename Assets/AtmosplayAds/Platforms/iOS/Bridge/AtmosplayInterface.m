@@ -246,6 +246,83 @@ void destroyFloatAd(AtmosplayTypeFloatAdRef floatAd) {
     [internalFloatAd destroyFloatAd];
 }
 
+#pragma mark - WindowAd Method
+AtmosplayTypeWindowAdRef AtmosplayAdsCreateWindowAd(AtmosplayTypeWindowAdClientRef *windowAdClient,
+                                                 const char *adAppID,
+                                                 const char *adUnitID) {
+    AtmosplayWindowAdBridge *windowAd = [[AtmosplayWindowAdBridge alloc] initWithWindowAdClientReference:windowAdClient
+                                                                                             adAppId:AtmosplayAdsStringFromUTF8String(adAppID)
+                                                                                            adUnitId:AtmosplayAdsStringFromUTF8String(adUnitID)];
+    AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
+    [cache.references setObject:floatAd forKey:[windowAd atmosplayAds_referenceKey]];
+    return (__bridge AtmosplayTypeWindowAdRef)windowAd;
+}
+
+/// Sets the window ad callback methods to be invoked during ad events.
+void AtmosplayAdsSetWindowAdCallbacks(
+        AtmosplayTypeWindowAdRef windowAd,
+        AtmosplayWindowAdDidReceiveAdCallback adDidReceivedCallback,
+        AtmosplayWindowAdDidFailToReceiveAdWithErrorCallback adDidFailedCallback,
+        AtmosplayWindowAdDidStartedCallback adDidStartedCallback,
+        AtmosplayWindowAdDidClickCallback adDidClickedCallback,
+        AtmosplayWindowAdDidFinishedCallback adDidCompletedCallback,
+        AtmosplayWindowAdDidClosedCallback adDidClosedCallback,
+        AtmosplayWindowAdDidFailToShowCallback adDidFailToShowCallback) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    internalWindowAd.adDidReceivedCallback = adDidReceivedCallback;
+    internalWindowAd.adDidFailedCallback = adDidFailedCallback;
+    internalWindowAd.adDidStartedCallback = adDidStartedCallback;
+    internalWindowAd.adDidClickedCallback = adDidClickedCallback;
+    internalWindowAd.adDidCompletedCallback = adDidCompletedCallback;
+    internalWindowAd.adDidClosedCallback = adDidClosedCallback;
+    internalWindowAd.adDidFailToShowCallback = adDidFailToShowCallback;
+}
+
+BOOL windowAdIsReady(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    return [internalWindowAd isReady];
+}
+
+void showWindowAd(AtmosplayTypeWindowAdRef windowAd, int x, int y, int angle, int width) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd showWindowAdWith:x y:y transformAngle:angle width:width];
+}
+
+void updateWindowAdPosition(AtmosplayTypeWindowAdRef windowAd, int x, int y, , int angle, int width) {
+AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd resetWindowAdFrameWith:x y:y transformAngle:angle width:width];
+}
+
+void setWindowAdChannelId(AtmosplayTypeWindowAdRef windowAd, const char *channelId) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd setChannelID:AtmosplayAdsStringFromUTF8String(channelId)];
+}
+
+void hiddenWindowAd(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd hiddenWindowAd];
+}
+
+void showWindowAdAgainAfterHiding(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd showAgainAfterHiding];
+}
+
+void destroyWindowAd(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd destroyFloatAd];
+}
+
+- (void)pauseVideo {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd pauseVideo];
+}
+
+- (void)resumeVideo {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd resumeVideo];
+}
+
 #pragma mark - Other methods
 /// Removes an object from the cache.
 void AtmosplayAdsRelease(AtmosplayTypeRef ref) {
