@@ -95,17 +95,18 @@ namespace AtmosplayAds.iOS
                 floatAdDidRewardedCallback
             );
 
-            Externs.setFloatAdChannelId(floatAdClientPtr, channelID);
+            Externs.setFloatAdChannelId(floatAdPtr, channelID);
         }
         
         public bool IsReady(string adUnitId)
         {
-            return Externs.floatAdIsReady(floatAdClientPtr);
+            return Externs.floatAdIsReady(floatAdPtr);
         }
 
         public void Show(string adUnitId)
         {
-            Externs.showFloatAd(floatAdClientPtr ,x, y, width);
+            Console.WriteLine("---wzy---Hello {0}", x);
+            Externs.showFloatAd(floatAdPtr ,x, y, width);
         }
 
         public void SetChannelId(string channelId)
@@ -120,6 +121,7 @@ namespace AtmosplayAds.iOS
 
         public void SetPointAndWidth(Transform floatAdRect)
         {
+            Console.WriteLine("---wzy---floatAdRect {0}", floatAdRect);
             if (floatAdRect != null)
             {
 
@@ -129,6 +131,9 @@ namespace AtmosplayAds.iOS
                 x = (int)floatAdRectTransform.x;
                 y = (int)floatAdRectTransform.y;
                 width = (int)floatAdRectTransform.width;
+                Console.WriteLine("---wzy---x {0}", x);
+                Console.WriteLine("---wzy---y {0}", y);
+                Console.WriteLine("---wzy---width {0}", width);
             }
         }
  
@@ -145,22 +150,22 @@ namespace AtmosplayAds.iOS
                 width = (int)floatAdRectTransform.width;
             }
 
-            Externs.updateFloatAdPosition(floatAdClientPtr , x, y, width);
+            Externs.updateFloatAdPosition(floatAdPtr , x, y, width);
         }
 
         public void Hidden()
         {
-            Externs.hiddenFloatAd(floatAdClientPtr);
+            Externs.hiddenFloatAd(floatAdPtr);
         }
 
         public void ShowAgainAfterHiding()
         {
-            Externs.showFloatAdAgainAfterHiding(floatAdClientPtr);
+            Externs.showFloatAdAgainAfterHiding(floatAdPtr);
         }
 
         public void Destroy()
         {
-            Externs.destroyFloatAd(floatAdClientPtr);
+            Externs.destroyFloatAd(floatAdPtr);
         }
 
         private Rect getGameObjectRect(RectTransform rectTransform, Camera camera)
@@ -170,7 +175,6 @@ namespace AtmosplayAds.iOS
                 return Rect.zero;
             }
 
-
             Vector3[] worldCorners = new Vector3[4];
             Canvas canvas = getCanvas(this.currentGameObject);
 
@@ -179,17 +183,18 @@ namespace AtmosplayAds.iOS
             Vector3 gameObjectTopRight = worldCorners[2];
             Vector3 cameraBottomLeft = camera.pixelRect.min;
             Vector3 cameraTopRight = camera.pixelRect.max;
+
             if (canvas.renderMode != RenderMode.ScreenSpaceOverlay)
             {
                 gameObjectBottomLeft = camera.WorldToScreenPoint(gameObjectBottomLeft);
                 gameObjectTopRight = camera.WorldToScreenPoint(gameObjectTopRight);
             }
+
             return new Rect(Mathf.Round(gameObjectBottomLeft.x),
                             Mathf.Floor((cameraTopRight.y - gameObjectTopRight.y)),
                             Mathf.Ceil((gameObjectTopRight.x - gameObjectBottomLeft.x)),
                             Mathf.Round((gameObjectTopRight.y - gameObjectBottomLeft.y)));
         }
-
         private Canvas getCanvas(GameObject gameObject)
         {
             if (gameObject.GetComponent<Canvas>() != null)
