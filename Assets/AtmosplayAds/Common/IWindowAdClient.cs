@@ -31,10 +31,6 @@ namespace AtmosplayAds.Common
 
         void ShowAgainAfterHiding();
 
-        void PauseVideo();
-
-        void ResumeVideo();
-
         void Destroy();
     }
 }
