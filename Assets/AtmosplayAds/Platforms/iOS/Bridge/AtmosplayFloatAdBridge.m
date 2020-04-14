@@ -3,7 +3,7 @@
 static CGFloat iPhonePlusHeight = 736.0;
 
 @interface AtmosplayFloatAdBridge ()<AtmosplayFloatAdDelegate>
-@property (nonatomic, assign) int scale;
+@property (nonatomic, assign) CGFloat scale;
 @end
 
 @implementation AtmosplayFloatAdBridge
@@ -116,7 +116,7 @@ static CGFloat iPhonePlusHeight = 736.0;
     dispatch_async(dispatch_get_main_queue(), ^{
         CGFloat scale = [UIScreen mainScreen].scale;
         if ([UIScreen mainScreen].bounds.size.height == iPhonePlusHeight) {
-            scale = 2.6; // 6/7/8 plus的实际像素比是2.6。 屏幕宽高414:736  物理像素1080:1920
+            scale = [UIScreen mainScreen].nativeScale; // 6/7/8 plus的实际像素比是2.6。 屏幕宽高414:736  物理像素1080:1920
         }
         NSLog(@"[UIScreen mainScreen].scale = %f,",scale);
         self.scale = scale;
