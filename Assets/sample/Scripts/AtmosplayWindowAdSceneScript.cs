@@ -13,6 +13,7 @@ public class AtmosplayWindowAdSceneScript : MonoBehaviour
     public InputField pointX;
     public InputField pointY;
     public InputField width;
+    public InputField angle;
     public GameObject windowAdView;
     public Text statusText;
     WindowAd windowAd;
@@ -30,6 +31,7 @@ public class AtmosplayWindowAdSceneScript : MonoBehaviour
         windowAd.OnAdClicked += HandleWindowAdClicked;
         windowAd.OnAdFinished += HandleWindowAdFinished;
         windowAd.OnAdClosed += HandleWindowAdClosed;
+        windowAd.OnAdFailToShow += HandleWindowAdFailToShow;
     }
 
     public void showWindowAd()
@@ -42,6 +44,15 @@ public class AtmosplayWindowAdSceneScript : MonoBehaviour
         }
     }
 
+    public void setAngle()
+    {
+        int a = 0;
+        if (angle.text != null)
+        {
+            a = int.Parse(angle.text);
+            windowAd.SetAngle(a);
+        }
+    }
 
     public void setPositionAndWidth()
     {
@@ -51,6 +62,7 @@ public class AtmosplayWindowAdSceneScript : MonoBehaviour
         if (pointX.text != null)
         {
             x = float.Parse(pointX.text);
+            print("atmosplay---wzy:" + x);
         }
 
         if (pointY.text != null)
@@ -152,5 +164,10 @@ public class AtmosplayWindowAdSceneScript : MonoBehaviour
         print("atmosplay---HandleWindowAdClosed");
     }
 
+    public void HandleWindowAdFailToShow(object sender, EventArgs args)
+    {
+        statusText.text = "HandleWindowAdFailToShow";
+        print("atmosplay---HandleWindowAdFailToShow");
+    }
     #endregion
 }
