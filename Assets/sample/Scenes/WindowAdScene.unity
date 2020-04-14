@@ -3273,7 +3273,7 @@ MonoBehaviour:
   pointX: {fileID: 4872513898207595370}
   pointY: {fileID: 4872513897773288482}
   width: {fileID: 4872513898834167773}
-  angle: {fileID: 0}
+  angle: {fileID: 526753142}
   windowAdView: {fileID: 4872513897735513541}
   statusText: {fileID: 4872513899089155146}
 --- !u!222 &4872513899512910220
