@@ -529,6 +529,7 @@ public class AtmosplayWindowAdSceneScript : MonoBehaviour
         windowAd.OnAdClicked += HandleWindowAdClicked;
         windowAd.OnAdFinished += HandleWindowAdFinished;
         windowAd.OnAdClosed += HandleWindowAdClosed;
+        windowAd.OnAdFailToShow += HandleWindowAdFailToShow;
   }
 
 #region WindowAd callback handlers
@@ -563,6 +564,10 @@ public void HandleWindowAdClosed(object sender, EventArgs args)
 {
     print("atmosplay---HandleWindowAdClosed");
 }
+public void HandleWindowAdFailToShow(object sender, EventArgs args)
+{
+    print("atmosplay---HandleWindowAdFailToShow");
+}
 #endregion
 }  
 ```
@@ -590,8 +595,19 @@ if (windowAd != null)
 }
 ```
 
+### 设置窗口广告的倾斜角度
+注意：
+1. 仅iOS平台支持设置倾斜角度
+2. 请在展示广告前设置角度
+```c#
+if (windowAd != null)
+{
+  windowAd.SetAngle(angle);
+}
+```
 
-### 展示浮标广告 
+
+### 展示窗口广告 
 
 ```c#
 if (windowAd != null)
