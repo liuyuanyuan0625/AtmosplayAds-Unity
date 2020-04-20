@@ -12,6 +12,7 @@ namespace AtmosplayAds.Common
         event EventHandler<EventArgs> OnAdClicked;
         event EventHandler<EventArgs> OnAdFinished;
         event EventHandler<EventArgs> OnAdClosed;
+        event EventHandler<EventArgs> OnAdFailToShow;
 
 
         bool IsReady();
@@ -19,6 +20,8 @@ namespace AtmosplayAds.Common
         void Show();
 
         void SetChannelId(string channelId);
+
+        void SetAngle(int windowAdAngle);
 
         void SetPointAndWidth(Transform windowAdRect);
 

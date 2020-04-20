@@ -69,6 +69,14 @@ namespace AtmosplayAds.Api
                 }
             };
 
+            client.OnAdFailToShow += (sender, args) =>
+            {
+                if(OnAdFailToShow != null)
+                {
+                    OnAdFailToShow(this, args);
+                }
+            };
+
         }
 
         // Ad event fired when the window ad has loaded.
@@ -83,7 +91,7 @@ namespace AtmosplayAds.Api
         public event EventHandler<EventArgs> OnAdClicked;
         // Ad event fired when the window ad is closed.
         public event EventHandler<EventArgs> OnAdClosed;
-
+        public event EventHandler<EventArgs> OnAdFailToShow;
 
         // Determines whether the window ad has loaded
         public bool IsReady()
@@ -132,6 +140,11 @@ namespace AtmosplayAds.Api
         public void Destroy()
         {
             client.Destroy();
+        }
+
+        public void SetAngle(int angle)
+        {
+            client.SetAngle(angle);
         }
 
         [Obsolete("OnAdVideoCompleted no more supported.", true)]

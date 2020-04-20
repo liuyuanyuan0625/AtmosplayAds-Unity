@@ -3,6 +3,8 @@
 #import "AtmosplayTypes.h"
 #import "AtmosplayObjectCache.h"
 #import "AtmosplayBannerBridge.h"
+#import "AtmosplayFloatAdBridge.h"
+#import "AtmosplayWindowAdBridge.h"
 
 static NSString *AtmosplayAdsStringFromUTF8String(const char *bytes) { return bytes ? @(bytes) : nil; }
 
@@ -76,7 +78,7 @@ AtmosplayTypeRewardedVideoRef AtmosplayAdsCreateRewardedVideo(AtmosplayTypeRewar
     return (__bridge AtmosplayTypeRewardedVideoRef)rewardedVideo;
 }
 
-/// Sets the interstitial callback methods to be invoked during interstitial ad events.
+/// Sets the rewarded callback methods to be invoked during interstitial ad events.
 void AtmosplayAdsSetRewardedVideoAdCallbacks(
         AtmosplayTypeRewardedVideoClientRef rewardedVideoAd,
         AtmosplayRewardedVideoDidReceivedAdCallback adReceivedCallback,
@@ -173,6 +175,153 @@ void SetBannerCallbacks(
 void RequestBannerAd( AtmosplayTypeBannerRef bannerView){
     AtmosplayBannerBridge *internalBanner = (__bridge AtmosplayBannerBridge *)bannerView;
     [internalBanner loadAd];
+}
+
+#pragma mark - FloatAd Method
+/// Creates a AtmosplayFloatAdBridge and return its reference
+AtmosplayTypeFloatAdRef AtmosplayAdsCreateFloatAd(AtmosplayTypeFloatAdClientRef *floatAdClient,
+                                                 const char *adAppID,
+                                                 const char *adUnitID,
+                                                 BOOL autoLoad) {
+    AtmosplayFloatAdBridge *floatAd = [[AtmosplayFloatAdBridge alloc] initWithFloatAdClientReference:floatAdClient
+                                                                                             adAppId:AtmosplayAdsStringFromUTF8String(adAppID)
+                                                                                            adUnitId:AtmosplayAdsStringFromUTF8String(adUnitID)
+                                                                                            autoLoad:autoLoad];
+    AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
+    [cache.references setObject:floatAd forKey:[floatAd atmosplayAds_referenceKey]];
+    return (__bridge AtmosplayTypeFloatAdRef)floatAd;
+}
+
+/// Sets the float ad callback methods to be invoked during ad events.
+void AtmosplayAdsSetFloatAdCallbacks(
+        AtmosplayTypeFloatAdRef floatAd,
+        AtmosplayFloatAdDidReceiveAdCallback adDidReceivedCallback,
+        AtmosplayFloatAdDidFailToReceiveAdWithErrorCallback adDidFailedCallback,
+        AtmosplayFloatAdDidStartedCallback adDidStartedCallback,
+        AtmosplayFloatAdDidClickCallback adDidClickedCallback,
+        AtmosplayFloatAdDidFinishedCallback adDidCompletedCallback,
+        AtmosplayFloatAdDidClosedCallback adDidClosedCallback,
+        AtmosplayFloatAdDidRewardedCallback adDidRewardedCallback) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    internalFloatAd.adDidReceivedCallback = adDidReceivedCallback;
+    internalFloatAd.adDidFailedCallback = adDidFailedCallback;
+    internalFloatAd.adDidStartedCallback = adDidStartedCallback;
+    internalFloatAd.adDidClickedCallback = adDidClickedCallback;
+    internalFloatAd.adDidCompletedCallback = adDidCompletedCallback;
+    internalFloatAd.adDidClosedCallback = adDidClosedCallback;
+    internalFloatAd.adDidRewardedCallback = adDidRewardedCallback;
+}
+
+BOOL floatAdIsReady(AtmosplayTypeFloatAdRef floatAd) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    return [internalFloatAd isReady];
+}
+
+void showFloatAd(AtmosplayTypeFloatAdRef floatAd, int x, int y, int width) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd showFloatAdWith:x y:y width:width];
+}
+
+void updateFloatAdPosition(AtmosplayTypeFloatAdRef floatAd, int x, int y, int width) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd resetFloatAdFrameWith:x y:y width:width];
+}
+
+void setFloatAdChannelId(AtmosplayTypeFloatAdRef floatAd, const char *channelId) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd setChannelID:AtmosplayAdsStringFromUTF8String(channelId)];
+}
+
+void hiddenFloatAd(AtmosplayTypeFloatAdRef floatAd) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd hiddenFloatAd];
+}
+
+void showFloatAdAgainAfterHiding(AtmosplayTypeFloatAdRef floatAd) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd showAgainAfterHiding];
+}
+
+void destroyFloatAd(AtmosplayTypeFloatAdRef floatAd) {
+    AtmosplayFloatAdBridge *internalFloatAd = (__bridge AtmosplayFloatAdBridge *)floatAd;
+    [internalFloatAd destroyFloatAd];
+}
+
+#pragma mark - WindowAd Method
+AtmosplayTypeWindowAdRef AtmosplayAdsCreateWindowAd(AtmosplayTypeWindowAdClientRef *windowAdClient,
+                                                 const char *adAppID,
+                                                 const char *adUnitID) {
+    AtmosplayWindowAdBridge *windowAd = [[AtmosplayWindowAdBridge alloc] initWithWindowAdClientReference:windowAdClient
+                                                                                             adAppId:AtmosplayAdsStringFromUTF8String(adAppID)
+                                                                                            adUnitId:AtmosplayAdsStringFromUTF8String(adUnitID)];
+    AtmosplayObjectCache *cache = [AtmosplayObjectCache sharedInstance];
+    [cache.references setObject:windowAd forKey:[windowAd atmosplayAds_referenceKey]];
+    return (__bridge AtmosplayTypeWindowAdRef)windowAd;
+}
+
+/// Sets the window ad callback methods to be invoked during ad events.
+void AtmosplayAdsSetWindowAdCallbacks(
+        AtmosplayTypeWindowAdRef windowAd,
+        AtmosplayWindowAdDidReceiveAdCallback adDidReceivedCallback,
+        AtmosplayWindowAdDidFailToReceiveAdWithErrorCallback adDidFailedCallback,
+        AtmosplayWindowAdDidStartedCallback adDidStartedCallback,
+        AtmosplayWindowAdDidClickCallback adDidClickedCallback,
+        AtmosplayWindowAdDidFinishedCallback adDidCompletedCallback,
+        AtmosplayWindowAdDidClosedCallback adDidClosedCallback,
+        AtmosplayWindowAdDidFailToShowCallback adDidFailToShowCallback) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    internalWindowAd.adDidReceivedCallback = adDidReceivedCallback;
+    internalWindowAd.adDidFailedCallback = adDidFailedCallback;
+    internalWindowAd.adDidStartedCallback = adDidStartedCallback;
+    internalWindowAd.adDidClickedCallback = adDidClickedCallback;
+    internalWindowAd.adDidCompletedCallback = adDidCompletedCallback;
+    internalWindowAd.adDidClosedCallback = adDidClosedCallback;
+    internalWindowAd.adDidFailToShowCallback = adDidFailToShowCallback;
+}
+
+BOOL windowAdIsReady(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    return [internalWindowAd isReady];
+}
+
+void showWindowAd(AtmosplayTypeWindowAdRef windowAd, int x, int y, int angle, int width) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd showWindowAdWith:x y:y transformAngle:angle width:width];
+}
+
+void updateWindowAdPosition(AtmosplayTypeWindowAdRef windowAd, int x, int y, int angle, int width) {
+AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd resetWindowAdFrameWith:x y:y transformAngle:angle width:width];
+}
+
+void setWindowAdChannelId(AtmosplayTypeWindowAdRef windowAd, const char *channelId) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd setChannelID:AtmosplayAdsStringFromUTF8String(channelId)];
+}
+
+void hiddenWindowAd(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd hiddenWindowAd];
+}
+
+void showWindowAdAgainAfterHiding(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd showAgainAfterHiding];
+}
+
+void destroyWindowAd(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd destroyWindowAd];
+}
+
+void pauseVideo(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd pauseVideo];
+}
+
+void resumeVideo(AtmosplayTypeWindowAdRef windowAd) {
+    AtmosplayWindowAdBridge *internalWindowAd = (__bridge AtmosplayWindowAdBridge *)windowAd;
+    [internalWindowAd resumeVideo];
 }
 
 #pragma mark - Other methods

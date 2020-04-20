@@ -22,7 +22,7 @@ namespace AtmosplayAds
 #if UNITY_ANDROID
             return new Android.FloatAdClient(adAppId, gameObject);
 #elif UNITY_IPHONE
-            return new iOS.FloatAdClient(adAppId, adUnitId);
+            return new iOS.FloatAdClient(adAppId, adUnitId, gameObject);
 #else
             return new DummyClient();
 #endif
@@ -33,7 +33,7 @@ namespace AtmosplayAds
 #if UNITY_ANDROID
             return new Android.WindowAdClient(adAppId, adUnitId, gameObject);
 #elif UNITY_IPHONE
-            return new iOS.WindowAdClient(adAppId, adUnitId);
+            return new iOS.WindowAdClient(adAppId, adUnitId, gameObject);
 #else
             return new DummyClient();
 #endif

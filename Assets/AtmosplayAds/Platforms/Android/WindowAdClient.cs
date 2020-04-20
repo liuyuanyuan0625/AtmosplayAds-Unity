@@ -19,6 +19,7 @@ namespace AtmosplayAds.Android
         public event EventHandler<EventArgs> OnAdClicked = delegate { };
         public event EventHandler<EventArgs> OnAdClosed = delegate { };
         public event EventHandler<EventArgs> OnAdFinished = delegate { };
+        public event EventHandler<EventArgs> OnAdFailToShow;
 
         public WindowAdClient(string appId, String adUnitId, GameObject gameObject) : base(Utils.UnityWindowAdListenerClassName)
         {
@@ -74,6 +75,11 @@ namespace AtmosplayAds.Android
         public void ShowAgainAfterHiding()
         {
             androidWindowAd.Call("showAgainAfterHiding");
+        }
+
+        public void SetAngle(int windowAdAngle)
+        {
+
         }
 
         public void Destroy()

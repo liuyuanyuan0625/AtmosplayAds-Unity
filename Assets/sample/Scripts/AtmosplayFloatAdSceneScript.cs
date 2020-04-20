@@ -60,7 +60,7 @@ public class AtmosplayFloatAdSceneScript : MonoBehaviour
             w = float.Parse(width.text);
         }
         
-        floatAdView.transform.position = new Vector3(x, y, 200);
+        floatAdView.transform.position = new Vector2(x, y);
         floatAdView.GetComponent<RectTransform>().sizeDelta = new Vector2(w, w);
     }
 

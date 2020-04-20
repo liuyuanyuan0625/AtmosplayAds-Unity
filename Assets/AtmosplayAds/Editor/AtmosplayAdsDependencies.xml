@@ -8,10 +8,7 @@
   </androidPackages>
 
   <iosPods>
-    <iosPod name="AtmosplayAds" version="~> 3.0.0">
-      <sources>
-        <source>https://github.com/CocoaPods/Specs</source>
-      </sources>
+    <iosPod name="AtmosplayAds" version="~> 3.1.0">
     </iosPod>
   </iosPods>
 </dependencies>
