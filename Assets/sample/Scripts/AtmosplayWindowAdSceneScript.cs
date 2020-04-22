@@ -62,7 +62,6 @@ public class AtmosplayWindowAdSceneScript : MonoBehaviour
         if (pointX.text != null)
         {
             x = float.Parse(pointX.text);
-            print("atmosplay---wzy:" + x);
         }
 
         if (pointY.text != null)
