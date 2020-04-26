@@ -21,7 +21,7 @@
 
 ## 下载移动广告 Unity 插件  
 
-借助 Atmosplay 移动广告 Unity 插件，Unity 开发者无需编写 Java 或 Objective-C 代码，即可轻松地在 Android 和 iOS 应用上投放 Google 移动广告。  
+借助 Atmosplay 移动广告 Unity 插件，Unity 开发者无需编写 Java 或 Objective-C 代码，即可轻松地在 Android 和 iOS 应用上投放 Atmosplay 移动广告。  
 该插件提供了一个 C# 界面，用于请求 Unity 项目中 C# 脚本使用的广告。
 
 请通过如下链接下载该插件的 Unity 软件包，或在 GitHub 上查看其代码。
