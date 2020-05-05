@@ -442,6 +442,10 @@ if (floatAd != null)
 
 
 ### 展示浮标广告 
+注意：
+初始化后的第一次展示调用此方法。
+如需更新位置，请调用 `UpdatePointAndWidth`，
+如隐藏后再次展示，请调用 `ShowAgainAfterHiding`。
 
 ```c#
 if (floatAd != null)
@@ -473,6 +477,8 @@ if (floatAd != null)
 ```
 
 ### 恢复展示隐藏的浮标广告
+注意： 
+此方法仅适用于隐藏之后再次展示。
 
 ```c#
 if (floatAd != null)
@@ -564,6 +570,9 @@ public void HandleWindowAdClosed(object sender, EventArgs args)
 {
     print("atmosplay---HandleWindowAdClosed");
 }
+// 注意： 
+// 如接受到展示失败回调，请先调用`Destroy`方法，再重新初始化窗口广告对象
+// 等广告加载成功之后，在合适的时机进行展示。
 public void HandleWindowAdFailToShow(object sender, EventArgs args)
 {
     print("atmosplay---HandleWindowAdFailToShow");
@@ -607,6 +616,11 @@ if (windowAd != null)
 ```
 
 ### 展示窗口广告 
+注意：
+初始化后的第一次展示调用此方法。
+如需更新位置，请调用 `UpdatePointAndWidth`，
+如隐藏后再次展示，请调用 `ShowAgainAfterHiding`。
+
 
 ```c#
 if (windowAd != null)
