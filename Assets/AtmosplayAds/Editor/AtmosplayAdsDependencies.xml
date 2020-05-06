@@ -8,7 +8,7 @@
   </androidPackages>
 
   <iosPods>
-    <iosPod name="AtmosplayAds" version="~> 3.1.0">
+    <iosPod name="AtmosplayAds" version="~> 3.1.1">
     </iosPod>
   </iosPods>
 </dependencies>
