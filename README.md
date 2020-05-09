@@ -621,14 +621,16 @@ if (windowAd != null)
 ### 展示窗口广告 
   
 **初始化后的第一次展示调用此方法。**
-展示广告方法，仅在初始化后调用此展示方法。若是隐藏后恢复展示请调用 `ShowAgainAfterHiding`方法
+
+展示广告方法，仅在初始化后调用此展示方法。
+隐藏后恢复展示请调用 `ShowAgainAfterHiding`方法。
 ```c#
 if (windowAd != null)
 {
 if(windowAd.IsReady())
 {
   windowAd.SetPointAndWidth(windowAdview.transform);
-  //展示前请在游戏中需要展示窗口广告的位置创建一个GameObjet
+  //展示前请在游戏中需要展示窗口广告的位置创建一个GameObjet，如下图所示
   windowAd.SetAngle(angle);
   //展示前需设置窗口广告的倾斜角度（仅iOS支持设置倾斜角度）
   windowAd.Show();
@@ -636,6 +638,7 @@ if(windowAd.IsReady())
 }
 }
 ```
+<img src='resources/windowAdview.png'>  
 
 1. 展示前请在游戏中需要展示窗口广告的位置创建一个GameObjet
 <img src='resources/windowAdview.png'>  
