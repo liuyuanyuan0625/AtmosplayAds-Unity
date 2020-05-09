@@ -468,6 +468,9 @@ if (floatAd != null)
 ```
 
 ### 隐藏浮标广告
+广告展示后，若界面不需要展示广告，请调用此方法将广告隐藏。
+
+隐藏广告后再需要展示广告时请调用恢复展示隐藏的浮标广告`ShowAgainAfterHiding`
 
 ```c#
 if (floatAd != null)
@@ -616,10 +619,33 @@ if (windowAd != null)
 ```
 
 ### 展示窗口广告 
-注意：
-初始化后的第一次展示调用此方法。
-如需更新位置，请调用 `UpdatePointAndWidth`，
-如隐藏后再次展示，请调用 `ShowAgainAfterHiding`。
+  
+**初始化后的第一次展示调用此方法。**
+
+
+1. 展示前请在游戏中需要展示窗口广告的位置创建一个GameObjet
+<img src='resources/windowAdview.png'>  
+
+```c#
+if (windowAd != null)
+{
+  windowAd.SetPointAndWidth(windowAdview.transform);
+}
+```
+2. 展示前需设置窗口广告的倾斜角度
+
+     *仅iOS平台支持设置倾斜角度*
+
+```c#
+if (windowAd != null)
+{
+  windowAd.SetAngle(angle);
+}
+```
+如需更新位置，请调用 `更新窗口广告位置和大小接口  UpdatePointAndWidth`
+
+3. 展示广告方法，仅在初始化后调用此展示方法。若是隐藏后恢复展示请调用 `ShowAgainAfterHiding`方法
+
 
 
 ```c#
@@ -651,7 +677,7 @@ if (windowAd != null)
 }
 ```
 
-### 恢复展示隐藏的窗口广告
+### 恢复展示窗口广告
 
 ```c#
 if (windowAd != null)
