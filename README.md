@@ -594,30 +594,6 @@ windowAd.IsReady()
 }
 ```
 
-
-### 设置窗口广告展示的位置和宽
-
-首先请在游戏中需要展示窗口广告的位置创建一个GameObjet：
-<img src='resources/windowAdview.png'>  
-
-```c#
-if (windowAd != null)
-{
-  windowAd.SetPointAndWidth(windowAdview.transform);
-}
-```
-
-### 设置窗口广告的倾斜角度
-注意：
-1. 仅iOS平台支持设置倾斜角度
-2. 请在展示广告前设置角度
-```c#
-if (windowAd != null)
-{
-  windowAd.SetAngle(angle);
-}
-```
-
 ### 展示窗口广告 
   
 **初始化后的第一次展示调用此方法。**
@@ -629,54 +605,22 @@ if (windowAd != null)
 {
 if(windowAd.IsReady())
 {
+  //展示前请在游戏中需要展示窗口广告的位置创建一个windowAdView的GameObjet，如下图所示
   windowAd.SetPointAndWidth(windowAdview.transform);
-  //展示前请在游戏中需要展示窗口广告的位置创建一个GameObjet，如下图所示
-  windowAd.SetAngle(angle);
   //展示前需设置窗口广告的倾斜角度（仅iOS支持设置倾斜角度）
-  windowAd.Show();
-  //展示广告方法，初始化后调用此方法，隐藏后恢复展示请调用`ShowAgainAfterHiding`方法
-}
-}
-```
-<img src='resources/windowAdview.png'>  
-
-1. 展示前请在游戏中需要展示窗口广告的位置创建一个GameObjet
-<img src='resources/windowAdview.png'>  
-
-```c#
-if (windowAd != null)
-{
-  windowAd.SetPointAndWidth(windowAdview.transform);
-}
-```
-2. 展示前需设置窗口广告的倾斜角度
-
-     *仅iOS平台支持设置倾斜角度*
-
-```c#
-if (windowAd != null)
-{
   windowAd.SetAngle(angle);
-}
-```
-如需更新位置，请调用 `更新窗口广告位置和大小接口  UpdatePointAndWidth`
-
-3. 展示广告方法，仅在初始化后调用此展示方法。若是隐藏后恢复展示请调用 `ShowAgainAfterHiding`方法
-
-```c#
-if (windowAd != null)
-{
-if(windowAd.IsReady())
-{
+  //展示广告方法，初始化后调用此方法，隐藏后恢复展示请调用`ShowAgainAfterHiding`方法
   windowAd.Show();
 }
 }
 ```
+<img src='resources/windowAdview.png'>  
 
 ### 更新窗口广告位置和大小
 
 ```c#
-  //如果你想更新窗口广告的位置和大小，请先更新游戏中windowAdview GameObject的位置和大小，然后使用下面的接口将窗口广告更新到新的位置
+//如果你想更新窗口广告的位置和大小，请先更新游戏中windowAdview GameObject的位置和大小
+//使用下面的接口将窗口广告更新到新的位置
 if (windowAd != null)
 {
   windowAd.UpdatePointAndWidth(windowAdview.transform);
