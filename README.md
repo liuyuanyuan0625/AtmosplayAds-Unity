@@ -619,8 +619,8 @@ if(windowAd.IsReady())
 ### 更新窗口广告位置和大小
 
 ```c#
-//如果你想更新窗口广告的位置和大小，请先更新游戏中windowAdview GameObject的位置和大小
-//使用下面的接口将窗口广告更新到新的位置
+// 如果你想更新窗口广告的位置和大小，请先更新游戏中windowAdview GameObject的位置和大小
+// 使用下面的接口将窗口广告更新到新的位置
 if (windowAd != null)
 {
   windowAd.UpdatePointAndWidth(windowAdview.transform);
